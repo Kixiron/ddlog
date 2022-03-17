@@ -412,13 +412,15 @@ fn rule_to_enum_variant(grammar: &Grammar, rule: &Rule) -> EnumVariant {
 
         &Rule::Token(token) => {
             let token = &grammar[token];
-            let variant_name = camel_case_name(&token.name);
+            let raw_name = raw_name(&token.name);
+            let raw_name_str = raw_name.to_string();
+            let variant_name = camel_case_name(&raw_name_str);
             let variant_type = quote![crate::ast::tokens::#variant_name];
-            let syntax_kind = screaming_snake_case_name(&token.name);
-            let snake_case = token.name.to_snake_case();
+            let syntax_kind = screaming_snake_case_name(&raw_name_str);
+            let snake_case = raw_name_str.to_snake_case();
 
             (
-                raw_name(&token.name),
+                raw_name,
                 variant_name,
                 variant_type,
                 syntax_kind,
@@ -463,7 +465,7 @@ fn camel_case_name(token: &str) -> Ident {
 
     if let Some(&(_, symbol)) = NAMED_TOKENS.iter().find(|&&(symbol, _)| symbol == token) {
         format_ident!("{}", symbol.to_upper_camel_case())
-    } else if KEYWORDS.contains(&token) {
+    } else if KEYWORDS.contains(&&*camel_case) {
         format_ident!("{}Token", camel_case)
     } else if !token
         .chars()
@@ -485,7 +487,7 @@ fn snake_case_name(token: &str) -> Ident {
 
     if let Some(&(_, symbol)) = NAMED_TOKENS.iter().find(|&&(symbol, _)| symbol == token) {
         format_ident!("{}", symbol.to_snake_case())
-    } else if KEYWORDS.contains(&token) {
+    } else if KEYWORDS.contains(&&*snake) {
         format_ident!("{}_token", snake)
     } else if !token
         .chars()

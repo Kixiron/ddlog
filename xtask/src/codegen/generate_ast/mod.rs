@@ -129,6 +129,17 @@ pub fn generate_ast(mode: CodegenMode) -> Result<()> {
                     &variants,
                 );
                 node_ast.extend(ast_node_impl);
+
+                // For enums of tokens we also create an enum of concrete tokens
+                token_ast.extend(quote! {
+                    #derives
+                    pub enum #camel_case_name {
+                        #(#enum_variants,)*
+                    }
+                });
+
+                let ast_token_impl = enums::ast_enum_of_tokens(&camel_case_name, &variants);
+                token_ast.extend(ast_token_impl);
             }
         }
     }

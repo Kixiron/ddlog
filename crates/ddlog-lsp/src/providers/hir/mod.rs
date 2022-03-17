@@ -52,6 +52,13 @@ pub enum Expr {
     Block(Vec<Stmt>),
     Literal(Literal),
     Return(Box<Self>),
+    FuncCall(FuncCall),
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub struct FuncCall {
+    pub func: Box<Expr>,
+    pub args: Vec<Expr>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -89,6 +96,12 @@ pub enum BinOp {
     Sub,
     Mul,
     Div,
+    Mod,
+    BitAnd,
+    BitOr,
+    Xor,
+    Shl,
+    Shr,
     Eq,
     Neq,
     Less,

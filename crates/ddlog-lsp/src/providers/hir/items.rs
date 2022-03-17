@@ -1,8 +1,8 @@
 use crate::{
     database::HirStore,
     providers::hir::{
-        BinExpr, BinOp, Expr, FuncDef, FuncParam, HirItem, Literal, Match, MatchArm, Path, Pattern,
-        Stmt, Type, VarDecl,
+        BinExpr, BinOp, Expr, FuncCall, FuncDef, FuncParam, HirItem, Literal, Match, MatchArm,
+        Path, Pattern, Stmt, Type, VarDecl,
     },
 };
 use ddlog_diagnostics::{FileId, Interner};
@@ -12,6 +12,7 @@ use ddlog_syntax::{
             Expr as AstExpr, FunctionDef, Item, Literal as AstLiteral, Pattern as AstPattern, Root,
             Stmt as AstStmt, Type as AstType,
         },
+        tokens::BinOp as AstBinOp,
         AstNode, AstToken,
     },
     SyntaxNodeExt,
@@ -133,37 +134,46 @@ impl<'a> HirBuilder<'a> {
                 AstLiteral::String(_) => todo!(),
             })),
 
+            AstExpr::FunctionCall(call) => {
+                let func = self.expr(&*call.func()?)?;
+                let args = call
+                    .args()
+                    .map(|arg| arg.arg().and_then(|arg| self.expr(&*arg)))
+                    .collect::<Option<Vec<_>>>()?;
+
+                Some(Expr::FuncCall(FuncCall {
+                    func: Box::new(func),
+                    args,
+                }))
+            }
+
             AstExpr::BinExpr(bin_expr) => {
                 let lhs = Box::new(self.expr(&*bin_expr.lhs()?)?);
                 let rhs = Box::new(self.expr(&*bin_expr.rhs()?)?);
 
                 let op = bin_expr.op()?;
-                let op = if op.is_or() {
-                    BinOp::Or
-                } else if op.is_and() {
-                    BinOp::And
-                } else if op.is_plus() {
-                    BinOp::Add
-                } else if op.is_minus() {
-                    BinOp::Sub
-                } else if op.is_star() {
-                    BinOp::Mul
-                } else if op.is_slash() {
-                    BinOp::Div
-                } else if op.is_eqeq() {
-                    BinOp::Eq
-                } else if op.is_neq() {
-                    BinOp::Neq
-                } else if op.is_l_angle() {
-                    BinOp::Less
-                } else if op.is_l_angle_eq() {
-                    BinOp::LessEq
-                } else if op.is_r_angle() {
-                    BinOp::Greater
-                } else if op.is_r_angle_eq() {
-                    BinOp::GreaterEq
-                } else {
-                    return None;
+                let op = match &*op.as_enum()? {
+                    AstBinOp::And(_) => BinOp::And,
+                    AstBinOp::Or(_) => BinOp::Or,
+
+                    AstBinOp::Plus(_) => BinOp::Add,
+                    AstBinOp::Minus(_) => BinOp::Sub,
+                    AstBinOp::Star(_) => BinOp::Mul,
+                    AstBinOp::Slash(_) => BinOp::Div,
+                    AstBinOp::Percent(_) => BinOp::Mod,
+
+                    AstBinOp::Ampersand(_) => BinOp::BitAnd,
+                    AstBinOp::Pipe(_) => BinOp::BitOr,
+                    AstBinOp::Caret(_) => BinOp::Xor,
+                    AstBinOp::Shl(_) => BinOp::Shl,
+                    AstBinOp::Shr(_) => BinOp::Shr,
+
+                    AstBinOp::Eqeq(_) => BinOp::Eq,
+                    AstBinOp::Neq(_) => BinOp::Neq,
+                    AstBinOp::LAngle(_) => BinOp::Less,
+                    AstBinOp::RAngle(_) => BinOp::Greater,
+                    AstBinOp::LAngleEq(_) => BinOp::LessEq,
+                    AstBinOp::RAngleEq(_) => BinOp::GreaterEq,
                 };
 
                 Some(Expr::BinaryOp(BinExpr { lhs, rhs, op }))
