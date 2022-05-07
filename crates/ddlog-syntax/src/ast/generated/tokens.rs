@@ -86,10 +86,10 @@ impl crate::ast::AstToken for AmpersandEq {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct AndToken {
+pub struct And {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for AndToken {
+impl crate::ast::AstToken for And {
     /// Returns `true` if the given [`SyntaxKind`] is a [`AND_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`AND_TOKEN`]: crate::SyntaxKind::AND_TOKEN
@@ -125,10 +125,10 @@ impl crate::ast::AstToken for AndToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct AsToken {
+pub struct As {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for AsToken {
+impl crate::ast::AstToken for As {
     /// Returns `true` if the given [`SyntaxKind`] is a [`AS_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`AS_TOKEN`]: crate::SyntaxKind::AS_TOKEN
@@ -203,10 +203,10 @@ impl crate::ast::AstToken for Bang {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct BreakToken {
+pub struct Break {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for BreakToken {
+impl crate::ast::AstToken for Break {
     /// Returns `true` if the given [`SyntaxKind`] is a [`BREAK_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`BREAK_TOKEN`]: crate::SyntaxKind::BREAK_TOKEN
@@ -476,10 +476,10 @@ impl crate::ast::AstToken for Comment {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct ConstToken {
+pub struct Const {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for ConstToken {
+impl crate::ast::AstToken for Const {
     /// Returns `true` if the given [`SyntaxKind`] is a [`CONST_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`CONST_TOKEN`]: crate::SyntaxKind::CONST_TOKEN
@@ -515,10 +515,10 @@ impl crate::ast::AstToken for ConstToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct ContinueToken {
+pub struct Continue {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for ContinueToken {
+impl crate::ast::AstToken for Continue {
     /// Returns `true` if the given [`SyntaxKind`] is a [`CONTINUE_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`CONTINUE_TOKEN`]: crate::SyntaxKind::CONTINUE_TOKEN
@@ -710,10 +710,10 @@ impl crate::ast::AstToken for DoubleDotEq {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct ElseToken {
+pub struct Else {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for ElseToken {
+impl crate::ast::AstToken for Else {
     /// Returns `true` if the given [`SyntaxKind`] is a [`ELSE_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`ELSE_TOKEN`]: crate::SyntaxKind::ELSE_TOKEN
@@ -749,10 +749,10 @@ impl crate::ast::AstToken for ElseToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct EnumToken {
+pub struct Enum {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for EnumToken {
+impl crate::ast::AstToken for Enum {
     /// Returns `true` if the given [`SyntaxKind`] is a [`ENUM_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`ENUM_TOKEN`]: crate::SyntaxKind::ENUM_TOKEN
@@ -944,10 +944,10 @@ impl crate::ast::AstToken for Error {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct FalseToken {
+pub struct False {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for FalseToken {
+impl crate::ast::AstToken for False {
     /// Returns `true` if the given [`SyntaxKind`] is a [`FALSE_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`FALSE_TOKEN`]: crate::SyntaxKind::FALSE_TOKEN
@@ -983,10 +983,10 @@ impl crate::ast::AstToken for FalseToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct FnToken {
+pub struct Fn {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for FnToken {
+impl crate::ast::AstToken for Fn {
     /// Returns `true` if the given [`SyntaxKind`] is a [`FN_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`FN_TOKEN`]: crate::SyntaxKind::FN_TOKEN
@@ -1022,10 +1022,10 @@ impl crate::ast::AstToken for FnToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct ForToken {
+pub struct For {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for ForToken {
+impl crate::ast::AstToken for For {
     /// Returns `true` if the given [`SyntaxKind`] is a [`FOR_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`FOR_TOKEN`]: crate::SyntaxKind::FOR_TOKEN
@@ -1139,10 +1139,10 @@ impl crate::ast::AstToken for Ident {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct IfToken {
+pub struct If {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for IfToken {
+impl crate::ast::AstToken for If {
     /// Returns `true` if the given [`SyntaxKind`] is a [`IF_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`IF_TOKEN`]: crate::SyntaxKind::IF_TOKEN
@@ -1178,10 +1178,10 @@ impl crate::ast::AstToken for IfToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct ImplToken {
+pub struct Impl {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for ImplToken {
+impl crate::ast::AstToken for Impl {
     /// Returns `true` if the given [`SyntaxKind`] is a [`IMPL_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`IMPL_TOKEN`]: crate::SyntaxKind::IMPL_TOKEN
@@ -1217,10 +1217,10 @@ impl crate::ast::AstToken for ImplToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct InToken {
+pub struct In {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for InToken {
+impl crate::ast::AstToken for In {
     /// Returns `true` if the given [`SyntaxKind`] is a [`IN_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`IN_TOKEN`]: crate::SyntaxKind::IN_TOKEN
@@ -1451,10 +1451,10 @@ impl crate::ast::AstToken for LParen {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct LetToken {
+pub struct Let {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for LetToken {
+impl crate::ast::AstToken for Let {
     /// Returns `true` if the given [`SyntaxKind`] is a [`LET_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`LET_TOKEN`]: crate::SyntaxKind::LET_TOKEN
@@ -1490,10 +1490,10 @@ impl crate::ast::AstToken for LetToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct LoopToken {
+pub struct Loop {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for LoopToken {
+impl crate::ast::AstToken for Loop {
     /// Returns `true` if the given [`SyntaxKind`] is a [`LOOP_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`LOOP_TOKEN`]: crate::SyntaxKind::LOOP_TOKEN
@@ -1529,10 +1529,10 @@ impl crate::ast::AstToken for LoopToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct MatchToken {
+pub struct Match {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for MatchToken {
+impl crate::ast::AstToken for Match {
     /// Returns `true` if the given [`SyntaxKind`] is a [`MATCH_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`MATCH_TOKEN`]: crate::SyntaxKind::MATCH_TOKEN
@@ -1724,10 +1724,10 @@ impl crate::ast::AstToken for NumberLiteral {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct OrToken {
+pub struct Or {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for OrToken {
+impl crate::ast::AstToken for Or {
     /// Returns `true` if the given [`SyntaxKind`] is a [`OR_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`OR_TOKEN`]: crate::SyntaxKind::OR_TOKEN
@@ -1997,10 +1997,10 @@ impl crate::ast::AstToken for PlusEq {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct PubToken {
+pub struct Pub {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for PubToken {
+impl crate::ast::AstToken for Pub {
     /// Returns `true` if the given [`SyntaxKind`] is a [`PUB_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`PUB_TOKEN`]: crate::SyntaxKind::PUB_TOKEN
@@ -2231,10 +2231,10 @@ impl crate::ast::AstToken for RParen {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct ReturnToken {
+pub struct Return {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for ReturnToken {
+impl crate::ast::AstToken for Return {
     /// Returns `true` if the given [`SyntaxKind`] is a [`RETURN_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`RETURN_TOKEN`]: crate::SyntaxKind::RETURN_TOKEN
@@ -2738,10 +2738,10 @@ impl crate::ast::AstToken for StringLiteral {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct StructToken {
+pub struct Struct {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for StructToken {
+impl crate::ast::AstToken for Struct {
     /// Returns `true` if the given [`SyntaxKind`] is a [`STRUCT_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`STRUCT_TOKEN`]: crate::SyntaxKind::STRUCT_TOKEN
@@ -2816,10 +2816,10 @@ impl crate::ast::AstToken for Tombstone {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct TrueToken {
+pub struct True {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for TrueToken {
+impl crate::ast::AstToken for True {
     /// Returns `true` if the given [`SyntaxKind`] is a [`TRUE_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`TRUE_TOKEN`]: crate::SyntaxKind::TRUE_TOKEN
@@ -2855,10 +2855,10 @@ impl crate::ast::AstToken for TrueToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct TypeToken {
+pub struct Type {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for TypeToken {
+impl crate::ast::AstToken for Type {
     /// Returns `true` if the given [`SyntaxKind`] is a [`TYPE_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`TYPE_TOKEN`]: crate::SyntaxKind::TYPE_TOKEN
@@ -2894,10 +2894,10 @@ impl crate::ast::AstToken for TypeToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct UseToken {
+pub struct Use {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for UseToken {
+impl crate::ast::AstToken for Use {
     /// Returns `true` if the given [`SyntaxKind`] is a [`USE_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`USE_TOKEN`]: crate::SyntaxKind::USE_TOKEN
@@ -2933,10 +2933,10 @@ impl crate::ast::AstToken for UseToken {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
-pub struct WhileToken {
+pub struct While {
     syntax: crate::SyntaxToken,
 }
-impl crate::ast::AstToken for WhileToken {
+impl crate::ast::AstToken for While {
     /// Returns `true` if the given [`SyntaxKind`] is a [`WHILE_TOKEN`]
     /// [`SyntaxKind`]: crate::SyntaxKind
     /// [`WHILE_TOKEN`]: crate::SyntaxKind::WHILE_TOKEN
@@ -3001,5 +3001,2403 @@ impl crate::ast::AstToken for Whitespace {
     #[inline]
     fn syntax(&self) -> &crate::SyntaxToken {
         &self.syntax
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+pub enum AssignOp {
+    AmpersandEq(crate::ast::tokens::AmpersandEq),
+    CaretEq(crate::ast::tokens::CaretEq),
+    Eq(crate::ast::tokens::Eq),
+    MinusEq(crate::ast::tokens::MinusEq),
+    PercentEq(crate::ast::tokens::PercentEq),
+    PipeEq(crate::ast::tokens::PipeEq),
+    PlusEq(crate::ast::tokens::PlusEq),
+    ShlEq(crate::ast::tokens::ShlEq),
+    ShrEq(crate::ast::tokens::ShrEq),
+    SlashEq(crate::ast::tokens::SlashEq),
+    StarEq(crate::ast::tokens::StarEq),
+}
+impl AssignOp {
+    pub fn is_ampersand_eq(&self) -> bool {
+        ::core::matches!(self, Self::AmpersandEq(..))
+    }
+    pub fn is_caret_eq(&self) -> bool {
+        ::core::matches!(self, Self::CaretEq(..))
+    }
+    pub fn is_eq(&self) -> bool {
+        ::core::matches!(self, Self::Eq(..))
+    }
+    pub fn is_minus_eq(&self) -> bool {
+        ::core::matches!(self, Self::MinusEq(..))
+    }
+    pub fn is_percent_eq(&self) -> bool {
+        ::core::matches!(self, Self::PercentEq(..))
+    }
+    pub fn is_pipe_eq(&self) -> bool {
+        ::core::matches!(self, Self::PipeEq(..))
+    }
+    pub fn is_plus_eq(&self) -> bool {
+        ::core::matches!(self, Self::PlusEq(..))
+    }
+    pub fn is_shl_eq(&self) -> bool {
+        ::core::matches!(self, Self::ShlEq(..))
+    }
+    pub fn is_shr_eq(&self) -> bool {
+        ::core::matches!(self, Self::ShrEq(..))
+    }
+    pub fn is_slash_eq(&self) -> bool {
+        ::core::matches!(self, Self::SlashEq(..))
+    }
+    pub fn is_star_eq(&self) -> bool {
+        ::core::matches!(self, Self::StarEq(..))
+    }
+    pub fn as_ampersand_eq(&self) -> ::core::option::Option<&crate::ast::tokens::AmpersandEq> {
+        if let Self::AmpersandEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_caret_eq(&self) -> ::core::option::Option<&crate::ast::tokens::CaretEq> {
+        if let Self::CaretEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_eq(&self) -> ::core::option::Option<&crate::ast::tokens::Eq> {
+        if let Self::Eq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_minus_eq(&self) -> ::core::option::Option<&crate::ast::tokens::MinusEq> {
+        if let Self::MinusEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_percent_eq(&self) -> ::core::option::Option<&crate::ast::tokens::PercentEq> {
+        if let Self::PercentEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_pipe_eq(&self) -> ::core::option::Option<&crate::ast::tokens::PipeEq> {
+        if let Self::PipeEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_plus_eq(&self) -> ::core::option::Option<&crate::ast::tokens::PlusEq> {
+        if let Self::PlusEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_shl_eq(&self) -> ::core::option::Option<&crate::ast::tokens::ShlEq> {
+        if let Self::ShlEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_shr_eq(&self) -> ::core::option::Option<&crate::ast::tokens::ShrEq> {
+        if let Self::ShrEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_slash_eq(&self) -> ::core::option::Option<&crate::ast::tokens::SlashEq> {
+        if let Self::SlashEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_star_eq(&self) -> ::core::option::Option<&crate::ast::tokens::StarEq> {
+        if let Self::StarEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn into_ampersand_eq(
+        self,
+    ) -> ::core::result::Result<crate::ast::tokens::AmpersandEq, Self> {
+        if let Self::AmpersandEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_caret_eq(self) -> ::core::result::Result<crate::ast::tokens::CaretEq, Self> {
+        if let Self::CaretEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_eq(self) -> ::core::result::Result<crate::ast::tokens::Eq, Self> {
+        if let Self::Eq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_minus_eq(self) -> ::core::result::Result<crate::ast::tokens::MinusEq, Self> {
+        if let Self::MinusEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_percent_eq(self) -> ::core::result::Result<crate::ast::tokens::PercentEq, Self> {
+        if let Self::PercentEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_pipe_eq(self) -> ::core::result::Result<crate::ast::tokens::PipeEq, Self> {
+        if let Self::PipeEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_plus_eq(self) -> ::core::result::Result<crate::ast::tokens::PlusEq, Self> {
+        if let Self::PlusEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_shl_eq(self) -> ::core::result::Result<crate::ast::tokens::ShlEq, Self> {
+        if let Self::ShlEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_shr_eq(self) -> ::core::result::Result<crate::ast::tokens::ShrEq, Self> {
+        if let Self::ShrEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_slash_eq(self) -> ::core::result::Result<crate::ast::tokens::SlashEq, Self> {
+        if let Self::SlashEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_star_eq(self) -> ::core::result::Result<crate::ast::tokens::StarEq, Self> {
+        if let Self::StarEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    #[track_caller]
+    pub fn to_ampersand_eq(self) -> crate::ast::tokens::AmpersandEq {
+        if let Self::AmpersandEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "AssignOp",
+                "AmpersandEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_caret_eq(self) -> crate::ast::tokens::CaretEq {
+        if let Self::CaretEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "AssignOp",
+                "CaretEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_eq(self) -> crate::ast::tokens::Eq {
+        if let Self::Eq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "AssignOp",
+                "Eq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_minus_eq(self) -> crate::ast::tokens::MinusEq {
+        if let Self::MinusEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "AssignOp",
+                "MinusEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_percent_eq(self) -> crate::ast::tokens::PercentEq {
+        if let Self::PercentEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "AssignOp",
+                "PercentEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_pipe_eq(self) -> crate::ast::tokens::PipeEq {
+        if let Self::PipeEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "AssignOp",
+                "PipeEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_plus_eq(self) -> crate::ast::tokens::PlusEq {
+        if let Self::PlusEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "AssignOp",
+                "PlusEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_shl_eq(self) -> crate::ast::tokens::ShlEq {
+        if let Self::ShlEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "AssignOp",
+                "ShlEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_shr_eq(self) -> crate::ast::tokens::ShrEq {
+        if let Self::ShrEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "AssignOp",
+                "ShrEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_slash_eq(self) -> crate::ast::tokens::SlashEq {
+        if let Self::SlashEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "AssignOp",
+                "SlashEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_star_eq(self) -> crate::ast::tokens::StarEq {
+        if let Self::StarEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "AssignOp",
+                "StarEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+}
+impl crate::ast::AstToken for AssignOp {
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        <crate::ast::tokens::AmpersandEq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::CaretEq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Eq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::MinusEq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::PercentEq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::PipeEq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::PlusEq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::ShlEq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::ShrEq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::SlashEq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::StarEq as crate::ast::AstToken>::can_cast_from(kind)
+    }
+    #[inline]
+    fn cast(syntax: &crate::SyntaxToken) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        match crate::SyntaxToken::kind(syntax) {
+            kind if <crate::ast::tokens::AmpersandEq as crate::ast::AstToken>::can_cast_from(
+                kind,
+            ) =>
+            {
+                let node =
+                    match <crate::ast::tokens::AmpersandEq as crate::ast::AstToken>::cast(syntax) {
+                        ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                        ::core::option::Option::None => {
+                            if ::core::cfg!(debug_assertions) {
+                                ::core::unreachable!()
+                            } else {
+                                unsafe { ::core::hint::unreachable_unchecked() }
+                            }
+                        }
+                    };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::AmpersandEq(node)))
+            }
+            kind if <crate::ast::tokens::CaretEq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::CaretEq as crate::ast::AstToken>::cast(syntax)
+                {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::CaretEq(node)))
+            }
+            kind if <crate::ast::tokens::Eq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Eq as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Eq(node)))
+            }
+            kind if <crate::ast::tokens::MinusEq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::MinusEq as crate::ast::AstToken>::cast(syntax)
+                {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::MinusEq(node)))
+            }
+            kind if <crate::ast::tokens::PercentEq as crate::ast::AstToken>::can_cast_from(
+                kind,
+            ) =>
+            {
+                let node =
+                    match <crate::ast::tokens::PercentEq as crate::ast::AstToken>::cast(syntax) {
+                        ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                        ::core::option::Option::None => {
+                            if ::core::cfg!(debug_assertions) {
+                                ::core::unreachable!()
+                            } else {
+                                unsafe { ::core::hint::unreachable_unchecked() }
+                            }
+                        }
+                    };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::PercentEq(node)))
+            }
+            kind if <crate::ast::tokens::PipeEq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::PipeEq as crate::ast::AstToken>::cast(syntax)
+                {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::PipeEq(node)))
+            }
+            kind if <crate::ast::tokens::PlusEq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::PlusEq as crate::ast::AstToken>::cast(syntax)
+                {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::PlusEq(node)))
+            }
+            kind if <crate::ast::tokens::ShlEq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::ShlEq as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::ShlEq(node)))
+            }
+            kind if <crate::ast::tokens::ShrEq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::ShrEq as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::ShrEq(node)))
+            }
+            kind if <crate::ast::tokens::SlashEq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::SlashEq as crate::ast::AstToken>::cast(syntax)
+                {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::SlashEq(node)))
+            }
+            kind if <crate::ast::tokens::StarEq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::StarEq as crate::ast::AstToken>::cast(syntax)
+                {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::StarEq(node)))
+            }
+            _ => ::core::option::Option::None,
+        }
+    }
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxToken {
+        match self {
+            Self::AmpersandEq(syntax) => {
+                <crate::ast::tokens::AmpersandEq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::CaretEq(syntax) => {
+                <crate::ast::tokens::CaretEq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::Eq(syntax) => <crate::ast::tokens::Eq as crate::ast::AstToken>::syntax(syntax),
+            Self::MinusEq(syntax) => {
+                <crate::ast::tokens::MinusEq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::PercentEq(syntax) => {
+                <crate::ast::tokens::PercentEq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::PipeEq(syntax) => {
+                <crate::ast::tokens::PipeEq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::PlusEq(syntax) => {
+                <crate::ast::tokens::PlusEq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::ShlEq(syntax) => {
+                <crate::ast::tokens::ShlEq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::ShrEq(syntax) => {
+                <crate::ast::tokens::ShrEq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::SlashEq(syntax) => {
+                <crate::ast::tokens::SlashEq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::StarEq(syntax) => {
+                <crate::ast::tokens::StarEq as crate::ast::AstToken>::syntax(syntax)
+            }
+        }
+    }
+}
+impl ::core::convert::TryFrom<AssignOp> for crate::ast::tokens::AmpersandEq {
+    type Error = AssignOp;
+    #[inline]
+    fn try_from(value: AssignOp) -> ::core::result::Result<Self, Self::Error> {
+        if let AssignOp::AmpersandEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<AssignOp> for crate::ast::tokens::CaretEq {
+    type Error = AssignOp;
+    #[inline]
+    fn try_from(value: AssignOp) -> ::core::result::Result<Self, Self::Error> {
+        if let AssignOp::CaretEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<AssignOp> for crate::ast::tokens::Eq {
+    type Error = AssignOp;
+    #[inline]
+    fn try_from(value: AssignOp) -> ::core::result::Result<Self, Self::Error> {
+        if let AssignOp::Eq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<AssignOp> for crate::ast::tokens::MinusEq {
+    type Error = AssignOp;
+    #[inline]
+    fn try_from(value: AssignOp) -> ::core::result::Result<Self, Self::Error> {
+        if let AssignOp::MinusEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<AssignOp> for crate::ast::tokens::PercentEq {
+    type Error = AssignOp;
+    #[inline]
+    fn try_from(value: AssignOp) -> ::core::result::Result<Self, Self::Error> {
+        if let AssignOp::PercentEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<AssignOp> for crate::ast::tokens::PipeEq {
+    type Error = AssignOp;
+    #[inline]
+    fn try_from(value: AssignOp) -> ::core::result::Result<Self, Self::Error> {
+        if let AssignOp::PipeEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<AssignOp> for crate::ast::tokens::PlusEq {
+    type Error = AssignOp;
+    #[inline]
+    fn try_from(value: AssignOp) -> ::core::result::Result<Self, Self::Error> {
+        if let AssignOp::PlusEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<AssignOp> for crate::ast::tokens::ShlEq {
+    type Error = AssignOp;
+    #[inline]
+    fn try_from(value: AssignOp) -> ::core::result::Result<Self, Self::Error> {
+        if let AssignOp::ShlEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<AssignOp> for crate::ast::tokens::ShrEq {
+    type Error = AssignOp;
+    #[inline]
+    fn try_from(value: AssignOp) -> ::core::result::Result<Self, Self::Error> {
+        if let AssignOp::ShrEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<AssignOp> for crate::ast::tokens::SlashEq {
+    type Error = AssignOp;
+    #[inline]
+    fn try_from(value: AssignOp) -> ::core::result::Result<Self, Self::Error> {
+        if let AssignOp::SlashEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<AssignOp> for crate::ast::tokens::StarEq {
+    type Error = AssignOp;
+    #[inline]
+    fn try_from(value: AssignOp) -> ::core::result::Result<Self, Self::Error> {
+        if let AssignOp::StarEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::AmpersandEq> for AssignOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::AmpersandEq) -> Self {
+        Self::AmpersandEq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::CaretEq> for AssignOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::CaretEq) -> Self {
+        Self::CaretEq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Eq> for AssignOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Eq) -> Self {
+        Self::Eq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::MinusEq> for AssignOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::MinusEq) -> Self {
+        Self::MinusEq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::PercentEq> for AssignOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::PercentEq) -> Self {
+        Self::PercentEq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::PipeEq> for AssignOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::PipeEq) -> Self {
+        Self::PipeEq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::PlusEq> for AssignOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::PlusEq) -> Self {
+        Self::PlusEq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::ShlEq> for AssignOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::ShlEq) -> Self {
+        Self::ShlEq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::ShrEq> for AssignOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::ShrEq) -> Self {
+        Self::ShrEq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::SlashEq> for AssignOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::SlashEq) -> Self {
+        Self::SlashEq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::StarEq> for AssignOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::StarEq) -> Self {
+        Self::StarEq(value)
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+pub enum BinOp {
+    Ampersand(crate::ast::tokens::Ampersand),
+    And(crate::ast::tokens::And),
+    Caret(crate::ast::tokens::Caret),
+    Eqeq(crate::ast::tokens::Eqeq),
+    LAngle(crate::ast::tokens::LAngle),
+    LAngleEq(crate::ast::tokens::LAngleEq),
+    Minus(crate::ast::tokens::Minus),
+    Neq(crate::ast::tokens::Neq),
+    Or(crate::ast::tokens::Or),
+    Percent(crate::ast::tokens::Percent),
+    Pipe(crate::ast::tokens::Pipe),
+    Plus(crate::ast::tokens::Plus),
+    RAngle(crate::ast::tokens::RAngle),
+    RAngleEq(crate::ast::tokens::RAngleEq),
+    Shl(crate::ast::tokens::Shl),
+    Shr(crate::ast::tokens::Shr),
+    Slash(crate::ast::tokens::Slash),
+    Star(crate::ast::tokens::Star),
+}
+impl BinOp {
+    pub fn is_ampersand(&self) -> bool {
+        ::core::matches!(self, Self::Ampersand(..))
+    }
+    pub fn is_and(&self) -> bool {
+        ::core::matches!(self, Self::And(..))
+    }
+    pub fn is_caret(&self) -> bool {
+        ::core::matches!(self, Self::Caret(..))
+    }
+    pub fn is_eqeq(&self) -> bool {
+        ::core::matches!(self, Self::Eqeq(..))
+    }
+    pub fn is_l_angle(&self) -> bool {
+        ::core::matches!(self, Self::LAngle(..))
+    }
+    pub fn is_l_angle_eq(&self) -> bool {
+        ::core::matches!(self, Self::LAngleEq(..))
+    }
+    pub fn is_minus(&self) -> bool {
+        ::core::matches!(self, Self::Minus(..))
+    }
+    pub fn is_neq(&self) -> bool {
+        ::core::matches!(self, Self::Neq(..))
+    }
+    pub fn is_or(&self) -> bool {
+        ::core::matches!(self, Self::Or(..))
+    }
+    pub fn is_percent(&self) -> bool {
+        ::core::matches!(self, Self::Percent(..))
+    }
+    pub fn is_pipe(&self) -> bool {
+        ::core::matches!(self, Self::Pipe(..))
+    }
+    pub fn is_plus(&self) -> bool {
+        ::core::matches!(self, Self::Plus(..))
+    }
+    pub fn is_r_angle(&self) -> bool {
+        ::core::matches!(self, Self::RAngle(..))
+    }
+    pub fn is_r_angle_eq(&self) -> bool {
+        ::core::matches!(self, Self::RAngleEq(..))
+    }
+    pub fn is_shl(&self) -> bool {
+        ::core::matches!(self, Self::Shl(..))
+    }
+    pub fn is_shr(&self) -> bool {
+        ::core::matches!(self, Self::Shr(..))
+    }
+    pub fn is_slash(&self) -> bool {
+        ::core::matches!(self, Self::Slash(..))
+    }
+    pub fn is_star(&self) -> bool {
+        ::core::matches!(self, Self::Star(..))
+    }
+    pub fn as_ampersand(&self) -> ::core::option::Option<&crate::ast::tokens::Ampersand> {
+        if let Self::Ampersand(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_and(&self) -> ::core::option::Option<&crate::ast::tokens::And> {
+        if let Self::And(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_caret(&self) -> ::core::option::Option<&crate::ast::tokens::Caret> {
+        if let Self::Caret(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_eqeq(&self) -> ::core::option::Option<&crate::ast::tokens::Eqeq> {
+        if let Self::Eqeq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_l_angle(&self) -> ::core::option::Option<&crate::ast::tokens::LAngle> {
+        if let Self::LAngle(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_l_angle_eq(&self) -> ::core::option::Option<&crate::ast::tokens::LAngleEq> {
+        if let Self::LAngleEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_minus(&self) -> ::core::option::Option<&crate::ast::tokens::Minus> {
+        if let Self::Minus(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_neq(&self) -> ::core::option::Option<&crate::ast::tokens::Neq> {
+        if let Self::Neq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_or(&self) -> ::core::option::Option<&crate::ast::tokens::Or> {
+        if let Self::Or(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_percent(&self) -> ::core::option::Option<&crate::ast::tokens::Percent> {
+        if let Self::Percent(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_pipe(&self) -> ::core::option::Option<&crate::ast::tokens::Pipe> {
+        if let Self::Pipe(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_plus(&self) -> ::core::option::Option<&crate::ast::tokens::Plus> {
+        if let Self::Plus(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_r_angle(&self) -> ::core::option::Option<&crate::ast::tokens::RAngle> {
+        if let Self::RAngle(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_r_angle_eq(&self) -> ::core::option::Option<&crate::ast::tokens::RAngleEq> {
+        if let Self::RAngleEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_shl(&self) -> ::core::option::Option<&crate::ast::tokens::Shl> {
+        if let Self::Shl(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_shr(&self) -> ::core::option::Option<&crate::ast::tokens::Shr> {
+        if let Self::Shr(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_slash(&self) -> ::core::option::Option<&crate::ast::tokens::Slash> {
+        if let Self::Slash(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_star(&self) -> ::core::option::Option<&crate::ast::tokens::Star> {
+        if let Self::Star(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn into_ampersand(self) -> ::core::result::Result<crate::ast::tokens::Ampersand, Self> {
+        if let Self::Ampersand(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_and(self) -> ::core::result::Result<crate::ast::tokens::And, Self> {
+        if let Self::And(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_caret(self) -> ::core::result::Result<crate::ast::tokens::Caret, Self> {
+        if let Self::Caret(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_eqeq(self) -> ::core::result::Result<crate::ast::tokens::Eqeq, Self> {
+        if let Self::Eqeq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_l_angle(self) -> ::core::result::Result<crate::ast::tokens::LAngle, Self> {
+        if let Self::LAngle(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_l_angle_eq(self) -> ::core::result::Result<crate::ast::tokens::LAngleEq, Self> {
+        if let Self::LAngleEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_minus(self) -> ::core::result::Result<crate::ast::tokens::Minus, Self> {
+        if let Self::Minus(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_neq(self) -> ::core::result::Result<crate::ast::tokens::Neq, Self> {
+        if let Self::Neq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_or(self) -> ::core::result::Result<crate::ast::tokens::Or, Self> {
+        if let Self::Or(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_percent(self) -> ::core::result::Result<crate::ast::tokens::Percent, Self> {
+        if let Self::Percent(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_pipe(self) -> ::core::result::Result<crate::ast::tokens::Pipe, Self> {
+        if let Self::Pipe(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_plus(self) -> ::core::result::Result<crate::ast::tokens::Plus, Self> {
+        if let Self::Plus(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_r_angle(self) -> ::core::result::Result<crate::ast::tokens::RAngle, Self> {
+        if let Self::RAngle(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_r_angle_eq(self) -> ::core::result::Result<crate::ast::tokens::RAngleEq, Self> {
+        if let Self::RAngleEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_shl(self) -> ::core::result::Result<crate::ast::tokens::Shl, Self> {
+        if let Self::Shl(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_shr(self) -> ::core::result::Result<crate::ast::tokens::Shr, Self> {
+        if let Self::Shr(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_slash(self) -> ::core::result::Result<crate::ast::tokens::Slash, Self> {
+        if let Self::Slash(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_star(self) -> ::core::result::Result<crate::ast::tokens::Star, Self> {
+        if let Self::Star(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    #[track_caller]
+    pub fn to_ampersand(self) -> crate::ast::tokens::Ampersand {
+        if let Self::Ampersand(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Ampersand",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_and(self) -> crate::ast::tokens::And {
+        if let Self::And(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "And",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_caret(self) -> crate::ast::tokens::Caret {
+        if let Self::Caret(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Caret",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_eqeq(self) -> crate::ast::tokens::Eqeq {
+        if let Self::Eqeq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Eqeq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_l_angle(self) -> crate::ast::tokens::LAngle {
+        if let Self::LAngle(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "LAngle",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_l_angle_eq(self) -> crate::ast::tokens::LAngleEq {
+        if let Self::LAngleEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "LAngleEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_minus(self) -> crate::ast::tokens::Minus {
+        if let Self::Minus(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Minus",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_neq(self) -> crate::ast::tokens::Neq {
+        if let Self::Neq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Neq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_or(self) -> crate::ast::tokens::Or {
+        if let Self::Or(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Or",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_percent(self) -> crate::ast::tokens::Percent {
+        if let Self::Percent(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Percent",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_pipe(self) -> crate::ast::tokens::Pipe {
+        if let Self::Pipe(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Pipe",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_plus(self) -> crate::ast::tokens::Plus {
+        if let Self::Plus(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Plus",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_r_angle(self) -> crate::ast::tokens::RAngle {
+        if let Self::RAngle(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "RAngle",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_r_angle_eq(self) -> crate::ast::tokens::RAngleEq {
+        if let Self::RAngleEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "RAngleEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_shl(self) -> crate::ast::tokens::Shl {
+        if let Self::Shl(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Shl",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_shr(self) -> crate::ast::tokens::Shr {
+        if let Self::Shr(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Shr",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_slash(self) -> crate::ast::tokens::Slash {
+        if let Self::Slash(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Slash",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_star(self) -> crate::ast::tokens::Star {
+        if let Self::Star(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "BinOp",
+                "Star",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+}
+impl crate::ast::AstToken for BinOp {
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        <crate::ast::tokens::Ampersand as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::And as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Caret as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Eqeq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::LAngle as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::LAngleEq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Minus as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Neq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Or as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Percent as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Pipe as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Plus as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::RAngle as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::RAngleEq as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Shl as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Shr as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Slash as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Star as crate::ast::AstToken>::can_cast_from(kind)
+    }
+    #[inline]
+    fn cast(syntax: &crate::SyntaxToken) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        match crate::SyntaxToken::kind(syntax) {
+            kind if <crate::ast::tokens::Ampersand as crate::ast::AstToken>::can_cast_from(
+                kind,
+            ) =>
+            {
+                let node =
+                    match <crate::ast::tokens::Ampersand as crate::ast::AstToken>::cast(syntax) {
+                        ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                        ::core::option::Option::None => {
+                            if ::core::cfg!(debug_assertions) {
+                                ::core::unreachable!()
+                            } else {
+                                unsafe { ::core::hint::unreachable_unchecked() }
+                            }
+                        }
+                    };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Ampersand(node)))
+            }
+            kind if <crate::ast::tokens::And as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::And as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::And(node)))
+            }
+            kind if <crate::ast::tokens::Caret as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Caret as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Caret(node)))
+            }
+            kind if <crate::ast::tokens::Eqeq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Eqeq as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Eqeq(node)))
+            }
+            kind if <crate::ast::tokens::LAngle as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::LAngle as crate::ast::AstToken>::cast(syntax)
+                {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::LAngle(node)))
+            }
+            kind if <crate::ast::tokens::LAngleEq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node =
+                    match <crate::ast::tokens::LAngleEq as crate::ast::AstToken>::cast(syntax) {
+                        ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                        ::core::option::Option::None => {
+                            if ::core::cfg!(debug_assertions) {
+                                ::core::unreachable!()
+                            } else {
+                                unsafe { ::core::hint::unreachable_unchecked() }
+                            }
+                        }
+                    };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::LAngleEq(node)))
+            }
+            kind if <crate::ast::tokens::Minus as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Minus as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Minus(node)))
+            }
+            kind if <crate::ast::tokens::Neq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Neq as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Neq(node)))
+            }
+            kind if <crate::ast::tokens::Or as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Or as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Or(node)))
+            }
+            kind if <crate::ast::tokens::Percent as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Percent as crate::ast::AstToken>::cast(syntax)
+                {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Percent(node)))
+            }
+            kind if <crate::ast::tokens::Pipe as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Pipe as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Pipe(node)))
+            }
+            kind if <crate::ast::tokens::Plus as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Plus as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Plus(node)))
+            }
+            kind if <crate::ast::tokens::RAngle as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::RAngle as crate::ast::AstToken>::cast(syntax)
+                {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::RAngle(node)))
+            }
+            kind if <crate::ast::tokens::RAngleEq as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node =
+                    match <crate::ast::tokens::RAngleEq as crate::ast::AstToken>::cast(syntax) {
+                        ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                        ::core::option::Option::None => {
+                            if ::core::cfg!(debug_assertions) {
+                                ::core::unreachable!()
+                            } else {
+                                unsafe { ::core::hint::unreachable_unchecked() }
+                            }
+                        }
+                    };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::RAngleEq(node)))
+            }
+            kind if <crate::ast::tokens::Shl as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Shl as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Shl(node)))
+            }
+            kind if <crate::ast::tokens::Shr as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Shr as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Shr(node)))
+            }
+            kind if <crate::ast::tokens::Slash as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Slash as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Slash(node)))
+            }
+            kind if <crate::ast::tokens::Star as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Star as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Star(node)))
+            }
+            _ => ::core::option::Option::None,
+        }
+    }
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxToken {
+        match self {
+            Self::Ampersand(syntax) => {
+                <crate::ast::tokens::Ampersand as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::And(syntax) => <crate::ast::tokens::And as crate::ast::AstToken>::syntax(syntax),
+            Self::Caret(syntax) => {
+                <crate::ast::tokens::Caret as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::Eqeq(syntax) => {
+                <crate::ast::tokens::Eqeq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::LAngle(syntax) => {
+                <crate::ast::tokens::LAngle as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::LAngleEq(syntax) => {
+                <crate::ast::tokens::LAngleEq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::Minus(syntax) => {
+                <crate::ast::tokens::Minus as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::Neq(syntax) => <crate::ast::tokens::Neq as crate::ast::AstToken>::syntax(syntax),
+            Self::Or(syntax) => <crate::ast::tokens::Or as crate::ast::AstToken>::syntax(syntax),
+            Self::Percent(syntax) => {
+                <crate::ast::tokens::Percent as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::Pipe(syntax) => {
+                <crate::ast::tokens::Pipe as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::Plus(syntax) => {
+                <crate::ast::tokens::Plus as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::RAngle(syntax) => {
+                <crate::ast::tokens::RAngle as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::RAngleEq(syntax) => {
+                <crate::ast::tokens::RAngleEq as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::Shl(syntax) => <crate::ast::tokens::Shl as crate::ast::AstToken>::syntax(syntax),
+            Self::Shr(syntax) => <crate::ast::tokens::Shr as crate::ast::AstToken>::syntax(syntax),
+            Self::Slash(syntax) => {
+                <crate::ast::tokens::Slash as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::Star(syntax) => {
+                <crate::ast::tokens::Star as crate::ast::AstToken>::syntax(syntax)
+            }
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Ampersand {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Ampersand(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::And {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::And(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Caret {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Caret(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Eqeq {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Eqeq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::LAngle {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::LAngle(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::LAngleEq {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::LAngleEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Minus {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Minus(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Neq {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Neq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Or {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Or(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Percent {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Percent(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Pipe {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Pipe(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Plus {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Plus(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::RAngle {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::RAngle(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::RAngleEq {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::RAngleEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Shl {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Shl(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Shr {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Shr(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Slash {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Slash(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<BinOp> for crate::ast::tokens::Star {
+    type Error = BinOp;
+    #[inline]
+    fn try_from(value: BinOp) -> ::core::result::Result<Self, Self::Error> {
+        if let BinOp::Star(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Ampersand> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Ampersand) -> Self {
+        Self::Ampersand(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::And> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::And) -> Self {
+        Self::And(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Caret> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Caret) -> Self {
+        Self::Caret(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Eqeq> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Eqeq) -> Self {
+        Self::Eqeq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::LAngle> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::LAngle) -> Self {
+        Self::LAngle(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::LAngleEq> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::LAngleEq) -> Self {
+        Self::LAngleEq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Minus> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Minus) -> Self {
+        Self::Minus(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Neq> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Neq) -> Self {
+        Self::Neq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Or> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Or) -> Self {
+        Self::Or(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Percent> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Percent) -> Self {
+        Self::Percent(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Pipe> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Pipe) -> Self {
+        Self::Pipe(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Plus> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Plus) -> Self {
+        Self::Plus(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::RAngle> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::RAngle) -> Self {
+        Self::RAngle(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::RAngleEq> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::RAngleEq) -> Self {
+        Self::RAngleEq(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Shl> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Shl) -> Self {
+        Self::Shl(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Shr> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Shr) -> Self {
+        Self::Shr(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Slash> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Slash) -> Self {
+        Self::Slash(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Star> for BinOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Star) -> Self {
+        Self::Star(value)
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+pub enum Bool {
+    False(crate::ast::tokens::False),
+    True(crate::ast::tokens::True),
+}
+impl Bool {
+    pub fn is_false(&self) -> bool {
+        ::core::matches!(self, Self::False(..))
+    }
+    pub fn is_true(&self) -> bool {
+        ::core::matches!(self, Self::True(..))
+    }
+    pub fn as_false(&self) -> ::core::option::Option<&crate::ast::tokens::False> {
+        if let Self::False(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_true(&self) -> ::core::option::Option<&crate::ast::tokens::True> {
+        if let Self::True(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn into_false(self) -> ::core::result::Result<crate::ast::tokens::False, Self> {
+        if let Self::False(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_true(self) -> ::core::result::Result<crate::ast::tokens::True, Self> {
+        if let Self::True(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    #[track_caller]
+    pub fn to_false(self) -> crate::ast::tokens::False {
+        if let Self::False(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "Bool",
+                "False",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_true(self) -> crate::ast::tokens::True {
+        if let Self::True(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "Bool",
+                "True",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+}
+impl crate::ast::AstToken for Bool {
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        <crate::ast::tokens::False as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::True as crate::ast::AstToken>::can_cast_from(kind)
+    }
+    #[inline]
+    fn cast(syntax: &crate::SyntaxToken) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        match crate::SyntaxToken::kind(syntax) {
+            kind if <crate::ast::tokens::False as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::False as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::False(node)))
+            }
+            kind if <crate::ast::tokens::True as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::True as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::True(node)))
+            }
+            _ => ::core::option::Option::None,
+        }
+    }
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxToken {
+        match self {
+            Self::False(syntax) => {
+                <crate::ast::tokens::False as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::True(syntax) => {
+                <crate::ast::tokens::True as crate::ast::AstToken>::syntax(syntax)
+            }
+        }
+    }
+}
+impl ::core::convert::TryFrom<Bool> for crate::ast::tokens::False {
+    type Error = Bool;
+    #[inline]
+    fn try_from(value: Bool) -> ::core::result::Result<Self, Self::Error> {
+        if let Bool::False(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<Bool> for crate::ast::tokens::True {
+    type Error = Bool;
+    #[inline]
+    fn try_from(value: Bool) -> ::core::result::Result<Self, Self::Error> {
+        if let Bool::True(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::False> for Bool {
+    #[inline]
+    fn from(value: crate::ast::tokens::False) -> Self {
+        Self::False(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::True> for Bool {
+    #[inline]
+    fn from(value: crate::ast::tokens::True) -> Self {
+        Self::True(value)
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+pub enum RangeOp {
+    DoubleDot(crate::ast::tokens::DoubleDot),
+    DoubleDotEq(crate::ast::tokens::DoubleDotEq),
+}
+impl RangeOp {
+    pub fn is_double_dot(&self) -> bool {
+        ::core::matches!(self, Self::DoubleDot(..))
+    }
+    pub fn is_double_dot_eq(&self) -> bool {
+        ::core::matches!(self, Self::DoubleDotEq(..))
+    }
+    pub fn as_double_dot(&self) -> ::core::option::Option<&crate::ast::tokens::DoubleDot> {
+        if let Self::DoubleDot(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_double_dot_eq(&self) -> ::core::option::Option<&crate::ast::tokens::DoubleDotEq> {
+        if let Self::DoubleDotEq(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn into_double_dot(self) -> ::core::result::Result<crate::ast::tokens::DoubleDot, Self> {
+        if let Self::DoubleDot(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_double_dot_eq(
+        self,
+    ) -> ::core::result::Result<crate::ast::tokens::DoubleDotEq, Self> {
+        if let Self::DoubleDotEq(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    #[track_caller]
+    pub fn to_double_dot(self) -> crate::ast::tokens::DoubleDot {
+        if let Self::DoubleDot(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "RangeOp",
+                "DoubleDot",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_double_dot_eq(self) -> crate::ast::tokens::DoubleDotEq {
+        if let Self::DoubleDotEq(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "RangeOp",
+                "DoubleDotEq",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+}
+impl crate::ast::AstToken for RangeOp {
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        <crate::ast::tokens::DoubleDot as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::DoubleDotEq as crate::ast::AstToken>::can_cast_from(kind)
+    }
+    #[inline]
+    fn cast(syntax: &crate::SyntaxToken) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        match crate::SyntaxToken::kind(syntax) {
+            kind if <crate::ast::tokens::DoubleDot as crate::ast::AstToken>::can_cast_from(
+                kind,
+            ) =>
+            {
+                let node =
+                    match <crate::ast::tokens::DoubleDot as crate::ast::AstToken>::cast(syntax) {
+                        ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                        ::core::option::Option::None => {
+                            if ::core::cfg!(debug_assertions) {
+                                ::core::unreachable!()
+                            } else {
+                                unsafe { ::core::hint::unreachable_unchecked() }
+                            }
+                        }
+                    };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::DoubleDot(node)))
+            }
+            kind if <crate::ast::tokens::DoubleDotEq as crate::ast::AstToken>::can_cast_from(
+                kind,
+            ) =>
+            {
+                let node =
+                    match <crate::ast::tokens::DoubleDotEq as crate::ast::AstToken>::cast(syntax) {
+                        ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                        ::core::option::Option::None => {
+                            if ::core::cfg!(debug_assertions) {
+                                ::core::unreachable!()
+                            } else {
+                                unsafe { ::core::hint::unreachable_unchecked() }
+                            }
+                        }
+                    };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::DoubleDotEq(node)))
+            }
+            _ => ::core::option::Option::None,
+        }
+    }
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxToken {
+        match self {
+            Self::DoubleDot(syntax) => {
+                <crate::ast::tokens::DoubleDot as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::DoubleDotEq(syntax) => {
+                <crate::ast::tokens::DoubleDotEq as crate::ast::AstToken>::syntax(syntax)
+            }
+        }
+    }
+}
+impl ::core::convert::TryFrom<RangeOp> for crate::ast::tokens::DoubleDot {
+    type Error = RangeOp;
+    #[inline]
+    fn try_from(value: RangeOp) -> ::core::result::Result<Self, Self::Error> {
+        if let RangeOp::DoubleDot(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<RangeOp> for crate::ast::tokens::DoubleDotEq {
+    type Error = RangeOp;
+    #[inline]
+    fn try_from(value: RangeOp) -> ::core::result::Result<Self, Self::Error> {
+        if let RangeOp::DoubleDotEq(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::DoubleDot> for RangeOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::DoubleDot) -> Self {
+        Self::DoubleDot(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::DoubleDotEq> for RangeOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::DoubleDotEq) -> Self {
+        Self::DoubleDotEq(value)
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+pub enum UnaryOp {
+    Bang(crate::ast::tokens::Bang),
+    Minus(crate::ast::tokens::Minus),
+}
+impl UnaryOp {
+    pub fn is_bang(&self) -> bool {
+        ::core::matches!(self, Self::Bang(..))
+    }
+    pub fn is_minus(&self) -> bool {
+        ::core::matches!(self, Self::Minus(..))
+    }
+    pub fn as_bang(&self) -> ::core::option::Option<&crate::ast::tokens::Bang> {
+        if let Self::Bang(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn as_minus(&self) -> ::core::option::Option<&crate::ast::tokens::Minus> {
+        if let Self::Minus(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    pub fn into_bang(self) -> ::core::result::Result<crate::ast::tokens::Bang, Self> {
+        if let Self::Bang(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    pub fn into_minus(self) -> ::core::result::Result<crate::ast::tokens::Minus, Self> {
+        if let Self::Minus(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
+    #[track_caller]
+    pub fn to_bang(self) -> crate::ast::tokens::Bang {
+        if let Self::Bang(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "UnaryOp",
+                "Bang",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
+    pub fn to_minus(self) -> crate::ast::tokens::Minus {
+        if let Self::Minus(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "UnaryOp",
+                "Minus",
+                crate::SyntaxToken::kind(<Self as crate::ast::AstToken>::syntax(&self)),
+            )
+        }
+    }
+}
+impl crate::ast::AstToken for UnaryOp {
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        <crate::ast::tokens::Bang as crate::ast::AstToken>::can_cast_from(kind)
+            || <crate::ast::tokens::Minus as crate::ast::AstToken>::can_cast_from(kind)
+    }
+    #[inline]
+    fn cast(syntax: &crate::SyntaxToken) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        match crate::SyntaxToken::kind(syntax) {
+            kind if <crate::ast::tokens::Bang as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Bang as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Bang(node)))
+            }
+            kind if <crate::ast::tokens::Minus as crate::ast::AstToken>::can_cast_from(kind) => {
+                let node = match <crate::ast::tokens::Minus as crate::ast::AstToken>::cast(syntax) {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::Minus(node)))
+            }
+            _ => ::core::option::Option::None,
+        }
+    }
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxToken {
+        match self {
+            Self::Bang(syntax) => {
+                <crate::ast::tokens::Bang as crate::ast::AstToken>::syntax(syntax)
+            }
+            Self::Minus(syntax) => {
+                <crate::ast::tokens::Minus as crate::ast::AstToken>::syntax(syntax)
+            }
+        }
+    }
+}
+impl ::core::convert::TryFrom<UnaryOp> for crate::ast::tokens::Bang {
+    type Error = UnaryOp;
+    #[inline]
+    fn try_from(value: UnaryOp) -> ::core::result::Result<Self, Self::Error> {
+        if let UnaryOp::Bang(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::TryFrom<UnaryOp> for crate::ast::tokens::Minus {
+    type Error = UnaryOp;
+    #[inline]
+    fn try_from(value: UnaryOp) -> ::core::result::Result<Self, Self::Error> {
+        if let UnaryOp::Minus(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Bang> for UnaryOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Bang) -> Self {
+        Self::Bang(value)
+    }
+}
+impl ::core::convert::From<crate::ast::tokens::Minus> for UnaryOp {
+    #[inline]
+    fn from(value: crate::ast::tokens::Minus) -> Self {
+        Self::Minus(value)
     }
 }

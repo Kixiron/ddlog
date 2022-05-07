@@ -595,7 +595,7 @@ impl BreakExpr {
     #[inline]
     pub fn break_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::BreakToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Break>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -823,7 +823,7 @@ impl ConstDef {
     #[inline]
     pub fn keyword(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::ConstToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Const>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -890,7 +890,7 @@ impl ContinueExpr {
     #[inline]
     pub fn continue_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::ContinueToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Continue>> {
         crate::ast::support::token(&self.syntax)
     }
 }
@@ -937,7 +937,7 @@ impl ElseBlock {
     #[inline]
     pub fn else_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::ElseToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Else>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -998,7 +998,7 @@ impl EnumDef {
     #[inline]
     pub fn keyword(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::EnumToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Enum>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -1324,7 +1324,7 @@ impl ForExpr {
     #[inline]
     pub fn for_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::ForToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::For>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -1336,7 +1336,7 @@ impl ForExpr {
     #[inline]
     pub fn in_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::InToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::In>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -1633,7 +1633,7 @@ impl FunctionDef {
     #[inline]
     pub fn keyword(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::FnToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Fn>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -1812,7 +1812,7 @@ impl FunctionType {
     #[inline]
     pub fn fn_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::FnToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Fn>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -2134,13 +2134,13 @@ impl IfBlock {
     #[inline]
     pub fn leading_else(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::ElseToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Else>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
     pub fn if_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::IfToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::If>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -2256,7 +2256,7 @@ impl ImplBlock {
     #[inline]
     pub fn keyword(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::ImplToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Impl>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -2372,7 +2372,7 @@ impl LoopExpr {
     #[inline]
     pub fn loop_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::LoopToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Loop>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -2486,7 +2486,7 @@ impl MatchExpr {
     #[inline]
     pub fn match_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::MatchToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Match>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -2675,7 +2675,7 @@ impl Modifier {
     #[inline]
     pub fn pub_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::PubToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Pub>> {
         crate::ast::support::token(&self.syntax)
     }
 }
@@ -3036,7 +3036,7 @@ impl RetExpr {
     #[inline]
     pub fn return_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::ReturnToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Return>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -3187,7 +3187,7 @@ impl StructDef {
     #[inline]
     pub fn keyword(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::StructToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Struct>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -3946,7 +3946,7 @@ impl TypeAlias {
     #[inline]
     pub fn keyword(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::TypeToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Type>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -4062,7 +4062,7 @@ impl UseAlias {
     #[inline]
     pub fn as_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::AsToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::As>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -4190,7 +4190,7 @@ impl UseDef {
     #[inline]
     pub fn keyword(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::UseToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Use>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -4253,7 +4253,7 @@ impl VarDecl {
     #[inline]
     pub fn let_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::LetToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Let>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -4613,7 +4613,7 @@ impl WhileExpr {
     #[inline]
     pub fn while_token(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::WhileToken>> {
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::While>> {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
@@ -4667,6 +4667,14 @@ pub struct AssignOp {
     syntax: crate::SyntaxNode,
 }
 impl AssignOp {
+    #[track_caller]
+    pub fn as_enum(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::AssignOp>> {
+        crate::ast::support::token::<crate::ast::tokens::AssignOp>(
+            <Self as crate::ast::AstNode>::syntax(self),
+        )
+    }
     pub fn is_ampersand_eq(&self) -> bool {
         crate::ast::support::token_exists::<crate::ast::tokens::AmpersandEq>(
             <Self as crate::ast::AstNode>::syntax(self),
@@ -4829,6 +4837,14 @@ pub struct BinOp {
     syntax: crate::SyntaxNode,
 }
 impl BinOp {
+    #[track_caller]
+    pub fn as_enum(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::BinOp>> {
+        crate::ast::support::token::<crate::ast::tokens::BinOp>(
+            <Self as crate::ast::AstNode>::syntax(self),
+        )
+    }
     pub fn is_ampersand(&self) -> bool {
         crate::ast::support::token_exists::<crate::ast::tokens::Ampersand>(
             <Self as crate::ast::AstNode>::syntax(self),
@@ -4842,14 +4858,14 @@ impl BinOp {
         )
     }
     pub fn is_and(&self) -> bool {
-        crate::ast::support::token_exists::<crate::ast::tokens::AndToken>(
+        crate::ast::support::token_exists::<crate::ast::tokens::And>(
             <Self as crate::ast::AstNode>::syntax(self),
         )
     }
     pub fn as_and(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::AndToken>> {
-        crate::ast::support::token::<crate::ast::tokens::AndToken>(
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::And>> {
+        crate::ast::support::token::<crate::ast::tokens::And>(
             <Self as crate::ast::AstNode>::syntax(self),
         )
     }
@@ -4926,16 +4942,14 @@ impl BinOp {
         )
     }
     pub fn is_or(&self) -> bool {
-        crate::ast::support::token_exists::<crate::ast::tokens::OrToken>(
+        crate::ast::support::token_exists::<crate::ast::tokens::Or>(
             <Self as crate::ast::AstNode>::syntax(self),
         )
     }
-    pub fn as_or(
-        &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::OrToken>> {
-        crate::ast::support::token::<crate::ast::tokens::OrToken>(
-            <Self as crate::ast::AstNode>::syntax(self),
-        )
+    pub fn as_or(&self) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Or>> {
+        crate::ast::support::token::<crate::ast::tokens::Or>(<Self as crate::ast::AstNode>::syntax(
+            self,
+        ))
     }
     pub fn is_percent(&self) -> bool {
         crate::ast::support::token_exists::<crate::ast::tokens::Percent>(
@@ -5077,27 +5091,35 @@ pub struct Bool {
     syntax: crate::SyntaxNode,
 }
 impl Bool {
+    #[track_caller]
+    pub fn as_enum(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Bool>> {
+        crate::ast::support::token::<crate::ast::tokens::Bool>(
+            <Self as crate::ast::AstNode>::syntax(self),
+        )
+    }
     pub fn is_false(&self) -> bool {
-        crate::ast::support::token_exists::<crate::ast::tokens::FalseToken>(
+        crate::ast::support::token_exists::<crate::ast::tokens::False>(
             <Self as crate::ast::AstNode>::syntax(self),
         )
     }
     pub fn as_false(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::FalseToken>> {
-        crate::ast::support::token::<crate::ast::tokens::FalseToken>(
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::False>> {
+        crate::ast::support::token::<crate::ast::tokens::False>(
             <Self as crate::ast::AstNode>::syntax(self),
         )
     }
     pub fn is_true(&self) -> bool {
-        crate::ast::support::token_exists::<crate::ast::tokens::TrueToken>(
+        crate::ast::support::token_exists::<crate::ast::tokens::True>(
             <Self as crate::ast::AstNode>::syntax(self),
         )
     }
     pub fn as_true(
         &self,
-    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::TrueToken>> {
-        crate::ast::support::token::<crate::ast::tokens::TrueToken>(
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::True>> {
+        crate::ast::support::token::<crate::ast::tokens::True>(
             <Self as crate::ast::AstNode>::syntax(self),
         )
     }
@@ -8146,6 +8168,14 @@ pub struct RangeOp {
     syntax: crate::SyntaxNode,
 }
 impl RangeOp {
+    #[track_caller]
+    pub fn as_enum(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::RangeOp>> {
+        crate::ast::support::token::<crate::ast::tokens::RangeOp>(
+            <Self as crate::ast::AstNode>::syntax(self),
+        )
+    }
     pub fn is_double_dot(&self) -> bool {
         crate::ast::support::token_exists::<crate::ast::tokens::DoubleDot>(
             <Self as crate::ast::AstNode>::syntax(self),
@@ -8723,6 +8753,14 @@ pub struct UnaryOp {
     syntax: crate::SyntaxNode,
 }
 impl UnaryOp {
+    #[track_caller]
+    pub fn as_enum(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::UnaryOp>> {
+        crate::ast::support::token::<crate::ast::tokens::UnaryOp>(
+            <Self as crate::ast::AstNode>::syntax(self),
+        )
+    }
     pub fn is_bang(&self) -> bool {
         crate::ast::support::token_exists::<crate::ast::tokens::Bang>(
             <Self as crate::ast::AstNode>::syntax(self),
