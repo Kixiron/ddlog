@@ -7,6 +7,9 @@ use crate::hir::{Item, Path, Pattern};
 use ddlog_diagnostics::Interner;
 use ddlog_syntax::ast::prefixed::nodes::{AstItem, AstPath, AstPattern};
 
+// TODO: Make lowering use queries so we don't have to re-lower things
+//       that don't change
+// TODO: Use content-addressing for nested data instead of vecs/boxes/etc
 pub struct HirBuilder<'a> {
     interner: &'a Interner,
 }
