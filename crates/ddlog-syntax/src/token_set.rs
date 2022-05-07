@@ -1,12 +1,9 @@
 use crate::SyntaxKind;
-use std::{
-    fmt::{self, Debug, Display},
-    mem::size_of,
-};
+use std::fmt::{self, Debug, Display};
 
 #[allow(dead_code)]
 const TOKENS_FIT_IN_SET: () =
-    assert!(size_of::<u128>() * 8 * 2 > SyntaxKind::MAXIMUM_DISCRIMINANT as usize);
+    assert!(u128::BITS as usize * 2 > SyntaxKind::MAXIMUM_DISCRIMINANT as usize);
 
 /// A set of [`SyntaxKind`]s
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]

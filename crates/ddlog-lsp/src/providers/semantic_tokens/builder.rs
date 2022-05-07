@@ -1,5 +1,7 @@
 use crate::providers::semantic_tokens::tokens::{ModifierSet, SUPPORTED_TYPES};
-use lspower::lsp::{Range, SemanticToken, SemanticTokenType, SemanticTokens, SemanticTokensEdit};
+use tower_lsp::lsp_types::{
+    Range, SemanticToken, SemanticTokenType, SemanticTokens, SemanticTokensEdit,
+};
 
 /// Tokens are encoded relative to each other.
 ///

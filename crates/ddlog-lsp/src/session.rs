@@ -1,6 +1,6 @@
 use ddlog_diagnostics::{FileId, Interner};
 use ddlog_syntax::NodeCache;
-use lspower::lsp::Url;
+use tower_lsp::lsp_types::Url;
 // TODO: Probably want to switch to use `parking_lot`
 use std::sync::Mutex;
 

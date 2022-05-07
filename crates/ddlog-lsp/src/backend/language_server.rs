@@ -13,9 +13,11 @@ use crate::{
 };
 use ddlog_diagnostics::Rope;
 use lsp_text::RopeExt;
-use lspower::{
+use salsa::ParallelDatabase;
+use serde_json::Value;
+use tower_lsp::{
     jsonrpc::Result,
-    lsp::{
+    lsp_types::{
         DidChangeTextDocumentParams, DidOpenTextDocumentParams, DocumentSymbolParams,
         DocumentSymbolResponse, ExecuteCommandParams, InitializeParams, InitializeResult, OneOf,
         SemanticTokensFullOptions, SemanticTokensLegend, SemanticTokensOptions,
@@ -25,10 +27,8 @@ use lspower::{
     },
     LanguageServer,
 };
-use salsa::ParallelDatabase;
-use serde_json::Value;
 
-#[lspower::async_trait]
+#[tower_lsp::async_trait]
 impl LanguageServer for Backend {
     async fn initialize(&self, params: InitializeParams) -> Result<InitializeResult> {
         tracing::info!(?params, "received initialization request");
@@ -38,7 +38,7 @@ impl LanguageServer for Backend {
             text_document_sync: Some(TextDocumentSyncCapability::Options(
                 TextDocumentSyncOptions {
                     open_close: Some(true),
-                    change: Some(TextDocumentSyncKind::Incremental),
+                    change: Some(TextDocumentSyncKind::INCREMENTAL),
                     ..Default::default()
                 },
             )),

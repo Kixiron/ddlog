@@ -1,5 +1,5 @@
-use lspower::lsp::{SemanticTokenModifier, SemanticTokenType};
 use std::ops::BitOrAssign;
+use tower_lsp::lsp_types::{SemanticTokenModifier, SemanticTokenType};
 
 // TODO: Better debug impl
 #[derive(Debug, Default)]

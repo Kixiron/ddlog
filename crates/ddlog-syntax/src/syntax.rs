@@ -207,12 +207,22 @@ pub trait SyntaxNodeExt {
     /// Returns a capitalized name without an underscore for anything not a statement. e.g.:
     /// `FN_DECL` => `Fn decl`
     fn readable_stmt_name(&self) -> String {
-        let mut string = format!("{:?}", self.to_node().kind())
-            .to_ascii_lowercase()
-            .replace("_", " ");
+        pub fn substitute_underscores(string: &mut str) {
+            for byte in unsafe { string.as_bytes_mut() } {
+                if *byte == b'_' {
+                    *byte = b' ';
+                }
+            }
+        }
+
+        let mut string = format!("{:?}", self.to_node().kind());
+        string.make_ascii_lowercase();
+        substitute_underscores(&mut string);
 
         if self.to_node().is::<nodes::Stmt>() {
-            string = string.replace("stmt", "statement");
+            ddlog_utils::strings::replace_in_place(&mut string, "stmt", "statement");
+        } else if self.to_node().is::<nodes::Expr>() {
+            ddlog_utils::strings::replace_in_place(&mut string, "Expr", "expression");
         }
 
         string

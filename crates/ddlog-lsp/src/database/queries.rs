@@ -1,8 +1,6 @@
-use crate::providers::{
-    document_symbols,
-    hir::{self, HirItem},
-};
+use crate::providers::{document_symbols, hir};
 use ddlog_diagnostics::{Diagnostic, FileId, Rope};
+use ddlog_hir::hir::Item as HirItem;
 use ddlog_syntax::{
     ast::nodes::{
         BracketedStructField, EnumDef, EnumVariant, FunctionArg, FunctionDef, StructDef,
@@ -11,8 +9,8 @@ use ddlog_syntax::{
     validation, RuleCtx, SyntaxNode,
 };
 use ddlog_utils::{Arc, ArcSlice};
-use lspower::lsp::{DocumentSymbol, Url};
 use std::fmt::Debug;
+use tower_lsp::lsp_types::{DocumentSymbol, Url};
 
 #[salsa::query_group(SessionDatabase)]
 pub trait Session {

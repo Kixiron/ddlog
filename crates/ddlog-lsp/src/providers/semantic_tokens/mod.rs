@@ -9,8 +9,8 @@ use crate::{
     providers::semantic_tokens::highlighter::SemanticHighlighter,
 };
 use ddlog_syntax::{visitor, RuleCtx};
-use lspower::lsp::{SemanticTokensResult, Url};
 use salsa::Snapshot;
+use tower_lsp::lsp_types::{SemanticTokensResult, Url};
 
 pub(crate) fn semantic_tokens_full(
     snapshot: Snapshot<DDlogDatabase>,

@@ -7,6 +7,6 @@ pub(crate) mod support;
 
 pub use ast_node::AstNode;
 pub use ast_token::AstToken;
-pub use generated::{nodes, tokens};
+pub use generated::{nodes, prefixed, tokens};
 pub use support::{AstChildren, TokenChildren};
 // pub use visitor::AstVisitor;

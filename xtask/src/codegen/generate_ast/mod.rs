@@ -26,7 +26,12 @@ pub fn generate_ast(mode: CodegenMode) -> Result<()> {
     let (structs, enums, mut syntax_kinds) = parser::from_grammar(&grammar)?;
     let derives = default_derives();
 
-    let (mut token_ast, mut node_ast) = (TokenStream::new(), TokenStream::new());
+    let (mut token_ast, mut node_ast, mut prefixed_nodes, mut prefixed_tokens) = (
+        TokenStream::new(),
+        TokenStream::new(),
+        Vec::new(),
+        Vec::new(),
+    );
 
     // Create all cst structs
     for Struct {
@@ -41,6 +46,7 @@ pub fn generate_ast(mode: CodegenMode) -> Result<()> {
             NodeKind::Syntax => format_ident!("SyntaxNode"),
             NodeKind::Token => format_ident!("SyntaxToken"),
         };
+        let ast_camel_case = format_ident!("Ast{}", camel_case_name);
 
         let decl = quote! {
             #derives
@@ -60,6 +66,8 @@ pub fn generate_ast(mode: CodegenMode) -> Result<()> {
                 let ast_node_impl =
                     structs::ast_node_for_struct(&camel_case_name, &screaming_snake_case_name);
                 node_ast.extend(ast_node_impl);
+
+                prefixed_nodes.push(quote! { #camel_case_name as #ast_camel_case });
             }
 
             NodeKind::Token => {
@@ -68,6 +76,8 @@ pub fn generate_ast(mode: CodegenMode) -> Result<()> {
                 let ast_token_impl =
                     structs::ast_token_for_struct(&camel_case_name, &screaming_snake_case_name);
                 token_ast.extend(ast_token_impl);
+
+                prefixed_tokens.push(quote! { #camel_case_name as #ast_camel_case });
             }
         }
     }
@@ -91,6 +101,9 @@ pub fn generate_ast(mode: CodegenMode) -> Result<()> {
 
             quote!(#variant_name(#variant_type))
         });
+
+        let ast_camel_case = format_ident!("Ast{}", camel_case_name);
+        prefixed_nodes.push(quote! { #camel_case_name as #ast_camel_case });
 
         match kind {
             EnumKind::NodeOfNodes => {
@@ -133,6 +146,16 @@ pub fn generate_ast(mode: CodegenMode) -> Result<()> {
         }
     }
 
+    let prefixed_exports_ast = quote! {
+        pub mod nodes {
+            pub use crate::ast::nodes::{#(#prefixed_nodes),*};
+        }
+
+        pub mod tokens {
+            pub use crate::ast::tokens::{#(#prefixed_tokens),*};
+        }
+    };
+
     // Enumerate all the syntax kinds and give each of them a unique number to use as their
     // discriminant. We do this after we've filtered out all of the enums
     let max_syntax_discriminant = syntax_kind::enumerate_syntax_kinds(&mut syntax_kinds)?;
@@ -141,14 +164,18 @@ pub fn generate_ast(mode: CodegenMode) -> Result<()> {
     let root = project_root();
     let generated_dir = root.join("crates/ddlog-syntax/src/ast/generated");
 
-    let ast_module = "pub mod nodes;\npub mod tokens;";
+    let ast_module = "pub mod nodes;\npub mod tokens;\npub mod prefixed;";
     fs2::update_formatted(generated_dir.join("mod.rs"), ast_module, mode)?;
 
     fs2::update_formatted(generated_dir.join("nodes.rs"), &node_ast.to_string(), mode)?;
-
     fs2::update_formatted(
         generated_dir.join("tokens.rs"),
         &token_ast.to_string(),
+        mode,
+    )?;
+    fs2::update_formatted(
+        generated_dir.join("prefixed.rs"),
+        &prefixed_exports_ast.to_string(),
         mode,
     )?;
 

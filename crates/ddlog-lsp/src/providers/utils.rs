@@ -1,6 +1,6 @@
 use cstree::TextRange;
 use ddlog_diagnostics::Rope;
-use lspower::lsp::{Position, Range};
+use tower_lsp::lsp_types::{Position, Range};
 
 // TODO: Maybe this should be cached somehow?
 pub fn ide_range(source: &Rope, text_range: TextRange) -> Range {

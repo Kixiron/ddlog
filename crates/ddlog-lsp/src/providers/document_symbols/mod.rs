@@ -6,8 +6,8 @@ pub(crate) use database::{
 };
 
 use crate::database::{DDlogDatabase, DocumentSymbols, Session};
-use lspower::lsp::{DocumentSymbolResponse, Url};
 use salsa::Snapshot;
+use tower_lsp::lsp_types::{DocumentSymbolResponse, Url};
 
 pub(crate) fn nested_symbols(
     snapshot: Snapshot<DDlogDatabase>,

@@ -1,5 +1,5 @@
 use crate::ast::{
-    nodes::{Attribute, ConstDef, EnumDef, EnumVariant, FunctionDef, StructDef, VarRef},
+    nodes::{Attribute, ConstDef, EnumDef, EnumVariant, FunctionDef, StructDef, TupleType, VarRef},
     tokens::Ident,
     AstNode, AstToken,
 };
@@ -49,7 +49,7 @@ impl FunctionDef {
             .or(args)
             .or(generics)
             .or(name)
-            .or_else(|| if include_keyword { keyword } else { None })
+            .or(if include_keyword { keyword } else { None })
             .unwrap_or_else(|| self.trimmed_range());
 
         start.intersect(end).unwrap_or_else(|| self.trimmed_range())
@@ -103,5 +103,11 @@ impl Attribute {
         }
 
         false
+    }
+}
+
+impl TupleType {
+    pub fn is_empty(&self) -> bool {
+        self.elements().len() == 0
     }
 }

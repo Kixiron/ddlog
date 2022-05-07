@@ -9,8 +9,8 @@ use ddlog_syntax::{
     SyntaxKind::COMMENT,
     SyntaxNode, SyntaxToken, SyntaxTokenExt, T,
 };
-use lspower::lsp::{SemanticTokenModifier, SemanticTokenType, SemanticTokens};
 use ropey::Rope;
+use tower_lsp::lsp_types::{SemanticTokenModifier, SemanticTokenType, SemanticTokens};
 
 type TokenVec = Vec<(TextRange, SemanticTokenType, ModifierSet)>;
 

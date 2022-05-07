@@ -1,18 +1,23 @@
 use ddlog_diagnostics::{DiagnosticConfig, FileCache, FileId, Interner, Rope};
-use ddlog_syntax::{ast::AstNode, validation, NodeCache, RuleCtx};
+use ddlog_lsp::{
+    database::{DDlogDatabase, HirStore, Session, Source},
+    Session as DDlogSession,
+};
+use ddlog_utils::Arc;
 use std::io::{self, Write};
 
-const EXPR_HEADER: &str = ":expr ";
-const ITEM_HEADER: &str = ":item ";
+const REPL_FILE_NAME: &str = "repl/input.dl";
 
 const HELP: &str = "
 DDlog Repl
 
 COMMANDS:
-  :help           Show this message
-  :item <item>    Parse the given item
-  :expr <expr>    Parse the given expr
-  :exit           Exit the repl
+  :help            Show this message
+  :item <item>     Parse the given item
+  :expr <expr>     Parse the given expr
+  :hir <item>      Output the hir for the given item
+  :hir_expr <expr> Output the hir for the given expr
+  :exit            Exit the repl
 ";
 
 fn main() -> io::Result<()> {
@@ -24,56 +29,65 @@ fn main() -> io::Result<()> {
     let interner = Interner::new();
     let diagnostic_config = DiagnosticConfig::new();
 
-    let mut cache_interner = interner.clone();
-    let mut cache = Some(NodeCache::with_interner(&mut cache_interner));
-
     let mut file_cache = FileCache::new(interner.clone());
-    let file = FileId::new(interner.get_or_intern_static("repl/input.dl"));
+    let file = FileId::new(interner.get_or_intern_static(REPL_FILE_NAME));
+    let mut database = DDlogDatabase::default();
+    database.set_session(Arc::new(DDlogSession::new(interner.clone())));
 
+    // TODO: Write a proper repl with rustyline
     loop {
         write!(stdout, "→ ")?;
         stdout.flush()?;
 
         stdin.read_line(&mut input)?;
 
-        input = input.trim().to_owned();
-        if input == ":exit" {
+        let input_str = input.trim();
+        if input_str == ":exit" {
             println!("exiting...");
             break;
-        } else if input == ":help" {
+        } else if input_str == ":help" {
             println!("{}", HELP.trim());
+
             input.clear();
             continue;
         }
 
-        let parse_cache = cache.take().unwrap();
-        let (mut parsed, parse_cache) = if input.starts_with(EXPR_HEADER) {
-            input.replace_range(..EXPR_HEADER.len(), "");
-            ddlog_syntax::parse_expr(file, &input, parse_cache)
+        let (prefix, command) = if input_str.starts_with(":expr ") {
+            (":expr ", Command::ExprAst)
+        } else if input_str.starts_with(":item ") {
+            (":item ", Command::ItemAst)
+        } else if input_str.starts_with(":hir_expr ") {
+            (":hir_expr ", Command::ExprHir)
+        } else if input_str.starts_with(":hir ") {
+            (":hir", Command::ItemHir)
         } else {
-            if input.starts_with(ITEM_HEADER) {
-                input.replace_range(..ITEM_HEADER.len(), "");
-            }
+            println!("invalid command");
 
-            ddlog_syntax::parse(file, &input, parse_cache)
+            input.clear();
+            continue;
         };
-        cache = Some(parse_cache);
 
-        println!("{}", parsed.debug_tree());
+        database.set_file_source(file, Rope::from(input_str[prefix.len()..].trim()));
 
-        let mut ctx = RuleCtx::new(file, Rope::from_str(&input), interner.clone());
-        ctx.diagnostics.extend(parsed.take_errors());
+        let (parsed, diagnostics) = database.parsed(file);
 
-        validation::run_validators(parsed.root().syntax(), &mut ctx);
+        if matches!(command, Command::ExprAst | Command::ItemAst) {
+            println!("{}", parsed.debug(&interner, true));
+        }
 
-        if !ctx.diagnostics.is_empty() {
-            file_cache.add_str(file, &input);
+        if !diagnostics.is_empty() {
+            file_cache.add_str(file, input_str);
 
-            for error in ctx.diagnostics {
+            for error in diagnostics.iter().cloned() {
                 error
                     .emit_to(&diagnostic_config, &mut file_cache, &mut stdout)
                     .unwrap();
             }
+        }
+
+        if matches!(command, Command::ExprHir | Command::ItemHir) {
+            let items = database.items(file);
+            println!("{:#?}", items);
         }
 
         input.clear();
@@ -81,4 +95,12 @@ fn main() -> io::Result<()> {
     }
 
     Ok(())
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum Command {
+    ExprAst,
+    ItemAst,
+    ItemHir,
+    ExprHir,
 }

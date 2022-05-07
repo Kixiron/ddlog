@@ -10,15 +10,15 @@ use crate::{
 use cstree::TextRange;
 use ddlog_diagnostics::{Diagnostic, FileId, Interner, Level};
 use ddlog_utils::Arc;
-use lspower::{
-    lsp::{
+use salsa::{ParallelDatabase, Snapshot};
+use std::{fmt::Display, str::FromStr, sync::Mutex};
+use tower_lsp::{
+    lsp_types::{
         Diagnostic as LspDiagnostic, DiagnosticRelatedInformation, DiagnosticSeverity, Location,
         MessageType, NumberOrString, Url,
     },
     Client,
 };
-use salsa::{ParallelDatabase, Snapshot};
-use std::{fmt::Display, str::FromStr, sync::Mutex};
 
 const DDLOG_LANG: &str = "ddlog";
 const DDLOG_DAT_LANG: &str = "ddlog-command";
@@ -50,21 +50,21 @@ impl Backend {
     where
         M: Display,
     {
-        self.client.log_message(MessageType::Info, message).await;
+        self.client.log_message(MessageType::INFO, message).await;
     }
 
     pub async fn warn<M>(&self, message: M)
     where
         M: Display,
     {
-        self.client.log_message(MessageType::Warning, message).await;
+        self.client.log_message(MessageType::WARNING, message).await;
     }
 
     pub async fn error<M>(&self, message: M)
     where
         M: Display,
     {
-        self.client.log_message(MessageType::Error, message).await;
+        self.client.log_message(MessageType::ERROR, message).await;
     }
 
     pub async fn publish_diagnostics(
@@ -132,9 +132,9 @@ impl Backend {
                     TextRange::new(primary_span.start().into(), primary_span.end().into()),
                 );
                 let level = match diagnostic.level {
-                    Level::Error => DiagnosticSeverity::Error,
-                    Level::Warning => DiagnosticSeverity::Warning,
-                    Level::Note => DiagnosticSeverity::Information,
+                    Level::Error => DiagnosticSeverity::ERROR,
+                    Level::Warning => DiagnosticSeverity::WARNING,
+                    Level::Note => DiagnosticSeverity::INFORMATION,
                 };
                 let code = diagnostic
                     .code

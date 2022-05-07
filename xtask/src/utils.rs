@@ -41,7 +41,7 @@ pub fn normalize_line_endings(string: &mut String) {
     }
 }
 
-pub fn normalize_path_slashes(string: &mut String) {
+pub fn normalize_path_slashes(string: &mut str) {
     for byte in unsafe { string.as_bytes_mut() } {
         if *byte == b'\\' {
             *byte = b'/';

@@ -3,6 +3,7 @@
 mod arc_slice;
 mod either;
 mod hasher;
+pub mod strings;
 
 pub use arc_slice::ArcSlice;
 pub use either::Either;

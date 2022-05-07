@@ -1,4 +1,4 @@
-use tracing_subscriber::{fmt, EnvFilter};
+use tracing_subscriber::{filter::EnvFilter, fmt};
 
 /// Setup the lsp's logger to take log levels from the `DDLOG_LOG` env var, see
 /// [`EnvFilter`] for more info on log directives

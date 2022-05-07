@@ -11,7 +11,7 @@ use ddlog_syntax::{
     SyntaxNode, SyntaxNodeExt,
 };
 use ddlog_utils::ArcSlice;
-use lspower::lsp::{DocumentSymbol, Position, Range, SymbolKind, SymbolTag};
+use tower_lsp::lsp_types::{DocumentSymbol, Position, Range, SymbolKind, SymbolTag};
 
 pub(crate) fn document_symbols(
     symbols: &dyn DocumentSymbols,
@@ -108,7 +108,7 @@ pub(crate) fn document_function(
                             let type_param = DocumentSymbol {
                                 name: path.text(interner).to_string(),
                                 detail: None,
-                                kind: SymbolKind::TypeParameter,
+                                kind: SymbolKind::TYPE_PARAMETER,
                                 tags: None,
                                 range,
                                 selection_range,
@@ -151,7 +151,7 @@ pub(crate) fn document_function(
     let tags = function
         .attributes()
         .any(|attr| attr.is_deprecated(interner))
-        .then(|| vec![SymbolTag::Deprecated]);
+        .then(|| vec![SymbolTag::DEPRECATED]);
 
     let children = if children.is_empty() {
         None
@@ -177,7 +177,7 @@ pub(crate) fn document_function(
     DocumentSymbol {
         name,
         detail: Some(detail),
-        kind: SymbolKind::Function,
+        kind: SymbolKind::FUNCTION,
         tags,
         range,
         selection_range,
@@ -263,7 +263,7 @@ pub(crate) fn document_struct(
     let tags = strct
         .attributes()
         .any(|attr| attr.is_deprecated(interner))
-        .then(|| vec![SymbolTag::Deprecated]);
+        .then(|| vec![SymbolTag::DEPRECATED]);
 
     let total_fields = strct
         .fields()
@@ -296,7 +296,7 @@ pub(crate) fn document_struct(
         name,
         // TODO: Get the struct's documentation if there's any
         detail: None,
-        kind: SymbolKind::Struct,
+        kind: SymbolKind::STRUCT,
         tags,
         range,
         selection_range,
@@ -318,13 +318,13 @@ pub(crate) fn document_struct_field(
         let tags = field
             .attributes()
             .any(|attr| attr.is_deprecated(interner))
-            .then(|| vec![SymbolTag::Deprecated]);
+            .then(|| vec![SymbolTag::DEPRECATED]);
         let range = utils::ide_range(&source, name.text_range());
 
         DocumentSymbol {
             name: name.text(interner).to_owned(),
             detail: None,
-            kind: SymbolKind::Variable,
+            kind: SymbolKind::VARIABLE,
             tags,
             range,
             selection_range: range,
@@ -364,7 +364,7 @@ pub(crate) fn document_enum(
     // Look for a `#[deprecated]` attribute on the enum
     let tags = enumeration
         .is_deprecated(interner)
-        .then(|| vec![SymbolTag::Deprecated]);
+        .then(|| vec![SymbolTag::DEPRECATED]);
 
     let total_variants = enumeration
         .variants()
@@ -391,7 +391,7 @@ pub(crate) fn document_enum(
         name,
         // TODO: Get the enum's documentation if there's any
         detail: None,
-        kind: SymbolKind::Enum,
+        kind: SymbolKind::ENUM,
         tags,
         range,
         selection_range,
@@ -412,7 +412,7 @@ pub(crate) fn document_enum_variant(
     variant.variant().map(|name| {
         let tags = variant
             .is_deprecated(interner)
-            .then(|| vec![SymbolTag::Deprecated]);
+            .then(|| vec![SymbolTag::DEPRECATED]);
         let range = utils::ide_range(&source, name.text_range());
 
         // The number of fields that the variant has, if any
@@ -445,7 +445,7 @@ pub(crate) fn document_enum_variant(
         DocumentSymbol {
             name: name.text(interner).to_owned(),
             detail: None,
-            kind: SymbolKind::Variable,
+            kind: SymbolKind::VARIABLE,
             tags,
             range,
             selection_range: range,
@@ -468,13 +468,13 @@ pub(crate) fn document_variant_field(
         let tags = field
             .attributes()
             .any(|attr| attr.is_deprecated(interner))
-            .then(|| vec![SymbolTag::Deprecated]);
+            .then(|| vec![SymbolTag::DEPRECATED]);
         let range = utils::ide_range(&source, name.text_range());
 
         DocumentSymbol {
             name: name.text(interner).to_owned(),
             detail: None,
-            kind: SymbolKind::Variable,
+            kind: SymbolKind::VARIABLE,
             tags,
             range,
             selection_range: range,
@@ -513,13 +513,13 @@ fn process_pattern(
 
         Pattern::VarRef(var) => {
             if let Some(ident) = var.ident() {
-                let tags = is_deprecated.then(|| vec![SymbolTag::Deprecated]);
+                let tags = is_deprecated.then(|| vec![SymbolTag::DEPRECATED]);
                 let range = utils::ide_range(source, ident.text_range());
 
                 bindings.push(DocumentSymbol {
                     name: ident.text(interner).to_owned(),
                     detail: None,
-                    kind: SymbolKind::Variable,
+                    kind: SymbolKind::VARIABLE,
                     tags,
                     range,
                     selection_range: range,
@@ -550,7 +550,7 @@ const fn default_document_symbol() -> DocumentSymbol {
     DocumentSymbol {
         name: String::new(),
         detail: None,
-        kind: SymbolKind::Unknown,
+        kind: SymbolKind::NULL,
         tags: None,
         range,
         selection_range: range,

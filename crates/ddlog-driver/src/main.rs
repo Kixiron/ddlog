@@ -1,8 +1,8 @@
 use ddlog_diagnostics::Interner;
 use ddlog_lsp::{Backend, Session};
 use ddlog_utils::Arc;
-use lspower::{LspService, Server};
 use tokio::{io, net::TcpListener};
+use tower_lsp::{LspService, Server};
 
 #[tokio::main]
 async fn main() {
@@ -21,8 +21,5 @@ async fn main() {
     let (service, messages) = LspService::new(|client| Backend::new(client, session));
 
     tracing::info!("spawning ddlog server");
-    Server::new(read, write)
-        .interleave(messages)
-        .serve(service)
-        .await;
+    Server::new(read, write, messages).serve(service).await;
 }
