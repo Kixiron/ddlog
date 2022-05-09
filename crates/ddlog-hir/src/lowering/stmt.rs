@@ -30,8 +30,12 @@ impl<'a> HirBuilder<'a> {
         match stmt {
             AstStmt::VarDecl(decl) => self.var_decl(decl).map(Stmt::VarDecl),
 
-            // TODO: Semicolon termination or desugaring trailing expressions to a return expression
-            AstStmt::ExprStmt(expr) => self.expr(expr.expr()?).map(Stmt::Expr),
+            AstStmt::ExprStmt(stmt_expr) => self.expr(stmt_expr.expr()?).map(|expr| Stmt::Expr {
+                expr,
+                // If there's any trailing semicolons then we want to remember that
+                // the expression is semicolon terminated
+                semicolon_terminated: stmt_expr.semicolons().count() != 0,
+            }),
         }
     }
 

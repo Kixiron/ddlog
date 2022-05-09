@@ -1,4 +1,4 @@
-use crate::StablyHashed;
+use crate::{StableHash, StablyHashed};
 use core::hash::Hasher;
 
 /// Stable hashing for values
@@ -7,6 +7,16 @@ use core::hash::Hasher;
 /// representations for integers, no matter the target platform
 pub trait StableHasher: Hasher {
     fn finalize(&mut self) -> StablyHashed;
+
+    #[inline]
+    fn hash_one<T>(&mut self, value: &T) -> StablyHashed
+    where
+        Self: Sized,
+        T: StableHash,
+    {
+        value.stable_hash(self);
+        self.finalize()
+    }
 }
 
 impl<T> StableHasher for &mut T

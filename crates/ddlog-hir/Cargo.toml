@@ -5,5 +5,7 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
+stable-hash = { path = "../stable-hash" }
 ddlog-syntax = { path = "../ddlog-syntax" }
 ddlog-diagnostics = { path = "../ddlog-diagnostics" }
+derive-stable-hash = { path = "../derive-stable-hash" }

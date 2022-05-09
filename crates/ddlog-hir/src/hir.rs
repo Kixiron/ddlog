@@ -2,13 +2,14 @@
 // TODO: Arenas
 
 use ddlog_diagnostics::IStr;
+use derive_stable_hash::StableHash;
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub enum Item {
     FuncDef(FuncDef),
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct FuncDef {
     name: IStr,
     // generics: Vec<GenericParam>,
@@ -28,7 +29,7 @@ impl FuncDef {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct FuncParam {
     binding: Pattern,
     ty: Type,
@@ -40,19 +41,22 @@ impl FuncParam {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub enum Pattern {
     VarRef(IStr),
     Literal(Literal),
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub enum Stmt {
-    Expr(Expr),
+    Expr {
+        expr: Expr,
+        semicolon_terminated: bool,
+    },
     VarDecl(VarDecl),
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct VarDecl {
     binding: Pattern,
     ty: Option<Type>,
@@ -65,7 +69,7 @@ impl VarDecl {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub enum Expr {
     BinOp(BinExpr),
     Match(Match),
@@ -76,7 +80,7 @@ pub enum Expr {
     FunctionCall(FunctionCall),
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct FunctionCall {
     func: Box<Expr>,
     args: Vec<Expr>,
@@ -88,7 +92,7 @@ impl FunctionCall {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub enum Literal {
     Unit,
     Bool(bool),
@@ -97,12 +101,12 @@ pub enum Literal {
     Error(Option<LiteralTypeHint>),
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub enum LiteralTypeHint {
     Bool,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct Match {
     scrutinee: Box<Expr>,
     arms: Vec<MatchArm>,
@@ -114,7 +118,7 @@ impl Match {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct MatchArm {
     binding: Pattern,
     guard: Option<Box<Expr>>,
@@ -131,7 +135,7 @@ impl MatchArm {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct BinExpr {
     lhs: Box<Expr>,
     rhs: Box<Expr>,
@@ -144,7 +148,7 @@ impl BinExpr {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub enum BinOp {
     Or,
     And,
@@ -160,14 +164,14 @@ pub enum BinOp {
     GreaterEq,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub enum Type {
     GenericType(GenericType),
     TupleType(TupleType),
     Unit,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct GenericType {
     path: Path,
     generics: Vec<Type>,
@@ -179,7 +183,7 @@ impl GenericType {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct TupleType {
     elements: Vec<Type>,
 }
@@ -190,7 +194,7 @@ impl TupleType {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct Path {
     // TODO: TinyVec or maybe even intern these?
     segments: Vec<IStr>,

@@ -1,9 +1,10 @@
 use ddlog_utils::{Arc, ConsistentHasher};
 use lasso::{Capacity, LassoResult, Spur, ThreadedRodeo};
+use stable_hash::{StableHash, StableHasher};
 use std::{
     fmt::{self, Debug, Write},
     mem::size_of,
-    num::NonZeroUsize,
+    num::{NonZeroU32, NonZeroUsize},
 };
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -173,6 +174,17 @@ impl IStr {
 
     pub(crate) const fn into_inner(self) -> Spur {
         self.0
+    }
+}
+
+impl StableHash for IStr {
+    fn stable_hash<H>(&self, state: &mut H)
+    where
+        H: StableHasher,
+    {
+        // Safety: A `Spur` is a transparent `NonZeroU32`
+        let key = unsafe { core::mem::transmute::<Spur, NonZeroU32>(self.0) };
+        key.stable_hash(state);
     }
 }
 

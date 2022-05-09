@@ -1,5 +1,8 @@
 use arrayvec::ArrayString;
-use std::fmt::{self, Debug, Display, LowerHex, UpperHex};
+use core::{
+    borrow::Borrow,
+    fmt::{self, Debug, Display, LowerHex, UpperHex},
+};
 
 const HEX_UPPER: [u8; 16] = *b"0123456789ABCDEF";
 const HEX_LOWER: [u8; 16] = *b"0123456789abcdef";
@@ -32,6 +35,20 @@ impl StablyHashed {
         }
 
         output
+    }
+}
+
+impl AsRef<[u8]> for StablyHashed {
+    #[inline]
+    fn as_ref(&self) -> &[u8] {
+        &self.hash
+    }
+}
+
+impl Borrow<[u8]> for StablyHashed {
+    #[inline]
+    fn borrow(&self) -> &[u8] {
+        &self.hash
     }
 }
 

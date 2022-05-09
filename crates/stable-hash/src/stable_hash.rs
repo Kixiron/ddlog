@@ -21,13 +21,15 @@ pub trait StableHash {
     }
 }
 
-impl<T> StableHash for Discriminant<T> {
-    #[inline]
+impl<T> StableHash for &'_ T
+where
+    T: StableHash,
+{
     fn stable_hash<H>(&self, state: &mut H)
     where
         H: StableHasher,
     {
-        core::hash::Hash::hash(self, state);
+        T::stable_hash(self, state);
     }
 }
 
@@ -390,6 +392,36 @@ impl StableHash for () {
         Self: Sized,
         H: StableHasher,
     {
+    }
+}
+
+impl<T> StableHash for Option<T>
+where
+    T: StableHash,
+{
+    #[inline]
+    fn stable_hash<H>(&self, state: &mut H)
+    where
+        H: StableHasher,
+    {
+        match self {
+            Some(value) => {
+                state.write_u8(0xFF);
+                value.stable_hash(state);
+            }
+
+            None => state.write_u8(0x00),
+        }
+    }
+}
+
+impl<T> StableHash for Discriminant<T> {
+    #[inline]
+    fn stable_hash<H>(&self, state: &mut H)
+    where
+        H: StableHasher,
+    {
+        core::hash::Hash::hash(self, state);
     }
 }
 
