@@ -1,0 +1,5 @@
+error: Deriving StableHash is only supported for structs and enums, not unions
+ --> tests/fail/union_error.rs:4:1
+  |
+4 | union Foo {
+  | ^^^^^
