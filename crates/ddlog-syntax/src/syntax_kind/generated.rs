@@ -37,221 +37,233 @@ pub enum SyntaxKind {
     CHAR = 22u16,
     #[regex("b?'[^']*'")]
     CHAR_LITERAL = 23u16,
-    CLOSURE_ARG = 24u16,
-    CLOSURE_EXPR = 25u16,
+    CLAUSE_DEF = 24u16,
+    CLAUSE_FACT = 25u16,
+    CLAUSE_FACT_ARG = 26u16,
+    CLAUSE_RULE = 27u16,
+    CLAUSE_RULES = 28u16,
+    CLOSURE_ARG = 29u16,
+    CLOSURE_EXPR = 30u16,
     #[token(":")]
-    COLON = 26u16,
+    COLON = 31u16,
     #[token(",")]
-    COMMA = 27u16,
+    COMMA = 32u16,
     #[regex("//.*")]
     #[regex("///.*")]
     #[token("/*", lex_block_comment)]
-    COMMENT = 28u16,
-    CONST_DEF = 29u16,
+    COMMENT = 33u16,
+    CONST_DEF = 34u16,
     #[token("const")]
-    CONST_TOKEN = 30u16,
-    CONTINUE_EXPR = 31u16,
+    CONST_TOKEN = 35u16,
+    CONTINUE_EXPR = 36u16,
     #[token("continue")]
-    CONTINUE_TOKEN = 32u16,
+    CONTINUE_TOKEN = 37u16,
     #[token(".")]
-    DOT = 33u16,
+    DOT = 38u16,
     #[token("::")]
-    DOUBLE_COLON = 34u16,
+    DOUBLE_COLON = 39u16,
     #[token("..")]
-    DOUBLE_DOT = 35u16,
+    DOUBLE_DOT = 40u16,
     #[token("..=")]
-    DOUBLE_DOT_EQ = 36u16,
-    ELSE_BLOCK = 37u16,
+    DOUBLE_DOT_EQ = 41u16,
+    ELSE_BLOCK = 42u16,
     #[token("else")]
-    ELSE_TOKEN = 38u16,
-    ENUM_DEF = 39u16,
+    ELSE_TOKEN = 43u16,
+    ENUM_DEF = 44u16,
     #[token("enum")]
-    ENUM_TOKEN = 40u16,
-    ENUM_VARIANT = 41u16,
-    ENUM_VARIANTS = 42u16,
+    ENUM_TOKEN = 45u16,
+    ENUM_VARIANT = 46u16,
+    ENUM_VARIANTS = 47u16,
     #[token("eof")]
-    EOF = 43u16,
+    EOF = 48u16,
     #[token("=")]
-    EQ = 44u16,
+    EQ = 49u16,
     #[token("==")]
-    EQEQ = 45u16,
+    EQEQ = 50u16,
     #[error]
-    ERROR = 46u16,
-    EXPR_STMT = 47u16,
+    ERROR = 51u16,
+    EXPR_STMT = 52u16,
     #[token("false")]
-    FALSE_TOKEN = 48u16,
-    FIELD_ACCESS = 49u16,
-    FIELD_ACCESSOR_NAME = 50u16,
+    FALSE_TOKEN = 53u16,
+    FIELD_ACCESS = 54u16,
+    FIELD_ACCESSOR_NAME = 55u16,
     #[token("fn")]
-    FN_TOKEN = 51u16,
-    FOR_EXPR = 52u16,
+    FN_TOKEN = 56u16,
+    FOR_EXPR = 57u16,
     #[token("for")]
-    FOR_TOKEN = 53u16,
-    FUNCTION_ARG = 54u16,
-    FUNCTION_ARGS = 55u16,
-    FUNCTION_CALL = 56u16,
-    FUNCTION_CALL_ARG = 57u16,
-    FUNCTION_DEF = 58u16,
-    FUNCTION_RETURN = 59u16,
-    FUNCTION_RETURN_TYPE = 60u16,
-    FUNCTION_TYPE = 61u16,
-    FUNCTION_TYPE_ARG = 62u16,
-    FUNCTION_TYPE_ARGS = 63u16,
-    GENERICS = 64u16,
-    GENERIC_ARG = 65u16,
-    GENERIC_TYPE = 66u16,
+    FOR_TOKEN = 58u16,
+    FUNCTION_ARG = 59u16,
+    FUNCTION_ARGS = 60u16,
+    FUNCTION_CALL = 61u16,
+    FUNCTION_CALL_ARG = 62u16,
+    FUNCTION_DEF = 63u16,
+    FUNCTION_RETURN = 64u16,
+    FUNCTION_RETURN_TYPE = 65u16,
+    FUNCTION_TYPE = 66u16,
+    FUNCTION_TYPE_ARG = 67u16,
+    FUNCTION_TYPE_ARGS = 68u16,
+    GENERICS = 69u16,
+    GENERIC_ARG = 70u16,
+    GENERIC_TYPE = 71u16,
     #[token("#[")]
-    HASH_BRACK = 67u16,
+    HASH_BRACK = 72u16,
+    #[token(":-")]
+    HORN_IMPLICATION = 73u16,
     #[regex("[A-Za-z_'][A-Za-z0-9_']*")]
-    IDENT = 68u16,
-    IF_BLOCK = 69u16,
-    IF_EXPR = 70u16,
+    IDENT = 74u16,
+    IF_BLOCK = 75u16,
+    IF_EXPR = 76u16,
     #[token("if")]
-    IF_TOKEN = 71u16,
-    IMPL_BLOCK = 72u16,
-    IMPL_BLOCK_CONTENTS = 73u16,
+    IF_TOKEN = 77u16,
+    IMPL_BLOCK = 78u16,
+    IMPL_BLOCK_CONTENTS = 79u16,
     #[token("impl")]
-    IMPL_TOKEN = 74u16,
+    IMPL_TOKEN = 80u16,
     #[token("in")]
-    IN_TOKEN = 75u16,
+    IN_TOKEN = 81u16,
     #[token("let")]
-    LET_TOKEN = 76u16,
-    LOOP_EXPR = 77u16,
+    LET_TOKEN = 82u16,
+    LOOP_EXPR = 83u16,
     #[token("loop")]
-    LOOP_TOKEN = 78u16,
+    LOOP_TOKEN = 84u16,
     #[token("<")]
-    L_ANGLE = 79u16,
+    L_ANGLE = 85u16,
     #[token("<=")]
-    L_ANGLE_EQ = 80u16,
+    L_ANGLE_EQ = 86u16,
     #[token("[")]
-    L_BRACK = 81u16,
+    L_BRACK = 87u16,
     #[token("{")]
-    L_CURLY = 82u16,
+    L_CURLY = 88u16,
     #[token("(")]
-    L_PAREN = 83u16,
-    MATCH_ARM = 84u16,
-    MATCH_EXPR = 85u16,
+    L_PAREN = 89u16,
+    MATCH_ARM = 90u16,
+    MATCH_EXPR = 91u16,
     #[token("match")]
-    MATCH_TOKEN = 86u16,
-    METHOD_CALL = 87u16,
-    METHOD_CALL_ARG = 88u16,
+    MATCH_TOKEN = 92u16,
+    METHOD_CALL = 93u16,
+    METHOD_CALL_ARG = 94u16,
     #[token("-")]
-    MINUS = 89u16,
+    MINUS = 95u16,
     #[token("-=")]
-    MINUS_EQ = 90u16,
-    MODIFIER = 91u16,
+    MINUS_EQ = 96u16,
+    MODIFIER = 97u16,
     #[token("!=")]
-    NEQ = 92u16,
-    NUMBER = 93u16,
+    NEQ = 98u16,
+    NUMBER = 99u16,
     #[regex("[0-9][0-9_]*")]
     #[regex("0b[0-1][0-1_]*")]
     #[regex("0x[0-9a-fA-F][0-9a-fA-F_]*")]
-    NUMBER_LITERAL = 94u16,
+    NUMBER_LITERAL = 100u16,
     #[token("or")]
-    OR_TOKEN = 95u16,
-    PAREN_EXPR = 96u16,
-    PATH = 97u16,
-    PATH_TAIL = 98u16,
+    OR_TOKEN = 101u16,
+    PAREN_EXPR = 102u16,
+    PATH = 103u16,
+    PATH_TAIL = 104u16,
     #[token("%")]
-    PERCENT = 99u16,
+    PERCENT = 105u16,
     #[token("%=")]
-    PERCENT_EQ = 100u16,
+    PERCENT_EQ = 106u16,
     #[token("|")]
-    PIPE = 101u16,
+    PIPE = 107u16,
     #[token("|=")]
-    PIPE_EQ = 102u16,
+    PIPE_EQ = 108u16,
     #[token("+")]
-    PLUS = 103u16,
+    PLUS = 109u16,
     #[token("+=")]
-    PLUS_EQ = 104u16,
+    PLUS_EQ = 110u16,
     #[token("pub")]
-    PUB_TOKEN = 105u16,
-    QUALIFIED_REF = 106u16,
-    RANGE_EXPR = 107u16,
-    RANGE_OP = 108u16,
+    PUB_TOKEN = 111u16,
+    QUALIFIED_REF = 112u16,
+    RANGE_EXPR = 113u16,
+    RANGE_OP = 114u16,
+    RELATION_ARG = 115u16,
+    RELATION_ARGS = 116u16,
+    RELATION_DEF = 117u16,
+    #[token("rel")]
+    REL_TOKEN = 118u16,
     #[token("return")]
-    RETURN_TOKEN = 109u16,
-    RET_EXPR = 110u16,
+    RETURN_TOKEN = 119u16,
+    RET_EXPR = 120u16,
     #[token("->")]
-    RIGHT_ARROW = 111u16,
+    RIGHT_ARROW = 121u16,
     #[token("=>")]
-    RIGHT_ROCKET = 112u16,
-    ROOT = 113u16,
+    RIGHT_ROCKET = 122u16,
+    ROOT = 123u16,
     #[token(">")]
-    R_ANGLE = 114u16,
+    R_ANGLE = 124u16,
     #[token(">=")]
-    R_ANGLE_EQ = 115u16,
+    R_ANGLE_EQ = 125u16,
     #[token("]")]
-    R_BRACK = 116u16,
+    R_BRACK = 126u16,
     #[token("}")]
-    R_CURLY = 117u16,
+    R_CURLY = 127u16,
     #[token(")")]
-    R_PAREN = 118u16,
+    R_PAREN = 128u16,
     #[token(";")]
-    SEMICOLON = 119u16,
+    SEMICOLON = 129u16,
     #[token("<<")]
-    SHL = 120u16,
+    SHL = 130u16,
     #[token("<<=")]
-    SHL_EQ = 121u16,
+    SHL_EQ = 131u16,
     #[token(">>")]
-    SHR = 122u16,
+    SHR = 132u16,
     #[token(">>=")]
-    SHR_EQ = 123u16,
+    SHR_EQ = 133u16,
     #[token("/")]
-    SLASH = 124u16,
+    SLASH = 134u16,
     #[token("/=")]
-    SLASH_EQ = 125u16,
+    SLASH_EQ = 135u16,
     #[token("*")]
-    STAR = 126u16,
+    STAR = 136u16,
     #[token("*=")]
-    STAR_EQ = 127u16,
-    STRING = 128u16,
+    STAR_EQ = 137u16,
+    STRING = 138u16,
     #[regex(r#"b?"(\\.|[^\\"])*""#)]
-    STRING_LITERAL = 129u16,
-    STRUCT_DEF = 130u16,
-    STRUCT_INIT_EXPR = 131u16,
-    STRUCT_INIT_FIELD = 132u16,
-    STRUCT_PATTERN = 133u16,
-    STRUCT_PATTERN_FIELD = 134u16,
+    STRING_LITERAL = 139u16,
+    STRUCT_DEF = 140u16,
+    STRUCT_INIT_EXPR = 141u16,
+    STRUCT_INIT_FIELD = 142u16,
+    STRUCT_PATTERN = 143u16,
+    STRUCT_PATTERN_FIELD = 144u16,
     #[token("struct")]
-    STRUCT_TOKEN = 135u16,
+    STRUCT_TOKEN = 145u16,
     #[token("tombstone")]
-    TOMBSTONE = 136u16,
+    TOMBSTONE = 146u16,
     #[token("true")]
-    TRUE_TOKEN = 137u16,
-    TUPLE_EXPR_ELEM = 138u16,
-    TUPLE_INIT_EXPR = 139u16,
-    TUPLE_PATTERN = 140u16,
-    TUPLE_PATTERN_ELEM = 141u16,
-    TUPLE_STRUCT_FIELD = 142u16,
-    TUPLE_STRUCT_FIELDS = 143u16,
-    TUPLE_TYPE = 144u16,
-    TUPLE_TYPE_ELEM = 145u16,
-    TYPE_ALIAS = 146u16,
+    TRUE_TOKEN = 147u16,
+    TUPLE_EXPR_ELEM = 148u16,
+    TUPLE_INIT_EXPR = 149u16,
+    TUPLE_PATTERN = 150u16,
+    TUPLE_PATTERN_ELEM = 151u16,
+    TUPLE_STRUCT_FIELD = 152u16,
+    TUPLE_STRUCT_FIELDS = 153u16,
+    TUPLE_TYPE = 154u16,
+    TUPLE_TYPE_ELEM = 155u16,
+    TYPE_ALIAS = 156u16,
     #[token("type")]
-    TYPE_TOKEN = 147u16,
-    UNARY_EXPR = 148u16,
-    UNARY_OP = 149u16,
-    USE_ALIAS = 150u16,
-    USE_BRANCH = 151u16,
-    USE_DEF = 152u16,
+    TYPE_TOKEN = 157u16,
+    UNARY_EXPR = 158u16,
+    UNARY_OP = 159u16,
+    USE_ALIAS = 160u16,
+    USE_BRANCH = 161u16,
+    USE_DEF = 162u16,
     #[token("use")]
-    USE_TOKEN = 153u16,
-    VARIANT_STRUCT = 154u16,
-    VARIANT_STRUCT_FIELD = 155u16,
-    VARIANT_TUPLE = 156u16,
-    VARIANT_TUPLE_ELEM = 157u16,
-    VAR_DECL = 158u16,
-    VAR_REF = 159u16,
-    WHILE_EXPR = 160u16,
+    USE_TOKEN = 163u16,
+    VARIANT_STRUCT = 164u16,
+    VARIANT_STRUCT_FIELD = 165u16,
+    VARIANT_TUPLE = 166u16,
+    VARIANT_TUPLE_ELEM = 167u16,
+    VAR_DECL = 168u16,
+    VAR_REF = 169u16,
+    WHILE_EXPR = 170u16,
     #[token("while")]
-    WHILE_TOKEN = 161u16,
+    WHILE_TOKEN = 171u16,
     #[regex("[\n\t\r ]+")]
-    WHITESPACE = 162u16,
+    WHITESPACE = 172u16,
 }
 impl SyntaxKind {
     /// The maximum discriminant of the [`SyntaxKind`] enum
-    pub const MAXIMUM_DISCRIMINANT: u16 = 162u16;
+    pub const MAXIMUM_DISCRIMINANT: u16 = 172u16;
 }
 fn lex_block_comment(lexer: &mut logos::Lexer<'_, SyntaxKind>) -> bool {
     let remainder = lexer.remainder();
@@ -301,6 +313,11 @@ impl ::core::fmt::Debug for SyntaxKind {
             Self::CARET_EQ => ::core::fmt::Formatter::write_str(f, "CARET_EQ"),
             Self::CHAR => ::core::fmt::Formatter::write_str(f, "CHAR"),
             Self::CHAR_LITERAL => ::core::fmt::Formatter::write_str(f, "CHAR_LITERAL"),
+            Self::CLAUSE_DEF => ::core::fmt::Formatter::write_str(f, "CLAUSE_DEF"),
+            Self::CLAUSE_FACT => ::core::fmt::Formatter::write_str(f, "CLAUSE_FACT"),
+            Self::CLAUSE_FACT_ARG => ::core::fmt::Formatter::write_str(f, "CLAUSE_FACT_ARG"),
+            Self::CLAUSE_RULE => ::core::fmt::Formatter::write_str(f, "CLAUSE_RULE"),
+            Self::CLAUSE_RULES => ::core::fmt::Formatter::write_str(f, "CLAUSE_RULES"),
             Self::CLOSURE_ARG => ::core::fmt::Formatter::write_str(f, "CLOSURE_ARG"),
             Self::CLOSURE_EXPR => ::core::fmt::Formatter::write_str(f, "CLOSURE_EXPR"),
             Self::COLON => ::core::fmt::Formatter::write_str(f, "COLON"),
@@ -349,6 +366,7 @@ impl ::core::fmt::Debug for SyntaxKind {
             Self::GENERIC_ARG => ::core::fmt::Formatter::write_str(f, "GENERIC_ARG"),
             Self::GENERIC_TYPE => ::core::fmt::Formatter::write_str(f, "GENERIC_TYPE"),
             Self::HASH_BRACK => ::core::fmt::Formatter::write_str(f, "HASH_BRACK"),
+            Self::HORN_IMPLICATION => ::core::fmt::Formatter::write_str(f, "HORN_IMPLICATION"),
             Self::IDENT => ::core::fmt::Formatter::write_str(f, "IDENT"),
             Self::IF_BLOCK => ::core::fmt::Formatter::write_str(f, "IF_BLOCK"),
             Self::IF_EXPR => ::core::fmt::Formatter::write_str(f, "IF_EXPR"),
@@ -392,6 +410,10 @@ impl ::core::fmt::Debug for SyntaxKind {
             Self::QUALIFIED_REF => ::core::fmt::Formatter::write_str(f, "QUALIFIED_REF"),
             Self::RANGE_EXPR => ::core::fmt::Formatter::write_str(f, "RANGE_EXPR"),
             Self::RANGE_OP => ::core::fmt::Formatter::write_str(f, "RANGE_OP"),
+            Self::RELATION_ARG => ::core::fmt::Formatter::write_str(f, "RELATION_ARG"),
+            Self::RELATION_ARGS => ::core::fmt::Formatter::write_str(f, "RELATION_ARGS"),
+            Self::RELATION_DEF => ::core::fmt::Formatter::write_str(f, "RELATION_DEF"),
+            Self::REL_TOKEN => ::core::fmt::Formatter::write_str(f, "REL_TOKEN"),
             Self::RETURN_TOKEN => ::core::fmt::Formatter::write_str(f, "RETURN_TOKEN"),
             Self::RET_EXPR => ::core::fmt::Formatter::write_str(f, "RET_EXPR"),
             Self::RIGHT_ARROW => ::core::fmt::Formatter::write_str(f, "RIGHT_ARROW"),
@@ -486,6 +508,11 @@ impl ::core::fmt::Display for SyntaxKind {
             Self::CARET_EQ => ::core::fmt::Formatter::write_str(f, "^="),
             Self::CHAR => ::core::fmt::Formatter::write_str(f, "CHAR"),
             Self::CHAR_LITERAL => ::core::fmt::Formatter::write_str(f, "CHAR_LITERAL"),
+            Self::CLAUSE_DEF => ::core::fmt::Formatter::write_str(f, "CLAUSE_DEF"),
+            Self::CLAUSE_FACT => ::core::fmt::Formatter::write_str(f, "CLAUSE_FACT"),
+            Self::CLAUSE_FACT_ARG => ::core::fmt::Formatter::write_str(f, "CLAUSE_FACT_ARG"),
+            Self::CLAUSE_RULE => ::core::fmt::Formatter::write_str(f, "CLAUSE_RULE"),
+            Self::CLAUSE_RULES => ::core::fmt::Formatter::write_str(f, "CLAUSE_RULES"),
             Self::CLOSURE_ARG => ::core::fmt::Formatter::write_str(f, "CLOSURE_ARG"),
             Self::CLOSURE_EXPR => ::core::fmt::Formatter::write_str(f, "CLOSURE_EXPR"),
             Self::COLON => <::core::fmt::Formatter as ::core::fmt::Write>::write_char(f, ':'),
@@ -534,6 +561,7 @@ impl ::core::fmt::Display for SyntaxKind {
             Self::GENERIC_ARG => ::core::fmt::Formatter::write_str(f, "GENERIC_ARG"),
             Self::GENERIC_TYPE => ::core::fmt::Formatter::write_str(f, "GENERIC_TYPE"),
             Self::HASH_BRACK => ::core::fmt::Formatter::write_str(f, "#["),
+            Self::HORN_IMPLICATION => ::core::fmt::Formatter::write_str(f, ":-"),
             Self::IDENT => ::core::fmt::Formatter::write_str(f, "IDENT"),
             Self::IF_BLOCK => ::core::fmt::Formatter::write_str(f, "IF_BLOCK"),
             Self::IF_EXPR => ::core::fmt::Formatter::write_str(f, "IF_EXPR"),
@@ -577,6 +605,10 @@ impl ::core::fmt::Display for SyntaxKind {
             Self::QUALIFIED_REF => ::core::fmt::Formatter::write_str(f, "QUALIFIED_REF"),
             Self::RANGE_EXPR => ::core::fmt::Formatter::write_str(f, "RANGE_EXPR"),
             Self::RANGE_OP => ::core::fmt::Formatter::write_str(f, "RANGE_OP"),
+            Self::RELATION_ARG => ::core::fmt::Formatter::write_str(f, "RELATION_ARG"),
+            Self::RELATION_ARGS => ::core::fmt::Formatter::write_str(f, "RELATION_ARGS"),
+            Self::RELATION_DEF => ::core::fmt::Formatter::write_str(f, "RELATION_DEF"),
+            Self::REL_TOKEN => ::core::fmt::Formatter::write_str(f, "rel"),
             Self::RETURN_TOKEN => ::core::fmt::Formatter::write_str(f, "return"),
             Self::RET_EXPR => ::core::fmt::Formatter::write_str(f, "RET_EXPR"),
             Self::RIGHT_ARROW => ::core::fmt::Formatter::write_str(f, "->"),
@@ -658,7 +690,7 @@ const _: () = {
     #[inline(never)]
     fn invalid_syntax_kind(kind: u16) -> ! {
         ::core::panic!(
-            "invalid SyntaxKind '{}', must be within the range of 0..=162",
+            "invalid SyntaxKind '{}', must be within the range of 0..=172",
             kind,
         )
     }
@@ -666,7 +698,7 @@ const _: () = {
         #[inline]
         #[track_caller]
         fn from(kind: u16) -> Self {
-            if kind > 162u16 {
+            if kind > 172u16 {
                 invalid_syntax_kind(kind)
             } else {
                 unsafe { ::core::mem::transmute::<u16, Self>(kind) }
@@ -677,7 +709,7 @@ const _: () = {
         #[inline]
         #[track_caller]
         fn from(::cstree::SyntaxKind(kind): ::cstree::SyntaxKind) -> Self {
-            if kind > 162u16 {
+            if kind > 172u16 {
                 invalid_syntax_kind(kind)
             } else {
                 unsafe { ::core::mem::transmute::<u16, Self>(kind) }
@@ -803,6 +835,9 @@ macro_rules! T {
     ("#[") => {
         $crate::SyntaxKind::HASH_BRACK
     };
+    (:-) => {
+        $crate::SyntaxKind::HORN_IMPLICATION
+    };
     (if) => {
         $crate::SyntaxKind::IF_TOKEN
     };
@@ -868,6 +903,9 @@ macro_rules! T {
     };
     (pub) => {
         $crate::SyntaxKind::PUB_TOKEN
+    };
+    (rel) => {
+        $crate::SyntaxKind::REL_TOKEN
     };
     (return) => {
         $crate::SyntaxKind::RETURN_TOKEN

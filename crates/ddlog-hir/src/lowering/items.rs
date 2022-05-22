@@ -14,7 +14,9 @@ impl<'a> HirBuilder<'a> {
             | AstItem::ImplBlock(_)
             | AstItem::StructDef(_)
             | AstItem::TypeAlias(_)
-            | AstItem::UseDef(_) => todo!(),
+            | AstItem::UseDef(_)
+            | AstItem::RelationDef(_)
+            | AstItem::ClauseDef(_) => todo!(),
         }
     }
 

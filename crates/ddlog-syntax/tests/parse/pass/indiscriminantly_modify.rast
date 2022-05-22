@@ -1,10 +1,7 @@
-ROOT@0..140
-  COMMENT@0..107 "// kind:item validate ..."
-  WHITESPACE@107..108 "\n"
-  FUNCTION_DEF@108..140
-    MODIFIER@108..111
-      PUB_TOKEN@108..111 "pub"
-    WHITESPACE@111..112 " "
+ROOT@0..144
+  COMMENT@0..111 "// kind:item validate ..."
+  WHITESPACE@111..112 "\n"
+  FUNCTION_DEF@112..144
     MODIFIER@112..115
       PUB_TOKEN@112..115 "pub"
     WHITESPACE@115..116 " "
@@ -17,14 +14,17 @@ ROOT@0..140
     MODIFIER@124..127
       PUB_TOKEN@124..127 "pub"
     WHITESPACE@127..128 " "
-    FN_TOKEN@128..130 "fn"
-    WHITESPACE@130..131 " "
-    IDENT@131..134 "foo"
-    FUNCTION_ARGS@134..136
-      L_PAREN@134..135 "("
-      R_PAREN@135..136 ")"
-    WHITESPACE@136..137 " "
-    BLOCK@137..139
-      L_CURLY@137..138 "{"
-      R_CURLY@138..139 "}"
-    WHITESPACE@139..140 "\n"
+    MODIFIER@128..131
+      PUB_TOKEN@128..131 "pub"
+    WHITESPACE@131..132 " "
+    FN_TOKEN@132..134 "fn"
+    WHITESPACE@134..135 " "
+    IDENT@135..138 "foo"
+    FUNCTION_ARGS@138..140
+      L_PAREN@138..139 "("
+      R_PAREN@139..140 ")"
+    WHITESPACE@140..141 " "
+    BLOCK@141..143
+      L_CURLY@141..142 "{"
+      R_CURLY@142..143 "}"
+    WHITESPACE@143..144 "\n"

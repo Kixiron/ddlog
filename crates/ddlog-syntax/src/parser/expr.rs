@@ -24,6 +24,10 @@ pub(super) const EXPR_RECOVERY_SET: TokenSet = token_set! {
     T![;],
 };
 
+// TODO: Allow `let x = y` to be an expression to allow assignments within clauses, e.g.
+// ```
+// R(x) :- A(b), let x = b * b;
+// ```
 impl<'src, 'token> Parser<'src, 'token> {
     // test(expr) negation_has_higher_binding_power_than_infix
     // - -20 + 20
@@ -469,7 +473,8 @@ impl Parser<'_, '_> {
         Some(if self.at(NUMBER_LITERAL) {
             let number = self.start();
             self.expect(NUMBER_LITERAL);
-            number.complete(self, NUMBER)
+            number.complete(self, NUMBER);
+            marker.complete(self, FIELD_ACCESS)
 
         // Field access or method calls
         } else {
@@ -521,6 +526,8 @@ impl Parser<'_, '_> {
     // - (1, 2, 3,)
     // test_err(expr) missing_tuple_comma
     // - (1, 2 3)
+    // test(expr) unit_literal
+    // - ()
     pub(super) fn parens_or_tuple(&mut self) -> Option<CompletedMarker> {
         let marker = self.start();
 
@@ -529,9 +536,16 @@ impl Parser<'_, '_> {
             return None;
         }
 
+        // We special case unit literals
+        if self.at(T![')']) {
+            self.expect(T![')']);
+            // TODO: Should this be a unit literal instead of a tuple expr?
+            return Some(marker.complete(self, TUPLE_INIT_EXPR));
+        }
+
         let first_expr = self.start();
         // TODO: Error handling
-        self.expr();
+        self.expr().unwrap();
 
         let kind = if self.try_expect(T![,]) {
             first_expr.complete(self, TUPLE_EXPR_ELEM);

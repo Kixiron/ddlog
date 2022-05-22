@@ -53,6 +53,7 @@ const NAMED_TOKENS: &[(&str, &str)] = &[
     ("=>", "RIGHT_ROCKET"),
     ("&=", "AMPERSAND_EQ"),
     ("..=", "DOUBLE_DOT_EQ"),
+    (":-", "HORN_IMPLICATION"),
 ];
 
 const FUNKY_CHARS: &[&str] = &["(", ")", "{", "}", "[", "]", "#[", "/*", "*/"];

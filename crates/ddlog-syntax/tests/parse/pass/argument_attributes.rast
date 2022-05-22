@@ -1,32 +1,32 @@
-ROOT@0..149
-  COMMENT@0..107 "// kind:item validate ..."
-  WHITESPACE@107..108 "\n"
-  FUNCTION_DEF@108..149
-    FN_TOKEN@108..110 "fn"
-    WHITESPACE@110..111 " "
-    IDENT@111..114 "foo"
-    FUNCTION_ARGS@114..145
-      L_PAREN@114..115 "("
-      WHITESPACE@115..120 "\n    "
-      FUNCTION_ARG@120..143
-        ATTRIBUTE@120..129
-          HASH_BRACK@120..122 "#["
-          ATTR_PAIR@122..128
-            IDENT@122..128 "by_val"
-          R_BRACK@128..129 "]"
-        WHITESPACE@129..134 "\n    "
-        VAR_REF@134..137
-          IDENT@134..137 "bar"
-        COLON@137..138 ":"
-        WHITESPACE@138..139 " "
-        GENERIC_TYPE@139..142
-          PATH@139..142
-            IDENT@139..142 "Baz"
-        COMMA@142..143 ","
-      WHITESPACE@143..144 "\n"
-      R_PAREN@144..145 ")"
-    WHITESPACE@145..146 " "
-    BLOCK@146..148
-      L_CURLY@146..147 "{"
-      R_CURLY@147..148 "}"
-    WHITESPACE@148..149 "\n"
+ROOT@0..157
+  COMMENT@0..115 "// kind:item validate ..."
+  WHITESPACE@115..116 "\n"
+  FUNCTION_DEF@116..157
+    FN_TOKEN@116..118 "fn"
+    WHITESPACE@118..119 " "
+    IDENT@119..122 "foo"
+    FUNCTION_ARGS@122..153
+      L_PAREN@122..123 "("
+      WHITESPACE@123..128 "\n    "
+      FUNCTION_ARG@128..151
+        ATTRIBUTE@128..137
+          HASH_BRACK@128..130 "#["
+          ATTR_PAIR@130..136
+            IDENT@130..136 "by_val"
+          R_BRACK@136..137 "]"
+        WHITESPACE@137..142 "\n    "
+        VAR_REF@142..145
+          IDENT@142..145 "bar"
+        COLON@145..146 ":"
+        WHITESPACE@146..147 " "
+        GENERIC_TYPE@147..150
+          PATH@147..150
+            IDENT@147..150 "Baz"
+        COMMA@150..151 ","
+      WHITESPACE@151..152 "\n"
+      R_PAREN@152..153 ")"
+    WHITESPACE@153..154 " "
+    BLOCK@154..156
+      L_CURLY@154..155 "{"
+      R_CURLY@155..156 "}"
+    WHITESPACE@156..157 "\n"

@@ -1,22 +1,22 @@
-ROOT@0..127
-  COMMENT@0..107 "// kind:item validate ..."
-  WHITESPACE@107..108 "\n"
-  FUNCTION_DEF@108..127
-    FN_TOKEN@108..110 "fn"
-    WHITESPACE@110..111 " "
-    IDENT@111..114 "foo"
-    FUNCTION_ARGS@114..116
-      L_PAREN@114..115 "("
-      R_PAREN@115..116 ")"
-    WHITESPACE@116..117 " "
-    FUNCTION_RETURN@117..124
-      RIGHT_ARROW@117..119 "->"
-      WHITESPACE@119..120 " "
-      GENERIC_TYPE@120..124
-        PATH@120..123
-          IDENT@120..123 "Bar"
-        WHITESPACE@123..124 " "
-    BLOCK@124..126
-      L_CURLY@124..125 "{"
-      R_CURLY@125..126 "}"
-    WHITESPACE@126..127 "\n"
+ROOT@0..135
+  COMMENT@0..115 "// kind:item validate ..."
+  WHITESPACE@115..116 "\n"
+  FUNCTION_DEF@116..135
+    FN_TOKEN@116..118 "fn"
+    WHITESPACE@118..119 " "
+    IDENT@119..122 "foo"
+    FUNCTION_ARGS@122..124
+      L_PAREN@122..123 "("
+      R_PAREN@123..124 ")"
+    WHITESPACE@124..125 " "
+    FUNCTION_RETURN@125..132
+      RIGHT_ARROW@125..127 "->"
+      WHITESPACE@127..128 " "
+      GENERIC_TYPE@128..132
+        PATH@128..131
+          IDENT@128..131 "Bar"
+        WHITESPACE@131..132 " "
+    BLOCK@132..134
+      L_CURLY@132..133 "{"
+      R_CURLY@133..134 "}"
+    WHITESPACE@134..135 "\n"

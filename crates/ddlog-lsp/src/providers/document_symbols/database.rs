@@ -37,9 +37,12 @@ pub(crate) fn document_symbols(
             Item::FunctionDef(def) => symbols.document_function(file, def),
             Item::StructDef(def) => symbols.document_struct(file, def),
 
-            Item::ConstDef(_) | Item::ImplBlock(_) | Item::TypeAlias(_) | Item::UseDef(_) => {
-                return None
-            }
+            Item::RelationDef(_)
+            | Item::ClauseDef(_)
+            | Item::ConstDef(_)
+            | Item::ImplBlock(_)
+            | Item::TypeAlias(_)
+            | Item::UseDef(_) => return None,
         })
     });
 

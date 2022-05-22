@@ -686,6 +686,283 @@ impl crate::ast::AstNode for Char {
     :: core :: hash :: Hash,
 )]
 #[repr(transparent)]
+pub struct ClauseDef {
+    syntax: crate::SyntaxNode,
+}
+impl ClauseDef {
+    #[inline]
+    pub fn attributes(&self) -> crate::ast::support::AstChildren<'_, crate::ast::nodes::Attribute> {
+        crate::ast::support::children(&self.syntax)
+    }
+    #[inline]
+    pub fn facts(&self) -> crate::ast::support::AstChildren<'_, crate::ast::nodes::ClauseFact> {
+        crate::ast::support::children(&self.syntax)
+    }
+    #[inline]
+    pub fn rules(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::nodes::ClauseRules>> {
+        crate::ast::support::child(&self.syntax)
+    }
+    #[inline]
+    pub fn semicolon(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Semicolon>> {
+        crate::ast::support::token(&self.syntax)
+    }
+}
+impl crate::ast::AstNode for ClauseDef {
+    /// Returns `true` if the given [`SyntaxKind`] is a [`CLAUSE_DEF`]
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    /// [`CLAUSE_DEF`]: crate::SyntaxKind::CLAUSE_DEF
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        kind == crate::SyntaxKind::CLAUSE_DEF
+    }
+    /// Returns [`Some`] if the given [`SyntaxNode`] has the [`CLAUSE_DEF`] [`SyntaxKind`]
+    /// [`Some`]: std::option::Option::Some
+    /// [`SyntaxNode`]: crate::SyntaxNode
+    /// [`CLAUSE_DEF`]: crate::SyntaxKind::CLAUSE_DEF
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    #[inline]
+    fn cast(syntax: &crate::SyntaxNode) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        if <Self as crate::ast::AstNode>::can_cast_from(crate::SyntaxNode::kind(syntax)) {
+            let node = unsafe { ::core::mem::transmute::<&crate::SyntaxNode, &Self>(syntax) };
+            ::core::option::Option::Some(::std::borrow::Cow::Borrowed(node))
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    ///Returns a reference to the inner [`SyntaxNode`][crate::SyntaxNode]
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxNode {
+        &self.syntax
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+#[repr(transparent)]
+pub struct ClauseFact {
+    syntax: crate::SyntaxNode,
+}
+impl ClauseFact {
+    #[inline]
+    pub fn relation(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Ident>> {
+        crate::ast::support::token(&self.syntax)
+    }
+    #[inline]
+    pub fn l_paren(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::LParen>> {
+        crate::ast::support::token(&self.syntax)
+    }
+    #[inline]
+    pub fn args(&self) -> crate::ast::support::AstChildren<'_, crate::ast::nodes::ClauseFactArg> {
+        crate::ast::support::children(&self.syntax)
+    }
+    #[inline]
+    pub fn r_paren(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::RParen>> {
+        crate::ast::support::token(&self.syntax)
+    }
+    #[inline]
+    pub fn commas(&self) -> crate::ast::support::TokenChildren<'_, crate::ast::tokens::Comma> {
+        crate::ast::support::token_children(&self.syntax)
+    }
+}
+impl crate::ast::AstNode for ClauseFact {
+    /// Returns `true` if the given [`SyntaxKind`] is a [`CLAUSE_FACT`]
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    /// [`CLAUSE_FACT`]: crate::SyntaxKind::CLAUSE_FACT
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        kind == crate::SyntaxKind::CLAUSE_FACT
+    }
+    /// Returns [`Some`] if the given [`SyntaxNode`] has the [`CLAUSE_FACT`] [`SyntaxKind`]
+    /// [`Some`]: std::option::Option::Some
+    /// [`SyntaxNode`]: crate::SyntaxNode
+    /// [`CLAUSE_FACT`]: crate::SyntaxKind::CLAUSE_FACT
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    #[inline]
+    fn cast(syntax: &crate::SyntaxNode) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        if <Self as crate::ast::AstNode>::can_cast_from(crate::SyntaxNode::kind(syntax)) {
+            let node = unsafe { ::core::mem::transmute::<&crate::SyntaxNode, &Self>(syntax) };
+            ::core::option::Option::Some(::std::borrow::Cow::Borrowed(node))
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    ///Returns a reference to the inner [`SyntaxNode`][crate::SyntaxNode]
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxNode {
+        &self.syntax
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+#[repr(transparent)]
+pub struct ClauseFactArg {
+    syntax: crate::SyntaxNode,
+}
+impl ClauseFactArg {
+    #[inline]
+    pub fn expr(&self) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::nodes::Expr>> {
+        crate::ast::support::child(&self.syntax)
+    }
+    #[inline]
+    pub fn commas(&self) -> crate::ast::support::TokenChildren<'_, crate::ast::tokens::Comma> {
+        crate::ast::support::token_children(&self.syntax)
+    }
+}
+impl crate::ast::AstNode for ClauseFactArg {
+    /// Returns `true` if the given [`SyntaxKind`] is a [`CLAUSE_FACT_ARG`]
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    /// [`CLAUSE_FACT_ARG`]: crate::SyntaxKind::CLAUSE_FACT_ARG
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        kind == crate::SyntaxKind::CLAUSE_FACT_ARG
+    }
+    /// Returns [`Some`] if the given [`SyntaxNode`] has the [`CLAUSE_FACT_ARG`] [`SyntaxKind`]
+    /// [`Some`]: std::option::Option::Some
+    /// [`SyntaxNode`]: crate::SyntaxNode
+    /// [`CLAUSE_FACT_ARG`]: crate::SyntaxKind::CLAUSE_FACT_ARG
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    #[inline]
+    fn cast(syntax: &crate::SyntaxNode) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        if <Self as crate::ast::AstNode>::can_cast_from(crate::SyntaxNode::kind(syntax)) {
+            let node = unsafe { ::core::mem::transmute::<&crate::SyntaxNode, &Self>(syntax) };
+            ::core::option::Option::Some(::std::borrow::Cow::Borrowed(node))
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    ///Returns a reference to the inner [`SyntaxNode`][crate::SyntaxNode]
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxNode {
+        &self.syntax
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+#[repr(transparent)]
+pub struct ClauseRule {
+    syntax: crate::SyntaxNode,
+}
+impl ClauseRule {
+    #[inline]
+    pub fn rule(&self) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::nodes::Expr>> {
+        crate::ast::support::child(&self.syntax)
+    }
+    #[inline]
+    pub fn commas(&self) -> crate::ast::support::TokenChildren<'_, crate::ast::tokens::Comma> {
+        crate::ast::support::token_children(&self.syntax)
+    }
+}
+impl crate::ast::AstNode for ClauseRule {
+    /// Returns `true` if the given [`SyntaxKind`] is a [`CLAUSE_RULE`]
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    /// [`CLAUSE_RULE`]: crate::SyntaxKind::CLAUSE_RULE
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        kind == crate::SyntaxKind::CLAUSE_RULE
+    }
+    /// Returns [`Some`] if the given [`SyntaxNode`] has the [`CLAUSE_RULE`] [`SyntaxKind`]
+    /// [`Some`]: std::option::Option::Some
+    /// [`SyntaxNode`]: crate::SyntaxNode
+    /// [`CLAUSE_RULE`]: crate::SyntaxKind::CLAUSE_RULE
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    #[inline]
+    fn cast(syntax: &crate::SyntaxNode) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        if <Self as crate::ast::AstNode>::can_cast_from(crate::SyntaxNode::kind(syntax)) {
+            let node = unsafe { ::core::mem::transmute::<&crate::SyntaxNode, &Self>(syntax) };
+            ::core::option::Option::Some(::std::borrow::Cow::Borrowed(node))
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    ///Returns a reference to the inner [`SyntaxNode`][crate::SyntaxNode]
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxNode {
+        &self.syntax
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+#[repr(transparent)]
+pub struct ClauseRules {
+    syntax: crate::SyntaxNode,
+}
+impl ClauseRules {
+    #[inline]
+    pub fn horn_implication(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::HornImplication>> {
+        crate::ast::support::token(&self.syntax)
+    }
+    #[inline]
+    pub fn rules(&self) -> crate::ast::support::AstChildren<'_, crate::ast::nodes::ClauseRule> {
+        crate::ast::support::children(&self.syntax)
+    }
+}
+impl crate::ast::AstNode for ClauseRules {
+    /// Returns `true` if the given [`SyntaxKind`] is a [`CLAUSE_RULES`]
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    /// [`CLAUSE_RULES`]: crate::SyntaxKind::CLAUSE_RULES
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        kind == crate::SyntaxKind::CLAUSE_RULES
+    }
+    /// Returns [`Some`] if the given [`SyntaxNode`] has the [`CLAUSE_RULES`] [`SyntaxKind`]
+    /// [`Some`]: std::option::Option::Some
+    /// [`SyntaxNode`]: crate::SyntaxNode
+    /// [`CLAUSE_RULES`]: crate::SyntaxKind::CLAUSE_RULES
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    #[inline]
+    fn cast(syntax: &crate::SyntaxNode) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        if <Self as crate::ast::AstNode>::can_cast_from(crate::SyntaxNode::kind(syntax)) {
+            let node = unsafe { ::core::mem::transmute::<&crate::SyntaxNode, &Self>(syntax) };
+            ::core::option::Option::Some(::std::borrow::Cow::Borrowed(node))
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    ///Returns a reference to the inner [`SyntaxNode`][crate::SyntaxNode]
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxNode {
+        &self.syntax
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+#[repr(transparent)]
 pub struct ClosureArg {
     syntax: crate::SyntaxNode,
 }
@@ -3005,6 +3282,195 @@ impl crate::ast::AstNode for RangeExpr {
     /// [`Some`]: std::option::Option::Some
     /// [`SyntaxNode`]: crate::SyntaxNode
     /// [`RANGE_EXPR`]: crate::SyntaxKind::RANGE_EXPR
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    #[inline]
+    fn cast(syntax: &crate::SyntaxNode) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        if <Self as crate::ast::AstNode>::can_cast_from(crate::SyntaxNode::kind(syntax)) {
+            let node = unsafe { ::core::mem::transmute::<&crate::SyntaxNode, &Self>(syntax) };
+            ::core::option::Option::Some(::std::borrow::Cow::Borrowed(node))
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    ///Returns a reference to the inner [`SyntaxNode`][crate::SyntaxNode]
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxNode {
+        &self.syntax
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+#[repr(transparent)]
+pub struct RelationArg {
+    syntax: crate::SyntaxNode,
+}
+impl RelationArg {
+    #[inline]
+    pub fn attributes(&self) -> crate::ast::support::AstChildren<'_, crate::ast::nodes::Attribute> {
+        crate::ast::support::children(&self.syntax)
+    }
+    #[inline]
+    pub fn name(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Ident>> {
+        crate::ast::support::token(&self.syntax)
+    }
+    #[inline]
+    pub fn colon(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Colon>> {
+        crate::ast::support::token(&self.syntax)
+    }
+    #[inline]
+    pub fn ty(&self) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::nodes::Type>> {
+        crate::ast::support::child(&self.syntax)
+    }
+    #[inline]
+    pub fn commas(&self) -> crate::ast::support::TokenChildren<'_, crate::ast::tokens::Comma> {
+        crate::ast::support::token_children(&self.syntax)
+    }
+}
+impl crate::ast::AstNode for RelationArg {
+    /// Returns `true` if the given [`SyntaxKind`] is a [`RELATION_ARG`]
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    /// [`RELATION_ARG`]: crate::SyntaxKind::RELATION_ARG
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        kind == crate::SyntaxKind::RELATION_ARG
+    }
+    /// Returns [`Some`] if the given [`SyntaxNode`] has the [`RELATION_ARG`] [`SyntaxKind`]
+    /// [`Some`]: std::option::Option::Some
+    /// [`SyntaxNode`]: crate::SyntaxNode
+    /// [`RELATION_ARG`]: crate::SyntaxKind::RELATION_ARG
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    #[inline]
+    fn cast(syntax: &crate::SyntaxNode) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        if <Self as crate::ast::AstNode>::can_cast_from(crate::SyntaxNode::kind(syntax)) {
+            let node = unsafe { ::core::mem::transmute::<&crate::SyntaxNode, &Self>(syntax) };
+            ::core::option::Option::Some(::std::borrow::Cow::Borrowed(node))
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    ///Returns a reference to the inner [`SyntaxNode`][crate::SyntaxNode]
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxNode {
+        &self.syntax
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+#[repr(transparent)]
+pub struct RelationArgs {
+    syntax: crate::SyntaxNode,
+}
+impl RelationArgs {
+    #[inline]
+    pub fn l_paren(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::LParen>> {
+        crate::ast::support::token(&self.syntax)
+    }
+    #[inline]
+    pub fn args(&self) -> crate::ast::support::AstChildren<'_, crate::ast::nodes::RelationArg> {
+        crate::ast::support::children(&self.syntax)
+    }
+    #[inline]
+    pub fn r_paren(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::RParen>> {
+        crate::ast::support::token(&self.syntax)
+    }
+}
+impl crate::ast::AstNode for RelationArgs {
+    /// Returns `true` if the given [`SyntaxKind`] is a [`RELATION_ARGS`]
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    /// [`RELATION_ARGS`]: crate::SyntaxKind::RELATION_ARGS
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        kind == crate::SyntaxKind::RELATION_ARGS
+    }
+    /// Returns [`Some`] if the given [`SyntaxNode`] has the [`RELATION_ARGS`] [`SyntaxKind`]
+    /// [`Some`]: std::option::Option::Some
+    /// [`SyntaxNode`]: crate::SyntaxNode
+    /// [`RELATION_ARGS`]: crate::SyntaxKind::RELATION_ARGS
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    #[inline]
+    fn cast(syntax: &crate::SyntaxNode) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
+        if <Self as crate::ast::AstNode>::can_cast_from(crate::SyntaxNode::kind(syntax)) {
+            let node = unsafe { ::core::mem::transmute::<&crate::SyntaxNode, &Self>(syntax) };
+            ::core::option::Option::Some(::std::borrow::Cow::Borrowed(node))
+        } else {
+            ::core::option::Option::None
+        }
+    }
+    ///Returns a reference to the inner [`SyntaxNode`][crate::SyntaxNode]
+    #[inline]
+    fn syntax(&self) -> &crate::SyntaxNode {
+        &self.syntax
+    }
+}
+#[derive(
+    :: core :: fmt :: Debug,
+    :: core :: clone :: Clone,
+    :: core :: cmp :: PartialEq,
+    :: core :: cmp :: Eq,
+    :: core :: hash :: Hash,
+)]
+#[repr(transparent)]
+pub struct RelationDef {
+    syntax: crate::SyntaxNode,
+}
+impl RelationDef {
+    #[inline]
+    pub fn attributes(&self) -> crate::ast::support::AstChildren<'_, crate::ast::nodes::Attribute> {
+        crate::ast::support::children(&self.syntax)
+    }
+    #[inline]
+    pub fn modifiers(&self) -> crate::ast::support::AstChildren<'_, crate::ast::nodes::Modifier> {
+        crate::ast::support::children(&self.syntax)
+    }
+    #[inline]
+    pub fn keyword(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Rel>> {
+        crate::ast::support::token(&self.syntax)
+    }
+    #[inline]
+    pub fn name(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::tokens::Ident>> {
+        crate::ast::support::token(&self.syntax)
+    }
+    #[inline]
+    pub fn args(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::nodes::RelationArgs>> {
+        crate::ast::support::child(&self.syntax)
+    }
+}
+impl crate::ast::AstNode for RelationDef {
+    /// Returns `true` if the given [`SyntaxKind`] is a [`RELATION_DEF`]
+    /// [`SyntaxKind`]: crate::SyntaxKind
+    /// [`RELATION_DEF`]: crate::SyntaxKind::RELATION_DEF
+    #[inline]
+    fn can_cast_from(kind: crate::SyntaxKind) -> bool {
+        kind == crate::SyntaxKind::RELATION_DEF
+    }
+    /// Returns [`Some`] if the given [`SyntaxNode`] has the [`RELATION_DEF`] [`SyntaxKind`]
+    /// [`Some`]: std::option::Option::Some
+    /// [`SyntaxNode`]: crate::SyntaxNode
+    /// [`RELATION_DEF`]: crate::SyntaxKind::RELATION_DEF
     /// [`SyntaxKind`]: crate::SyntaxKind
     #[inline]
     fn cast(syntax: &crate::SyntaxNode) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
@@ -7171,15 +7637,20 @@ impl ::core::convert::From<crate::ast::nodes::Number> for FieldAccessor {
     :: core :: hash :: Hash,
 )]
 pub enum Item {
+    ClauseDef(crate::ast::nodes::ClauseDef),
     ConstDef(crate::ast::nodes::ConstDef),
     EnumDef(crate::ast::nodes::EnumDef),
     FunctionDef(crate::ast::nodes::FunctionDef),
     ImplBlock(crate::ast::nodes::ImplBlock),
+    RelationDef(crate::ast::nodes::RelationDef),
     StructDef(crate::ast::nodes::StructDef),
     TypeAlias(crate::ast::nodes::TypeAlias),
     UseDef(crate::ast::nodes::UseDef),
 }
 impl Item {
+    pub fn is_clause_def(&self) -> bool {
+        ::core::matches!(self, Self::ClauseDef(..))
+    }
     pub fn is_const_def(&self) -> bool {
         ::core::matches!(self, Self::ConstDef(..))
     }
@@ -7192,6 +7663,9 @@ impl Item {
     pub fn is_impl_block(&self) -> bool {
         ::core::matches!(self, Self::ImplBlock(..))
     }
+    pub fn is_relation_def(&self) -> bool {
+        ::core::matches!(self, Self::RelationDef(..))
+    }
     pub fn is_struct_def(&self) -> bool {
         ::core::matches!(self, Self::StructDef(..))
     }
@@ -7200,6 +7674,13 @@ impl Item {
     }
     pub fn is_use_def(&self) -> bool {
         ::core::matches!(self, Self::UseDef(..))
+    }
+    pub fn as_clause_def(&self) -> ::core::option::Option<&crate::ast::nodes::ClauseDef> {
+        if let Self::ClauseDef(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
     }
     pub fn as_const_def(&self) -> ::core::option::Option<&crate::ast::nodes::ConstDef> {
         if let Self::ConstDef(syntax) = self {
@@ -7229,6 +7710,13 @@ impl Item {
             ::core::option::Option::None
         }
     }
+    pub fn as_relation_def(&self) -> ::core::option::Option<&crate::ast::nodes::RelationDef> {
+        if let Self::RelationDef(syntax) = self {
+            ::core::option::Option::Some(syntax)
+        } else {
+            ::core::option::Option::None
+        }
+    }
     pub fn as_struct_def(&self) -> ::core::option::Option<&crate::ast::nodes::StructDef> {
         if let Self::StructDef(syntax) = self {
             ::core::option::Option::Some(syntax)
@@ -7248,6 +7736,13 @@ impl Item {
             ::core::option::Option::Some(syntax)
         } else {
             ::core::option::Option::None
+        }
+    }
+    pub fn into_clause_def(self) -> ::core::result::Result<crate::ast::nodes::ClauseDef, Self> {
+        if let Self::ClauseDef(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
         }
     }
     pub fn into_const_def(self) -> ::core::result::Result<crate::ast::nodes::ConstDef, Self> {
@@ -7278,6 +7773,13 @@ impl Item {
             ::core::result::Result::Err(self)
         }
     }
+    pub fn into_relation_def(self) -> ::core::result::Result<crate::ast::nodes::RelationDef, Self> {
+        if let Self::RelationDef(syntax) = self {
+            ::core::result::Result::Ok(syntax)
+        } else {
+            ::core::result::Result::Err(self)
+        }
+    }
     pub fn into_struct_def(self) -> ::core::result::Result<crate::ast::nodes::StructDef, Self> {
         if let Self::StructDef(syntax) = self {
             ::core::result::Result::Ok(syntax)
@@ -7297,6 +7799,18 @@ impl Item {
             ::core::result::Result::Ok(syntax)
         } else {
             ::core::result::Result::Err(self)
+        }
+    }
+    #[track_caller]
+    pub fn to_clause_def(self) -> crate::ast::nodes::ClauseDef {
+        if let Self::ClauseDef(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "Item",
+                "ClauseDef",
+                crate::SyntaxNode::kind(<Self as crate::ast::AstNode>::syntax(&self)),
+            )
         }
     }
     #[track_caller]
@@ -7348,6 +7862,18 @@ impl Item {
         }
     }
     #[track_caller]
+    pub fn to_relation_def(self) -> crate::ast::nodes::RelationDef {
+        if let Self::RelationDef(syntax) = self {
+            syntax
+        } else {
+            crate::ast::support::failed_enum_to_node_cast(
+                "Item",
+                "RelationDef",
+                crate::SyntaxNode::kind(<Self as crate::ast::AstNode>::syntax(&self)),
+            )
+        }
+    }
+    #[track_caller]
     pub fn to_struct_def(self) -> crate::ast::nodes::StructDef {
         if let Self::StructDef(syntax) = self {
             syntax
@@ -7387,10 +7913,12 @@ impl Item {
 impl crate::ast::AstNode for Item {
     #[inline]
     fn can_cast_from(kind: crate::SyntaxKind) -> bool {
-        <crate::ast::nodes::ConstDef as crate::ast::AstNode>::can_cast_from(kind)
+        <crate::ast::nodes::ClauseDef as crate::ast::AstNode>::can_cast_from(kind)
+            || <crate::ast::nodes::ConstDef as crate::ast::AstNode>::can_cast_from(kind)
             || <crate::ast::nodes::EnumDef as crate::ast::AstNode>::can_cast_from(kind)
             || <crate::ast::nodes::FunctionDef as crate::ast::AstNode>::can_cast_from(kind)
             || <crate::ast::nodes::ImplBlock as crate::ast::AstNode>::can_cast_from(kind)
+            || <crate::ast::nodes::RelationDef as crate::ast::AstNode>::can_cast_from(kind)
             || <crate::ast::nodes::StructDef as crate::ast::AstNode>::can_cast_from(kind)
             || <crate::ast::nodes::TypeAlias as crate::ast::AstNode>::can_cast_from(kind)
             || <crate::ast::nodes::UseDef as crate::ast::AstNode>::can_cast_from(kind)
@@ -7398,6 +7926,20 @@ impl crate::ast::AstNode for Item {
     #[inline]
     fn cast(syntax: &crate::SyntaxNode) -> ::core::option::Option<::std::borrow::Cow<'_, Self>> {
         match crate::SyntaxNode::kind(syntax) {
+            kind if <crate::ast::nodes::ClauseDef as crate::ast::AstNode>::can_cast_from(kind) => {
+                let node = match <crate::ast::nodes::ClauseDef as crate::ast::AstNode>::cast(syntax)
+                {
+                    ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                    ::core::option::Option::None => {
+                        if ::core::cfg!(debug_assertions) {
+                            ::core::unreachable!()
+                        } else {
+                            unsafe { ::core::hint::unreachable_unchecked() }
+                        }
+                    }
+                };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::ClauseDef(node)))
+            }
             kind if <crate::ast::nodes::ConstDef as crate::ast::AstNode>::can_cast_from(kind) => {
                 let node = match <crate::ast::nodes::ConstDef as crate::ast::AstNode>::cast(syntax)
                 {
@@ -7456,6 +7998,23 @@ impl crate::ast::AstNode for Item {
                 };
                 ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::ImplBlock(node)))
             }
+            kind if <crate::ast::nodes::RelationDef as crate::ast::AstNode>::can_cast_from(
+                kind,
+            ) =>
+            {
+                let node =
+                    match <crate::ast::nodes::RelationDef as crate::ast::AstNode>::cast(syntax) {
+                        ::core::option::Option::Some(node) => ::std::borrow::Cow::into_owned(node),
+                        ::core::option::Option::None => {
+                            if ::core::cfg!(debug_assertions) {
+                                ::core::unreachable!()
+                            } else {
+                                unsafe { ::core::hint::unreachable_unchecked() }
+                            }
+                        }
+                    };
+                ::core::option::Option::Some(::std::borrow::Cow::Owned(Self::RelationDef(node)))
+            }
             kind if <crate::ast::nodes::StructDef as crate::ast::AstNode>::can_cast_from(kind) => {
                 let node = match <crate::ast::nodes::StructDef as crate::ast::AstNode>::cast(syntax)
                 {
@@ -7503,6 +8062,9 @@ impl crate::ast::AstNode for Item {
     #[inline]
     fn syntax(&self) -> &crate::SyntaxNode {
         match self {
+            Self::ClauseDef(syntax) => {
+                <crate::ast::nodes::ClauseDef as crate::ast::AstNode>::syntax(syntax)
+            }
             Self::ConstDef(syntax) => {
                 <crate::ast::nodes::ConstDef as crate::ast::AstNode>::syntax(syntax)
             }
@@ -7515,6 +8077,9 @@ impl crate::ast::AstNode for Item {
             Self::ImplBlock(syntax) => {
                 <crate::ast::nodes::ImplBlock as crate::ast::AstNode>::syntax(syntax)
             }
+            Self::RelationDef(syntax) => {
+                <crate::ast::nodes::RelationDef as crate::ast::AstNode>::syntax(syntax)
+            }
             Self::StructDef(syntax) => {
                 <crate::ast::nodes::StructDef as crate::ast::AstNode>::syntax(syntax)
             }
@@ -7524,6 +8089,17 @@ impl crate::ast::AstNode for Item {
             Self::UseDef(syntax) => {
                 <crate::ast::nodes::UseDef as crate::ast::AstNode>::syntax(syntax)
             }
+        }
+    }
+}
+impl ::core::convert::TryFrom<Item> for crate::ast::nodes::ClauseDef {
+    type Error = Item;
+    #[inline]
+    fn try_from(value: Item) -> ::core::result::Result<Self, Self::Error> {
+        if let Item::ClauseDef(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
         }
     }
 }
@@ -7571,6 +8147,17 @@ impl ::core::convert::TryFrom<Item> for crate::ast::nodes::ImplBlock {
         }
     }
 }
+impl ::core::convert::TryFrom<Item> for crate::ast::nodes::RelationDef {
+    type Error = Item;
+    #[inline]
+    fn try_from(value: Item) -> ::core::result::Result<Self, Self::Error> {
+        if let Item::RelationDef(this) = value {
+            ::core::result::Result::Ok(this)
+        } else {
+            ::core::result::Result::Err(value)
+        }
+    }
+}
 impl ::core::convert::TryFrom<Item> for crate::ast::nodes::StructDef {
     type Error = Item;
     #[inline]
@@ -7604,6 +8191,12 @@ impl ::core::convert::TryFrom<Item> for crate::ast::nodes::UseDef {
         }
     }
 }
+impl ::core::convert::From<crate::ast::nodes::ClauseDef> for Item {
+    #[inline]
+    fn from(value: crate::ast::nodes::ClauseDef) -> Self {
+        Self::ClauseDef(value)
+    }
+}
 impl ::core::convert::From<crate::ast::nodes::ConstDef> for Item {
     #[inline]
     fn from(value: crate::ast::nodes::ConstDef) -> Self {
@@ -7626,6 +8219,12 @@ impl ::core::convert::From<crate::ast::nodes::ImplBlock> for Item {
     #[inline]
     fn from(value: crate::ast::nodes::ImplBlock) -> Self {
         Self::ImplBlock(value)
+    }
+}
+impl ::core::convert::From<crate::ast::nodes::RelationDef> for Item {
+    #[inline]
+    fn from(value: crate::ast::nodes::RelationDef) -> Self {
+        Self::RelationDef(value)
     }
 }
 impl ::core::convert::From<crate::ast::nodes::StructDef> for Item {

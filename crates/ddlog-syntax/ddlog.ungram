@@ -1,14 +1,28 @@
 Root = Item*
 
 Item =
-    FunctionDef
+    RelationDef
+    | ClauseDef
+    | FunctionDef
     | StructDef
     | EnumDef
     | ConstDef
     | UseDef
     | ImplBlock
     | TypeAlias
-    // TODO: Relations & Clauses
+    // TODO: Modules and Module Declarations (or do we want automatic module discovery?)
+
+RelationDef = Attribute* Modifier* keyword:'rel' name:'ident' args:RelationArgs
+RelationArgs = '(' args:RelationArg* ')'
+RelationArg = Attribute* name:'ident' ':' ty:Type ','*
+
+ClauseDef = Attribute* facts:ClauseFact* rules:ClauseRules? ';'
+ClauseFact = relation:'ident' '(' args:ClauseFactArg* ')' ','*
+ClauseFactArg = expr:Expr ','*
+ClauseRules = ':-' rules:ClauseRule*
+// Note that rules are just expressions, there's no syntatic difference
+// between calling a function and referencing a relation
+ClauseRule = rule:Expr ','*
 
 FunctionDef = Attribute* Modifier* keyword:'fn' name:'ident' Generics args:FunctionArgs ret:FunctionReturn? body:Block
 FunctionArgs = '(' args:FunctionArg* ')'
