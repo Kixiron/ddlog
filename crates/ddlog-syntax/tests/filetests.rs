@@ -90,7 +90,7 @@ fn main() {
         if validate {
             let mut ctx = RuleCtx::new(file, Rope::from_str(contents), interner.clone());
             validation::run_validators(&root, &mut ctx);
-            errors.extend(ctx.diagnostics);
+            errors.extend(ctx.into_diagnostics());
         }
 
         send.send(()).unwrap();

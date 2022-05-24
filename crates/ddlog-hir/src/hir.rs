@@ -7,9 +7,21 @@ use derive_stable_hash::StableHash;
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub enum Item {
     FuncDef(FuncDef),
+    ClauseDef(ClauseDef),
+    RelationDef(RelationDef),
 }
 
+<<<<<<< HEAD
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
+=======
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub struct ClauseDef {}
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub struct RelationDef {}
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+>>>>>>> 226cdf1 (Started on symbol resolution)
 pub struct FuncDef {
     name: IStr,
     // generics: Vec<GenericParam>,

@@ -27,7 +27,7 @@ pub(crate) fn semantic_tokens_full(
     let mut ctx = RuleCtx::new(file, source, interner);
     visitor::apply_visitor_short_circuiting(&root, &mut highlighter, &mut ctx);
 
-    let tokens = highlighter.finish(&ctx.source);
+    let tokens = highlighter.finish(ctx.source());
     if tokens.data.is_empty() {
         tracing::debug!(
             file = %url,

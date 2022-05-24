@@ -71,7 +71,7 @@ fn validation_diagnostics(validation: &dyn Validation, file: FileId) -> ArcSlice
 
     validation::run_validators(&validation.syntax(file), &mut ctx);
 
-    ArcSlice::new(ctx.diagnostics)
+    ArcSlice::new(ctx.into_diagnostics())
 }
 
 #[salsa::query_group(SymbolsDatabase)]

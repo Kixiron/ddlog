@@ -1,5 +1,7 @@
 * text=auto eol=lf
 
 # Ignore generated code in diffs
-crates/ddlog_syntax/src/syntax_kind/generated.rs linguist-generated
-crates/ddlog_syntax/src/ast/generated/ linguist-generated
+crates/ddlog-syntax/src/syntax_kind/generated.rs linguist-generated=true
+crates/ddlog-syntax/src/ast/generated/** linguist-generated=true
+crates/ddlog-syntax/tests/**/*.rast linguist-generated=true
+crates/ddlog-syntax/src/validation/too_many_struct_files.expected linguist-generated=true

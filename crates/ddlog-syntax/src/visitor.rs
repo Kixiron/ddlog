@@ -8,14 +8,18 @@ use std::ops::DerefMut;
 #[derive(Debug, Clone)]
 pub struct RuleCtx {
     /// The file id of the file being linted
-    pub file_id: FileId,
-    /// An empty vector of diagnostics which the rule adds to
-    pub diagnostics: Vec<Diagnostic>,
-    pub source: Rope,
-    pub interner: Interner,
+    file_id: FileId,
+    /// A vector of diagnostics which the rule adds to
+    diagnostics: Vec<Diagnostic>,
+    /// The current file's source text
+    source: Rope,
+    /// The current string interner
+    interner: Interner,
 }
 
 impl RuleCtx {
+    /// Create a new rule context
+    #[must_use]
     pub fn new(file_id: FileId, source: Rope, interner: Interner) -> Self {
         Self {
             file_id,
@@ -25,8 +29,33 @@ impl RuleCtx {
         }
     }
 
+    /// Add a diagnostic to the current rule context
+    pub fn push_diagnostic(&mut self, diagnostic: Diagnostic) {
+        self.diagnostics.push(diagnostic);
+    }
+
+    /// Get the rule context's file id
+    #[must_use]
+    pub const fn file(&self) -> FileId {
+        self.file_id
+    }
+
+    /// Get a reference to the rule context's source text
+    #[must_use]
+    pub fn source(&self) -> &Rope {
+        &self.source
+    }
+
+    /// Get the rule context's interner
+    #[must_use]
     pub const fn interner(&self) -> &Interner {
         &self.interner
+    }
+
+    /// Discards the current rule context, retrieving all diagnostics it contains
+    #[must_use]
+    pub fn into_diagnostics(self) -> Vec<Diagnostic> {
+        self.diagnostics
     }
 }
 

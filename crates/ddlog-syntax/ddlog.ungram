@@ -29,13 +29,15 @@ FunctionArgs = '(' args:FunctionArg* ')'
 FunctionArg = Attribute* binding:Pattern ':' ty:Type ','*
 FunctionReturn = '->' return_ty:Type
 
+// TODO: Generics
 StructDef = Attribute* Modifier* keyword:'struct' name:'ident' fields:StructFields
 StructFields = BracketedStructFields | TupleStructFields
 BracketedStructFields = '{' fields:BracketedStructField* '}'
 BracketedStructField = Attribute* Modifier* name:'ident' ':' ty:Type ','*
-TupleStructFields = '(' TupleStructField* ')' ';'*
+TupleStructFields = '(' fields:TupleStructField* ')' ';'*
 TupleStructField = Attribute* Modifier* ty:Type ','*
 
+// TODO: Generics
 EnumDef = Attribute* Modifier* keyword:'enum' name:'ident' variants:EnumVariants
 EnumVariants = '{' variants:EnumVariant* '}'
 EnumVariant = Attribute* variant:'ident' EnumVariantBody
@@ -54,6 +56,7 @@ UseAlias = 'as' alias:'ident'
 UseBranch = '{' (Path UseBranchOrAlias? ','*)* '}'
 
 // TODO: `impl Trait for Type { ... }`
+// TODO: Generics
 ImplBlock = Attribute* Modifier* keyword:'impl' target:Type contents:ImplBlockContents
 ImplBlockContents = '{' Item* '}'
 

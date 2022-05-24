@@ -191,7 +191,7 @@ impl StableHash for IStr {
 impl Debug for IStr {
     #[inline]
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.write_str("FileId(")?;
+        f.write_str("IStr(")?;
         Debug::fmt(&self.into_inner().into_inner(), f)?;
         f.write_char(')')
     }

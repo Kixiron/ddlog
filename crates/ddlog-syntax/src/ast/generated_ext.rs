@@ -1,5 +1,8 @@
 use crate::ast::{
-    nodes::{Attribute, ConstDef, EnumDef, EnumVariant, FunctionDef, StructDef, TupleType, VarRef},
+    nodes::{
+        Attribute, BracketedStructField, ConstDef, EnumDef, EnumVariant, FunctionDef, StructDef,
+        StructFields, TupleType, VarRef,
+    },
     tokens::Ident,
     AstNode, AstToken,
 };
@@ -52,7 +55,7 @@ impl FunctionDef {
             .or(if include_keyword { keyword } else { None })
             .unwrap_or_else(|| self.trimmed_range());
 
-        start.intersect(end).unwrap_or_else(|| self.trimmed_range())
+        start.cover(end)
     }
 
     /// Returns `true` if the enum has a `#[deprecated]` attribute
@@ -83,6 +86,29 @@ impl StructDef {
     pub fn ident(&self) -> Option<IStr> {
         self.name().map(|ident| ident.interned())
     }
+
+    pub fn signature_span(&self) -> TextRange {
+        let keyword = self.keyword().map(|function| function.text_range());
+        let name = self.name().as_ref().map(|name| name.text_range());
+
+        let start = keyword.or(name).unwrap_or_else(|| self.trimmed_range());
+        let end = name.or(keyword).unwrap_or_else(|| self.trimmed_range());
+        start.cover(end)
+    }
+
+    pub fn is_unit_struct(&self) -> bool {
+        self.fields().is_some()
+    }
+
+    pub fn is_bracketed_struct(&self) -> bool {
+        self.fields()
+            .map_or(false, |fields| fields.is_bracketed_struct_fields())
+    }
+
+    pub fn is_tuple_struct(&self) -> bool {
+        self.fields()
+            .map_or(false, |fields| fields.is_tuple_struct_fields())
+    }
 }
 
 impl ConstDef {
@@ -109,5 +135,26 @@ impl Attribute {
 impl TupleType {
     pub fn is_empty(&self) -> bool {
         self.elements().len() == 0
+    }
+}
+
+impl StructFields {
+    #[must_use]
+    pub fn len(&self) -> usize {
+        match self {
+            Self::BracketedStructFields(fields) => fields.fields().count(),
+            Self::TupleStructFields(fields) => fields.fields().count(),
+        }
+    }
+
+    #[must_use]
+    pub fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+}
+
+impl BracketedStructField {
+    pub fn ident(&self) -> Option<IStr> {
+        self.name().map(|ident| ident.interned())
     }
 }

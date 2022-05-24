@@ -4235,7 +4235,7 @@ impl TupleStructFields {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
-    pub fn tuple_struct_fields(
+    pub fn fields(
         &self,
     ) -> crate::ast::support::AstChildren<'_, crate::ast::nodes::TupleStructField> {
         crate::ast::support::children(&self.syntax)
