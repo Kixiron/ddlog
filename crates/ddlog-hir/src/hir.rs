@@ -11,17 +11,13 @@ pub enum Item {
     RelationDef(RelationDef),
 }
 
-<<<<<<< HEAD
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
-=======
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct ClauseDef {}
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct RelationDef {}
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
->>>>>>> 226cdf1 (Started on symbol resolution)
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub struct FuncDef {
     name: IStr,
     // generics: Vec<GenericParam>,

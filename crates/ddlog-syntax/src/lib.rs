@@ -7,6 +7,8 @@ mod token_set;
 pub mod ast;
 mod lexer;
 mod parser;
+mod parser_cache;
+pub mod queries;
 mod syntax;
 pub mod validation;
 pub mod visitor;
@@ -106,7 +108,7 @@ impl Parsed {
     /// Get a reference to the root syntax node
     #[inline]
     pub fn root(&self) -> &Root {
-        debug_assert_eq!(self.root.kind(), ROOT);
+        assert_eq!(self.root.kind(), ROOT);
 
         // Safety: `SyntaxNode` and `Root` have the same layouts,
         //         `Root` is transparent around `SyntaxNode`

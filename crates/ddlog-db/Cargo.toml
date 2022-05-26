@@ -5,3 +5,7 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
+salsa = "0.16.1"
+tracing = "0.1.34"
+parking_lot = "0.12.0"
+ddlog-diagnostics = { path = "../ddlog-diagnostics" }

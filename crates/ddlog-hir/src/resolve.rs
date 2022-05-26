@@ -1,14 +1,19 @@
 use ddlog_diagnostics::{Diagnostic, FileId, IStr, Interner, Label, Span};
-use ddlog_syntax::ast::{
-    nodes::Root,
-    prefixed::nodes::{AstItem, AstStructFields},
-    AstNode,
+use ddlog_syntax::{
+    ast::{
+        nodes::Root,
+        prefixed::nodes::{AstItem, AstStructFields},
+        AstNode,
+    },
+    SyntaxNodeExt,
 };
 use ddlog_utils::OptionExt;
 use std::{
     borrow::Cow,
     collections::{BTreeMap, VecDeque},
 };
+
+use crate::hir::Item;
 
 macro_rules! declare_primitives {
     ($($primitive:ident),* $(,)?) => {
@@ -63,9 +68,15 @@ impl<'a> Resolver<'a> {
     }
 
     pub fn resolve(&mut self, root: &Root) -> Vec<Diagnostic> {
-        let (mut errors, mut items) = (Vec::new(), BTreeMap::new());
+        let (mut errors, mut types, mut functions, mut item_nodes) = (
+            Vec::new(),
+            BTreeMap::new(),
+            BTreeMap::new(),
+            BTreeMap::new(),
+        );
+
         for name in self.primitives.iter() {
-            items
+            types
                 .insert(name, Symbol::Primitive { name })
                 .debug_unwrap_none();
         }
@@ -87,7 +98,7 @@ impl<'a> Resolver<'a> {
                         let span = Span::from_text_range(func.signature_span(true), self.file);
 
                         let symbol = Symbol::Fn { name, span };
-                        if let Some(shadowed) = items.insert(name, symbol) {
+                        if let Some(shadowed) = functions.insert(name, symbol) {
                             // Shadowing primitives is ok for user types
                             if !shadowed.is_primitive() {
                                 let shadowed_span = shadowed
@@ -107,6 +118,8 @@ impl<'a> Resolver<'a> {
                                 errors.push(error);
                             }
                         }
+
+                        item_nodes.insert(name, item);
                     }
 
                     // TODO: Even if there's an error within the current struct's name
@@ -149,7 +162,7 @@ impl<'a> Resolver<'a> {
                         //     .unwrap_or_default();
 
                         let symbol = Symbol::Struct { name, span };
-                        if let Some(shadowed) = items.insert(name, symbol) {
+                        if let Some(shadowed) = types.insert(name, symbol) {
                             // Shadowing primitives is ok for user types
                             if !shadowed.is_primitive() {
                                 let shadowed_span = shadowed
@@ -169,6 +182,8 @@ impl<'a> Resolver<'a> {
                                 errors.push(error);
                             }
                         }
+
+                        item_nodes.insert(name, item);
                     }
 
                     // TODO: Even if there's an error within the current struct's name
@@ -177,7 +192,23 @@ impl<'a> Resolver<'a> {
             }
         }
 
-        dbg!(&items);
+        for (name, item) in item_nodes {
+            match &*item {
+                AstItem::FunctionDef(_) => {}
+
+                AstItem::StructDef(strct) => {}
+
+                AstItem::ClauseDef(_)
+                | AstItem::ConstDef(_)
+                | AstItem::EnumDef(_)
+                | AstItem::ImplBlock(_)
+                | AstItem::RelationDef(_)
+                | AstItem::TypeAlias(_)
+                | AstItem::UseDef(_) => todo!(),
+            }
+        }
+
+        dbg!(&types);
         errors
     }
 }

@@ -65,7 +65,8 @@ pub fn line_endings(mode: CodegenMode) -> Result<()> {
 
     if mode.is_check() && non_normalized != 0 {
         anyhow::bail!(
-            "{} files contained CRLF line endings, run `cargo xtask line-endings --mode run` to fix them",
+            "{non_normalized} files contained CRLF line endings, run \
+            `cargo xtask line-endings --mode run` to fix them",
         );
     }
 

@@ -6,6 +6,7 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 imbl = "2.0.0"
+salsa = "0.16.1"
 stable-hash = { path = "../stable-hash" }
 ddlog-utils = { path = "../ddlog-utils" }
 ddlog-syntax = { path = "../ddlog-syntax" }

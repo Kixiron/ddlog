@@ -10,10 +10,16 @@ path = "src/bin/ddlog_repl.rs"
 
 [dependencies]
 tracing = "0.1.26"
-tower-lsp = "0.16.0"
+tower-lsp = "0.17.0"
+human-panic = "1.0.3"
 ddlog-lsp = { path = "../ddlog-lsp" }
 ddlog-utils = { path = "../ddlog-utils" }
 ddlog-syntax = { path = "../ddlog-syntax" }
+# TODO: Narrow down tokio features to only use the ones we need
 tokio = { version = "1.10.1", features = ["full"] }
 ddlog-diagnostics = { path = "../ddlog-diagnostics" }
 tracing-subscriber = { version = "0.3.11", features = ["env-filter"] }
+
+# TODO: Add vergen build info
+# [build-dependencies]
+# vergen = "7.1.0"

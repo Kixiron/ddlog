@@ -5,4 +5,5 @@
 
 pub mod hir;
 pub mod lowering;
+mod queries;
 pub mod resolve;
