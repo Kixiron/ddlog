@@ -16,6 +16,7 @@ impl Parser<'_, '_> {
         self.ident();
         self.recovery_set = current_set;
 
+        self.generics();
         self.function_args();
 
         // test function_ret_ty

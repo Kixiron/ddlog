@@ -1,5 +1,5 @@
 [package]
-name = "derive-stable-hash"
+name = "stable-hash-derive"
 version = "0.1.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
@@ -15,7 +15,3 @@ proc-macro2 = "1.0.38"
     version = "1.0.92"
     default-features = false
     features = ["proc-macro", "derive", "parsing", "printing"]
-
-[dev-dependencies]
-trybuild = "1.0.61"
-stable-hash = { path = "../stable-hash" }

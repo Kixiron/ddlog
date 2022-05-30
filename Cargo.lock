@@ -54,9 +54,9 @@ checksum = "08f9b8508dccb7687a1d6c4ce66b2b0ecef467c94667de27d8d7fe1f8d2a9cdc"
 
 [[package]]
 name = "ariadne"
-version = "0.1.3"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7080ae01b2f0c312065d4914cd0f0de045eb8832e9415b355106a6cff3073cb4"
+checksum = "f1cb2a2046bea8ce5e875551f5772024882de0b540c7f93dfc5d6cf1ca8b030c"
 dependencies = [
  "yansi",
 ]
@@ -174,6 +174,20 @@ name = "bytemuck"
 version = "1.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cdead85bdec19c194affaeeb670c0e41fe23de31459efd1c174d049269cf02cc"
+dependencies = [
+ "bytemuck_derive",
+]
+
+[[package]]
+name = "bytemuck_derive"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "562e382481975bc61d11275ac5e62a19abd00b0547d99516a415336f183dcd0e"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "byteorder"
@@ -385,6 +399,9 @@ dependencies = [
 name = "ddlog-driver"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
+ "atty",
+ "backtrace",
  "ddlog-diagnostics",
  "ddlog-lsp",
  "ddlog-syntax",
@@ -394,6 +411,8 @@ dependencies = [
  "tower-lsp",
  "tracing",
  "tracing-subscriber",
+ "tracing-tree",
+ "uuid 1.1.0",
 ]
 
 [[package]]
@@ -407,7 +426,6 @@ dependencies = [
  "ddlog-diagnostics",
  "ddlog-syntax",
  "ddlog-utils",
- "derive-stable-hash",
  "imbl",
  "salsa",
  "stable-hash",
@@ -425,7 +443,6 @@ dependencies = [
  "ddlog-syntax",
  "ddlog-utils",
  "lsp-text",
- "ropey",
  "salsa",
  "serde_json",
  "tokio",
@@ -458,17 +475,6 @@ version = "0.1.0"
 dependencies = [
  "triomphe",
  "xxhash-rust",
-]
-
-[[package]]
-name = "derive-stable-hash"
-version = "0.1.0"
-dependencies = [
- "proc-macro2",
- "quote",
- "stable-hash",
- "syn",
- "trybuild",
 ]
 
 [[package]]
@@ -721,7 +727,7 @@ dependencies = [
  "serde_derive",
  "termcolor",
  "toml",
- "uuid",
+ "uuid 0.8.2",
 ]
 
 [[package]]
@@ -1240,11 +1246,12 @@ checksum = "f497285884f3fcff424ffc933e56d7cbca511def0c9831a7f9b5f6153e3cc89b"
 
 [[package]]
 name = "ropey"
-version = "1.3.1"
+version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9150aff6deb25b20ed110889f070a678bcd1033e46e5e9d6fb1abeab17947f28"
+checksum = "bbd22239fafefc42138ca5da064f3c17726a80d2379d817a3521240e78dd0064"
 dependencies = [
  "smallvec",
+ "str_indices",
 ]
 
 [[package]]
@@ -1400,6 +1407,17 @@ dependencies = [
  "bytemuck",
  "ddlog-utils",
  "qp-trie",
+ "stable-hash-derive",
+ "trybuild",
+]
+
+[[package]]
+name = "stable-hash-derive"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]
@@ -1407,6 +1425,12 @@ name = "stable_deref_trait"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a8f112729512f8e442d81f95a8a7ddf2b7c6b8a1a6f509a95864142b30cab2d3"
+
+[[package]]
+name = "str_indices"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9d9199fa80c817e074620be84374a520062ebac833f358d74b37060ce4a0f2c0"
 
 [[package]]
 name = "strsim"
@@ -1653,6 +1677,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "tracing-tree"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d07e90b329c621ade432823988574e820212648aa40e7a2497777d58de0fb453"
+dependencies = [
+ "ansi_term",
+ "atty",
+ "tracing-core",
+ "tracing-log",
+ "tracing-subscriber",
+]
+
+[[package]]
 name = "triomphe"
 version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1750,6 +1787,15 @@ name = "uuid"
 version = "0.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bc5cf98d8186244414c848017f0e2676b3fcb46807f6668a97dfe67359a3c4b7"
+dependencies = [
+ "getrandom",
+]
+
+[[package]]
+name = "uuid"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "93bbc61e655a4833cf400d0d15bf3649313422fa7572886ad6dab16d79886365"
 dependencies = [
  "getrandom",
 ]

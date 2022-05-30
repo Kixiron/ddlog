@@ -21,8 +21,8 @@ Error: missing comma between tuple elements
    ,-[parse/fail/missing_tuple_comma.dl:2:7]
    |
  2 | (1, 2 3)
-   :       |  
-   :       `-- expected a comma
+   *       |  
+   *       `-- expected a comma
 ---'
 --
 // kind:expr validate:false pass:false ignore:false file:'ddlog-syntax/src/parser/expr.rs' line:526 column:3

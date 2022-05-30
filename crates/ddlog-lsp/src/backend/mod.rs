@@ -137,7 +137,7 @@ impl Backend {
                     Level::Note => DiagnosticSeverity::INFORMATION,
                 };
                 let code = diagnostic
-                    .code
+                    .error_code
                     .map(|code| NumberOrString::Number(code as i32));
                 let labels: Vec<_> = diagnostic
                     .labels

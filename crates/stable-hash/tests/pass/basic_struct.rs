@@ -1,4 +1,4 @@
-use derive_stable_hash::StableHash;
+use stable_hash::StableHash;
 
 #[derive(StableHash)]
 struct Foo {

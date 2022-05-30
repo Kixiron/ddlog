@@ -1,8 +1,8 @@
 use crate::{
     parser::{CompletedMarker, Parser},
     SyntaxKind::{
-        FUNCTION_RETURN_TYPE, FUNCTION_TYPE, FUNCTION_TYPE_ARG, FUNCTION_TYPE_ARGS, GENERICS,
-        GENERIC_ARG, GENERIC_TYPE, IDENT, PATH, TUPLE_TYPE, TUPLE_TYPE_ELEM, VAR_REF,
+        FUNCTION_RETURN_TYPE, FUNCTION_TYPE, FUNCTION_TYPE_ARG, FUNCTION_TYPE_ARGS, GENERIC_TYPE,
+        IDENT, TUPLE_TYPE, TUPLE_TYPE_ELEM, VAR_REF,
     },
 };
 
@@ -12,7 +12,7 @@ impl Parser<'_, '_> {
         let _frame = self.stack_frame();
 
         match self.current() {
-            IDENT => self.type_name(),
+            T![::] | IDENT => self.type_name(),
             T!['('] => self.tuple_type(),
             T![fn] => self.function_type(),
 
@@ -26,27 +26,9 @@ impl Parser<'_, '_> {
     fn type_name(&mut self) -> Option<CompletedMarker> {
         let generic = self.start();
 
-        if self.at(IDENT) {
-            let path = self.start();
-            self.expect(IDENT);
-            path.complete(self, PATH);
-
-            if self.at(T![<]) {
-                let generics = self.start();
-
-                self.expect(T![<]);
-                while !self.at(T![>]) {
-                    let generic_arg = self.start();
-
-                    self.ty();
-                    self.eat_commas();
-
-                    generic_arg.complete(self, GENERIC_ARG);
-                }
-
-                self.expect(T![>]);
-                generics.complete(self, GENERICS);
-            }
+        if self.at_set(token_set! { IDENT, T![::] }) {
+            self.path();
+            self.generics();
         }
 
         Some(generic.complete(self, GENERIC_TYPE))

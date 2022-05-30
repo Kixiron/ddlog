@@ -3,7 +3,109 @@ use ariadne::{CharSet as OutputCharSet, Config, Report, ReportBuilder, ReportKin
 use std::{
     borrow::Cow,
     io::{self, Write},
+    mem::take,
 };
+
+#[derive(Debug)]
+pub struct DiagnosticBuilder {
+    message: Option<Cow<'static, str>>,
+    note: Option<Cow<'static, str>>,
+    help: Option<Cow<'static, str>>,
+    labels: Vec<Label>,
+    level: Level,
+    error_code: Option<u32>,
+}
+
+impl DiagnosticBuilder {
+    #[inline]
+    pub const fn new(level: Level) -> Self {
+        Self {
+            message: None,
+            note: None,
+            help: None,
+            labels: Vec::new(),
+            level,
+            error_code: None,
+        }
+    }
+
+    #[inline]
+    pub const fn error() -> Self {
+        Self::new(Level::Error)
+    }
+
+    #[inline]
+    pub const fn warning() -> Self {
+        Self::new(Level::Warning)
+    }
+
+    #[inline]
+    pub const fn note() -> Self {
+        Self::new(Level::Note)
+    }
+
+    #[inline]
+    pub fn with_message<M>(&mut self, message: M) -> &mut Self
+    where
+        M: Into<Cow<'static, str>>,
+    {
+        self.message = Some(message.into());
+        self
+    }
+
+    #[inline]
+    pub fn with_note<N>(&mut self, note: N) -> &mut Self
+    where
+        N: Into<Cow<'static, str>>,
+    {
+        self.note = Some(note.into());
+        self
+    }
+
+    #[inline]
+    pub fn with_help<H>(&mut self, help: H) -> &mut Self
+    where
+        H: Into<Cow<'static, str>>,
+    {
+        self.help = Some(help.into());
+        self
+    }
+
+    #[inline]
+    pub fn with_error_code(&mut self, error_code: u32) -> &mut Self {
+        self.error_code = Some(error_code);
+        self
+    }
+
+    #[inline]
+    pub fn with_label(&mut self, label: Label) -> &mut Self {
+        self.labels.push(label);
+        self
+    }
+
+    #[inline]
+    pub fn with_labels<I>(&mut self, labels: I) -> &mut Self
+    where
+        I: IntoIterator<Item = Label>,
+    {
+        self.labels.extend(labels);
+        self
+    }
+
+    #[inline]
+    #[track_caller]
+    pub fn finish(&mut self) -> Diagnostic {
+        // TODO: Do some checks & validation here
+        Diagnostic {
+            message: take(&mut self.message),
+            note: take(&mut self.note),
+            help: take(&mut self.help),
+            labels: take(&mut self.labels),
+            level: self.level,
+            error_code: self.error_code,
+        }
+    }
+}
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Diagnostic {
@@ -12,13 +114,13 @@ pub struct Diagnostic {
     #[doc(hidden)]
     pub note: Option<Cow<'static, str>>,
     #[doc(hidden)]
+    pub help: Option<Cow<'static, str>>,
+    #[doc(hidden)]
     pub labels: Vec<Label>,
     #[doc(hidden)]
     pub level: Level,
     #[doc(hidden)]
-    pub code: Option<u32>,
-    #[doc(hidden)]
-    pub message_span: Option<Span>,
+    pub error_code: Option<u32>,
 }
 
 impl Diagnostic {
@@ -29,8 +131,8 @@ impl Diagnostic {
             note: None,
             labels: Vec::new(),
             level,
-            code: None,
-            message_span: None,
+            error_code: None,
+            help: None,
         }
     }
 
@@ -59,12 +161,6 @@ impl Diagnostic {
     }
 
     #[inline]
-    pub const fn with_message_span(mut self, message_span: Span) -> Self {
-        self.message_span = Some(message_span);
-        self
-    }
-
-    #[inline]
     pub fn with_note<N>(mut self, note: N) -> Self
     where
         N: Into<Cow<'static, str>>,
@@ -75,7 +171,7 @@ impl Diagnostic {
 
     #[inline]
     pub const fn with_code(mut self, code: u32) -> Self {
-        self.code = Some(code);
+        self.error_code = Some(code);
         self
     }
 
@@ -87,12 +183,10 @@ impl Diagnostic {
 
     #[inline]
     pub fn primary_span(&self) -> Span {
-        self.message_span.or_else(|| {
-            self.labels
-                .iter()
-                .find_map(|label| label.is_primary.then(|| label.span))
-        })
-        .expect("expected a primary label or a message span within a diagnostic but failed to get one")
+        self.labels
+            .iter()
+            .find_map(|label| label.is_primary.then(|| label.span))
+            .expect("expected a primary label or a message span within a diagnostic but failed to get one")
     }
 
     #[inline]
@@ -131,18 +225,19 @@ impl Diagnostic {
         );
 
         if let Some(message) = self.message {
-            diagnostic = diagnostic.with_message(message);
+            diagnostic.set_message(message);
         }
         if let Some(note) = self.note {
-            diagnostic = diagnostic.with_note(note);
+            diagnostic.set_note(note);
         }
-        if let Some(code) = self.code {
+        if let Some(help) = self.help {
+            diagnostic.set_help(help);
+        }
+        if let Some(code) = self.error_code {
             diagnostic = diagnostic.with_code(code);
         }
 
-        for label in self.labels {
-            diagnostic = diagnostic.with_label(label.into_report());
-        }
+        diagnostic.add_labels(self.labels.into_iter().map(Label::into_report));
 
         diagnostic.finish()
     }

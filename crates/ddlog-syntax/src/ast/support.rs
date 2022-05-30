@@ -54,20 +54,21 @@ where
             .as_ref()
             .map_or((0, Some(0)), Iterator::size_hint)
     }
-
-    #[inline]
-    fn count(self) -> usize {
-        self.inner.map_or(0, Iterator::count)
-    }
 }
 
 impl<'parent, N> ExactSizeIterator for AstChildren<'parent, N>
 where
     N: AstNode + Clone + 'parent,
 {
+    // TODO: Does this do more work than `ExactSizeIterator::len()` should?
     #[inline]
     fn len(&self) -> usize {
-        self.inner.as_ref().map_or(0, ExactSizeIterator::len)
+        self.inner.as_ref().map_or(0, |children| {
+            children
+                .clone()
+                .filter(|child| N::can_cast_from(child.kind()))
+                .count()
+        })
     }
 }
 
@@ -127,20 +128,21 @@ where
             .as_ref()
             .map_or((0, Some(0)), Iterator::size_hint)
     }
-
-    #[inline]
-    fn count(self) -> usize {
-        self.inner.map_or(0, Iterator::count)
-    }
 }
 
 impl<'parent, N> ExactSizeIterator for TokenChildren<'parent, N>
 where
     N: AstToken + Clone + 'parent,
 {
+    // TODO: Does this do more work than `ExactSizeIterator::len()` should?
     #[inline]
     fn len(&self) -> usize {
-        self.inner.as_ref().map_or(0, ExactSizeIterator::len)
+        self.inner.as_ref().map_or(0, |children| {
+            children
+                .clone()
+                .filter(|child| N::can_cast_from(child.kind()))
+                .count()
+        })
     }
 }
 

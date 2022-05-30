@@ -11,4 +11,3 @@ stable-hash = { path = "../stable-hash" }
 ddlog-utils = { path = "../ddlog-utils" }
 ddlog-syntax = { path = "../ddlog-syntax" }
 ddlog-diagnostics = { path = "../ddlog-diagnostics" }
-derive-stable-hash = { path = "../derive-stable-hash" }

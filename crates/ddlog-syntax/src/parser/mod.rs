@@ -7,6 +7,7 @@ pub(crate) mod source;
 mod stmt;
 mod tests;
 mod types;
+mod utils;
 
 use crate::{
     parser::{event::Event, expr::EXPR_RECOVERY_SET, source::Source},

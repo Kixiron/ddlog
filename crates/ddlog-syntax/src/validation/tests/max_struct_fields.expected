@@ -1,12 +1,4 @@
---
-Error: struct contains more than 65535 fields
-   ,-[tests/too_many_struct_fields.ddlog:1:1]
-   |
- 1 | struct Foo {
-   : ^^^^^|^^^^  
-   :      `------ ddlog allows a maximum of 65535 struct fields, but Foo has 131075
----'
---
+-----
 struct Foo {
     field_0: (),
     field_1: (),
@@ -65543,5 +65535,4 @@ struct Foo {
     field_65532: (),
     field_65533: (),
     field_65534: (),
-    field_65535: (),
 }

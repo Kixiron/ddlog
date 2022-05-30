@@ -1,3 +1,4 @@
+use anyhow::Result;
 use ddlog_diagnostics::{DiagnosticConfig, FileCache, FileId, Interner, Rope};
 use ddlog_lsp::{
     database::{DDlogDatabase, HirStore, Session, Source},
@@ -20,8 +21,8 @@ COMMANDS:
   :exit            Exit the repl
 ";
 
-fn main() -> io::Result<()> {
-    ddlog_driver::set_logger();
+fn main() -> Result<()> {
+    ddlog_driver::set_logger()?;
 
     let (stdin, mut stdout) = (io::stdin(), io::stdout());
     let mut input = String::new();

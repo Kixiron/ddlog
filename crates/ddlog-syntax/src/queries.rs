@@ -1,6 +1,9 @@
 pub use crate::parser_cache::ParserCache;
 
-use crate::{validation, RuleCtx, SyntaxNode};
+use crate::{
+    ast::{nodes::Root, AstNode},
+    validation, RuleCtx, SyntaxNodeExt,
+};
 use ddlog_diagnostics::{Diagnostic, FileId, Rope};
 use ddlog_utils::ArcSlice;
 
@@ -22,14 +25,14 @@ pub trait SourceDatabase: ParserCacheDatabase {
     #[salsa::input]
     fn file_source(&self, file: FileId) -> Rope;
 
-    fn parsed(&self, file: FileId) -> (SyntaxNode, ArcSlice<Diagnostic>);
+    fn parsed(&self, file: FileId) -> (Root, ArcSlice<Diagnostic>);
 
-    fn syntax_root(&self, file: FileId) -> SyntaxNode;
+    fn syntax_root(&self, file: FileId) -> Root;
 
     fn parsing_diagnostics(&self, file: FileId) -> ArcSlice<Diagnostic>;
 }
 
-fn parsed(source: &dyn SourceDatabase, file: FileId) -> (SyntaxNode, ArcSlice<Diagnostic>) {
+fn parsed(source: &dyn SourceDatabase, file: FileId) -> (Root, ArcSlice<Diagnostic>) {
     let source_text = source.file_source(file);
     let session = source.parser_cache();
 
@@ -38,10 +41,10 @@ fn parsed(source: &dyn SourceDatabase, file: FileId) -> (SyntaxNode, ArcSlice<Di
 
     let (root, diagnostics) = parsed.into_parts();
 
-    (root, ArcSlice::new(diagnostics))
+    (root.to::<Root>().into_owned(), ArcSlice::new(diagnostics))
 }
 
-fn syntax_root(source: &dyn SourceDatabase, file: FileId) -> SyntaxNode {
+fn syntax_root(source: &dyn SourceDatabase, file: FileId) -> Root {
     source.parsed(file).0
 }
 
@@ -65,7 +68,7 @@ fn validation_diagnostics(
     );
 
     let root = validation.syntax_root(file);
-    validation::run_validators(&root, &mut ctx);
+    validation::run_default_validators(root.syntax(), &mut ctx);
 
     ArcSlice::new(ctx.into_diagnostics())
 }

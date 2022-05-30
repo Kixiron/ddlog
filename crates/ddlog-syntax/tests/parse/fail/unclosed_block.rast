@@ -18,8 +18,8 @@ Error: expected '}' but instead the file ends
    ,-[parse/fail/unclosed_block.dl:2:9]
    |
  2 | {{ 10 }
-   :         | 
-   :         `- the file ends here
+   *         | 
+   *         `- the file ends here
 ---'
 --
 // kind:expr validate:false pass:false ignore:false file:'ddlog-syntax/src/parser/expr.rs' line:378 column:3

@@ -8,3 +8,4 @@ struct Foo2 {
 }
 struct TupleStruct();
 struct TupleStruct(u8, u8, u8);
+struct Foo<T>(T);

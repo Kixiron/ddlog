@@ -1,7 +1,7 @@
 use crate::ast::{
     nodes::{
-        Attribute, BracketedStructField, ConstDef, EnumDef, EnumVariant, FunctionDef, StructDef,
-        StructFields, TupleType, VarRef,
+        Attribute, BracketedStructField, ConstDef, EnumDef, EnumVariant, FunctionDef, RelationDef,
+        StructDef, StructFields, TupleType, VarRef,
     },
     tokens::Ident,
     AstNode, AstToken,
@@ -19,6 +19,12 @@ impl Ident {
 impl VarRef {
     pub fn interned(&self) -> Option<IStr> {
         self.ident().map(|ident| ident.interned())
+    }
+}
+
+impl RelationDef {
+    pub fn ident(&self) -> Option<IStr> {
+        self.name().map(|ident| ident.interned())
     }
 }
 
@@ -94,6 +100,10 @@ impl StructDef {
         let start = keyword.or(name).unwrap_or_else(|| self.trimmed_range());
         let end = name.or(keyword).unwrap_or_else(|| self.trimmed_range());
         start.cover(end)
+    }
+
+    pub fn total_fields(&self) -> usize {
+        self.fields().map_or(0, |fields| fields.len())
     }
 
     pub fn is_unit_struct(&self) -> bool {

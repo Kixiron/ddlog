@@ -55,8 +55,8 @@ ROOT@0..204
         GENERIC_TYPE@173..202
           PATH@173..177
             IDENT@173..177 "Whoo"
-          GENERICS@177..202
-            L_ANGLE@177..178 "<"
+          L_ANGLE@177..178 "<"
+          GENERICS@178..202
             GENERIC_ARG@178..183
               GENERIC_TYPE@178..182
                 PATH@178..182

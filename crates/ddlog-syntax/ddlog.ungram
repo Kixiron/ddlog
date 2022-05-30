@@ -30,7 +30,7 @@ FunctionArg = Attribute* binding:Pattern ':' ty:Type ','*
 FunctionReturn = '->' return_ty:Type
 
 // TODO: Generics
-StructDef = Attribute* Modifier* keyword:'struct' name:'ident' fields:StructFields
+StructDef = Attribute* Modifier* keyword:'struct' name:'ident' Generics fields:StructFields
 StructFields = BracketedStructFields | TupleStructFields
 BracketedStructFields = '{' fields:BracketedStructField* '}'
 BracketedStructField = Attribute* Modifier* name:'ident' ':' ty:Type ','*
@@ -38,7 +38,7 @@ TupleStructFields = '(' fields:TupleStructField* ')' ';'*
 TupleStructField = Attribute* Modifier* ty:Type ','*
 
 // TODO: Generics
-EnumDef = Attribute* Modifier* keyword:'enum' name:'ident' variants:EnumVariants
+EnumDef = Attribute* Modifier* keyword:'enum' name:'ident' Generics variants:EnumVariants
 EnumVariants = '{' variants:EnumVariant* '}'
 EnumVariant = Attribute* variant:'ident' EnumVariantBody
 EnumVariantBody = VariantTuple | VariantStruct
@@ -70,7 +70,7 @@ Modifier = 'pub' // 'input' | 'output'
 Pattern = VarRef | TuplePattern | StructPattern
 TuplePattern = '(' elements:TuplePatternElem* ')'
 TuplePatternElem = Pattern ','*
-StructPattern = '{' fields:StructPatternField* '}'
+StructPattern = strct:VarRef '{' fields:StructPatternField* '}'
 StructPatternField = name:'ident' (':' alias:Pattern)? ','*
 
 Type = GenericType | TupleType | FunctionType

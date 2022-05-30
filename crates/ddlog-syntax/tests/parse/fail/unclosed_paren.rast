@@ -17,8 +17,8 @@ Error: expected ')' but instead the file ends
    ,-[parse/fail/unclosed_paren.dl:2:10]
    |
  2 | (((100))
-   :          | 
-   :          `- the file ends here
+   *          | 
+   *          `- the file ends here
 ---'
 --
 // kind:expr validate:false pass:false ignore:false file:'ddlog-syntax/src/parser/expr.rs' line:510 column:3

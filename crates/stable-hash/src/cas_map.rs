@@ -32,10 +32,10 @@ where
 {
     /// Insert a new element into the current map
     #[inline]
-    pub fn insert(&mut self, value: V) -> (StablyHashed, Option<V>) {
+    pub fn insert(&mut self, value: V) -> StablyHashed {
         let hash = self.hash_value(&value);
-        let replaced = self.trie.insert(hash, value);
-        (hash, replaced)
+        self.trie.insert(hash, value);
+        hash
     }
 
     /// Get an element by its hash from the current map,

@@ -3,13 +3,13 @@ use crate::providers::{
     utils,
 };
 use cstree::TextRange;
+use ddlog_diagnostics::Rope;
 use ddlog_syntax::{
     ast::{AstNode, AstToken},
     match_ast, AstVisitor, RuleCtx,
     SyntaxKind::COMMENT,
     SyntaxNode, SyntaxToken, SyntaxTokenExt, T,
 };
-use ropey::Rope;
 use tower_lsp::lsp_types::{SemanticTokenModifier, SemanticTokenType, SemanticTokens};
 
 type TokenVec = Vec<(TextRange, SemanticTokenType, ModifierSet)>;

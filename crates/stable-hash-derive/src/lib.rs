@@ -1,6 +1,8 @@
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
-use syn::{parse_quote, spanned::Spanned, Data, DeriveInput, Error, Index, Result, TypeParam};
+use syn::{
+    parse_quote, spanned::Spanned, Data, DeriveInput, Error, Index, Member, Result, TypeParam,
+};
 
 /// Derive the `StableHash` trait for a type
 ///
@@ -31,10 +33,22 @@ fn derive_stable_hash_inner(mut input: DeriveInput) -> Result<TokenStream> {
         Data::Struct(strct) => strct
             .fields
             .iter()
-            .map(|field| {
-                let (ident, ty) = (&field.ident, &field.ty);
+            .enumerate()
+            .map(|(idx, field)| {
+                let ty = &field.ty;
+                let member = if let Some(ident) = field.ident.clone() {
+                    Member::from(ident)
+                } else {
+                    Member::from(Index {
+                        index: idx
+                            .try_into()
+                            .expect("more than 2^32 fields on enum variant"),
+                        span: field.span(),
+                    })
+                };
+
                 quote! {
-                    <#ty as ::stable_hash::StableHash>::stable_hash(&self.#ident, state);
+                    <#ty as ::stable_hash::StableHash>::stable_hash(&self.#member, state);
                 }
             })
             .collect(),
@@ -42,13 +56,13 @@ fn derive_stable_hash_inner(mut input: DeriveInput) -> Result<TokenStream> {
         Data::Enum(enm) => {
             // Hash all the fields of each enum variant
             let variants = enm.variants.iter().map(|variant| {
-                let (fields, hashes): (Vec<_>, Vec<_>) = variant
+                let (patterns, hash_invocations): (Vec<_>, Vec<_>) = variant
                     .fields
                     .iter()
                     .enumerate()
                     .map(|(idx, field)| {
-                        let (field_pattern, ident) = if let Some(ident) = &field.ident {
-                            (quote! { #ident: ref #ident }, ident.clone())
+                        let (member, ident) = if let Some(ident) = &field.ident {
+                            (Member::from(ident.clone()), ident.clone())
                         } else {
                             let idx = Index {
                                 index: idx
@@ -58,21 +72,23 @@ fn derive_stable_hash_inner(mut input: DeriveInput) -> Result<TokenStream> {
                             };
                             let ident = format_ident!("_{}", idx);
 
-                            (quote! { #idx: ref #ident }, ident)
+                            (Member::from(idx), ident)
                         };
+
+                        let pattern = quote! { #member: ref #ident };
 
                         let ty = &field.ty;
                         let hash = quote! {
                             <#ty as ::stable_hash::StableHash>::stable_hash(#ident, state);
                         };
 
-                        (field_pattern, hash)
+                        (pattern, hash)
                     })
                     .unzip();
 
                 let variant = &variant.ident;
                 quote! {
-                    Self::#variant { #(#fields),* } => { #(#hashes)* }
+                    Self::#variant { #(#patterns),* } => { #(#hash_invocations)* }
                 }
             });
 

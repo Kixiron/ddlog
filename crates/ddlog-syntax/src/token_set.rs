@@ -1,9 +1,8 @@
 use crate::SyntaxKind;
 use std::fmt::{self, Debug, Display};
 
-#[allow(dead_code)]
-const TOKENS_FIT_IN_SET: () =
-    assert!(u128::BITS as usize * 2 > SyntaxKind::MAXIMUM_DISCRIMINANT as usize);
+// Ensure all tokens will fit into our token set
+const _: () = assert!(u128::BITS as usize * 2 > SyntaxKind::MAXIMUM_DISCRIMINANT as usize);
 
 /// A set of [`SyntaxKind`]s
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
@@ -113,13 +112,10 @@ impl Display for TokenSet {
 macro_rules! token_set {
     () => { $crate::TokenSet::empty() };
 
-    ($($token:expr),* $(,)?) => {
-        $crate::TokenSet::new(&[
+    ($($token:expr),* $(,)?) => {{
+        const SET: $crate::TokenSet = $crate::TokenSet::new(&[
             $($token,)*
-        ])
-    };
-
-    ($($token:expr),* $(,)?) => {
-        $crate::token_set!($($token),*)
-    };
+        ]);
+        SET
+    }};
 }

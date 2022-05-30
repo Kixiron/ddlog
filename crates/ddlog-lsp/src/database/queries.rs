@@ -69,7 +69,7 @@ fn validation_diagnostics(validation: &dyn Validation, file: FileId) -> ArcSlice
         validation.session().interner().clone(),
     );
 
-    validation::run_validators(&validation.syntax(file), &mut ctx);
+    validation::run_default_validators(&validation.syntax(file), &mut ctx);
 
     ArcSlice::new(ctx.into_diagnostics())
 }

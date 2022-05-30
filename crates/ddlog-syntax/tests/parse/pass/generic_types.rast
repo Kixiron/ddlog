@@ -15,8 +15,8 @@ ROOT@0..133
         GENERIC_TYPE@120..128
           PATH@120..123
             IDENT@120..123 "Bar"
-          GENERICS@123..128
-            L_ANGLE@123..124 "<"
+          L_ANGLE@123..124 "<"
+          GENERICS@124..128
             GENERIC_ARG@124..127
               GENERIC_TYPE@124..127
                 PATH@124..127

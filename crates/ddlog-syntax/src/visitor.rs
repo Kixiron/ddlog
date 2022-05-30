@@ -143,7 +143,30 @@ pub trait AstVisitor {
     }
 }
 
-impl AstVisitor for Box<dyn AstVisitor> {
+impl<T> AstVisitor for &mut T
+where
+    T: AstVisitor + ?Sized,
+{
+    #[inline]
+    fn check_node(&mut self, node: &SyntaxNode, ctx: &mut RuleCtx) -> Option<()> {
+        T::check_node(self, node, ctx)
+    }
+
+    #[inline]
+    fn check_token(&mut self, token: &SyntaxToken, ctx: &mut RuleCtx) -> Option<()> {
+        T::check_token(self, token, ctx)
+    }
+
+    #[inline]
+    fn check_root(&mut self, root: &Root, ctx: &mut RuleCtx) -> Option<()> {
+        T::check_root(self, root, ctx)
+    }
+}
+
+impl<T> AstVisitor for Box<T>
+where
+    T: AstVisitor + ?Sized,
+{
     #[inline]
     fn check_node(&mut self, node: &SyntaxNode, ctx: &mut RuleCtx) -> Option<()> {
         self.deref_mut().check_node(node, ctx)

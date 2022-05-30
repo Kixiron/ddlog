@@ -2,7 +2,7 @@
 // TODO: Arenas
 
 use ddlog_diagnostics::IStr;
-use derive_stable_hash::StableHash;
+use stable_hash::StableHash;
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, StableHash)]
 pub enum Item {

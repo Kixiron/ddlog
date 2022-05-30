@@ -1,24 +1,34 @@
+mod panic;
 mod status;
 
 pub use status::DDlogStatus;
 
+use anyhow::{Context, Result};
+use atty::Stream;
 use human_panic::setup_panic;
-use tracing_subscriber::{filter::EnvFilter, fmt};
+use std::io;
+use tracing_subscriber::{filter::EnvFilter, layer::SubscriberExt, Registry};
+use tracing_tree::HierarchicalLayer;
 
 /// Setup the lsp's logger to take log levels from the `DDLOG_LOG` env var, see
 /// [`EnvFilter`] for more info on log directives
-pub fn set_logger() {
-    use tracing_subscriber::prelude::*;
-
+pub fn set_logger() -> Result<()> {
     let env = EnvFilter::from_env("DDLOG_LOG");
-    let formatter = fmt::layer().with_thread_names(true);
+    let fmt = HierarchicalLayer::new(2)
+        // Write logs to stderr
+        .with_writer(io::stderr)
+        .with_thread_names(true)
+        .with_thread_ids(false)
+        // Don't use ansi codes if we're not printing to a console
+        .with_ansi(atty::is(Stream::Stdout));
 
-    tracing_subscriber::registry()
-        .with(env)
-        .with(formatter)
-        .init();
+    let registry = Registry::default().with(env).with(fmt);
+    tracing::subscriber::set_global_default(registry)
+        .context("failed to set logging registry, maybe `ddlog_driver::set_logger()` was called multiple times?")?;
 
     tracing::info!("logging hook has been set");
+
+    Ok(())
 }
 
 /// Set up a panic hook to give human-friendly errors when panics occur

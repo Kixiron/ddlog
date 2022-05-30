@@ -1285,6 +1285,12 @@ impl EnumDef {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
+    pub fn generics(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::nodes::Generics>> {
+        crate::ast::support::child(&self.syntax)
+    }
+    #[inline]
     pub fn variants(
         &self,
     ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::nodes::EnumVariants>> {
@@ -3663,6 +3669,12 @@ impl StructDef {
         crate::ast::support::token(&self.syntax)
     }
     #[inline]
+    pub fn generics(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::nodes::Generics>> {
+        crate::ast::support::child(&self.syntax)
+    }
+    #[inline]
     pub fn fields(
         &self,
     ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::nodes::StructFields>> {
@@ -3833,6 +3845,12 @@ pub struct StructPattern {
     syntax: crate::SyntaxNode,
 }
 impl StructPattern {
+    #[inline]
+    pub fn strct(
+        &self,
+    ) -> ::core::option::Option<::std::borrow::Cow<'_, crate::ast::nodes::VarRef>> {
+        crate::ast::support::child(&self.syntax)
+    }
     #[inline]
     pub fn l_curly(
         &self,

@@ -9,12 +9,18 @@ name = "ddlog-repl"
 path = "src/bin/ddlog_repl.rs"
 
 [dependencies]
+atty = "0.2.14"
+anyhow = "1.0.57"
 tracing = "0.1.26"
+# FIXME: Replace with std once rust/#53487 lands
+backtrace = "0.3.65"
 tower-lsp = "0.17.0"
 human-panic = "1.0.3"
+tracing-tree = "0.2.0"
 ddlog-lsp = { path = "../ddlog-lsp" }
 ddlog-utils = { path = "../ddlog-utils" }
 ddlog-syntax = { path = "../ddlog-syntax" }
+uuid = { version = "1.1.0", features = ["v4"] }
 # TODO: Narrow down tokio features to only use the ones we need
 tokio = { version = "1.10.1", features = ["full"] }
 ddlog-diagnostics = { path = "../ddlog-diagnostics" }

@@ -17,9 +17,11 @@ impl Parser<'_, '_> {
     // - }
     // - struct TupleStruct();
     // - struct TupleStruct(u8, u8, u8);
+    // - struct Foo<T>(T);
     pub(super) fn struct_def(&mut self, struct_def: Marker) -> Option<CompletedMarker> {
         self.expect(T![struct]);
         self.ident();
+        self.generics();
 
         if self.at(T!['{']) {
             self.bracketed_struct_fields();

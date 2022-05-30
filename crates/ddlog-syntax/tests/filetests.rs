@@ -89,7 +89,7 @@ fn main() {
         // If the file has validation enabled, validate the file
         if validate {
             let mut ctx = RuleCtx::new(file, Rope::from_str(contents), interner.clone());
-            validation::run_validators(&root, &mut ctx);
+            validation::run_default_validators(&root, &mut ctx);
             errors.extend(ctx.into_diagnostics());
         }
 
