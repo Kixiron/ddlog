@@ -1,0 +1,12 @@
+[package]
+name = "arc-slice"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["std"]
+std = []
+c-api = []
+nightly = []
+
+[dependencies]
